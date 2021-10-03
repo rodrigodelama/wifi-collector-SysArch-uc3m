@@ -34,27 +34,29 @@ int main (int argc, char *argv[]) //default args
 				char result = getchar();
 				//scanf("%c", &result);
 
-				switch (result) {
+				switch (result)
+				{
 					case 'y': //you dont need to repeat the sys exit or break
+					case 'Y':
 						printf("\nGoodbye!\n");
 						sleep(3);
 						exit(0);
-					case 'Y':
-					case '\n':
-					case ' ':
-						system("exit");
+
+					case 'n':
+					case 'N':
 						break;
 
 					default:
-						system("exit");
+						printf("\nerror: input was not valid, try again\n");
+						sleep(3);
 						break;
 				}
 
 	   		case 2:
 			   //TODO: collect data from text files
+
+
 				system("clear");
-
-
 				break;
 	   
 	   		case 3:
@@ -66,8 +68,6 @@ int main (int argc, char *argv[]) //default args
 				break;
 	   
 	   		case 5:
-
-
 				system("clear");
 				break;
 	   
@@ -105,7 +105,8 @@ int main (int argc, char *argv[]) //default args
 }
 
 // Prints the menu on the terminal
-void print_menu() {
+void print_menu()
+{
 	printf("[2021] SUCEM S.L. Wifi Collector\n");
 	printf("  [ 1] wificollector_quit\n");
 	printf("  [ 2] wificollector_collect\n");
@@ -141,13 +142,15 @@ int ask_4_num(int min, int max, char message[]) {
 
     printf("%s", message);
 
-    do {
+    do
+	{
         scanf("%s", inputString);
-		getchar(); //should grab the 'enter' input
+		getchar(); //is meant to grab the 'enter' input and discard it
 
         option = atoi(inputString); //atoi converts a string to an integer
 
-        if (option < min || option > max) {
+        if (option < min || option > max)
+		{
 			printf("Error: please input a number between %d-%d\n", min, max);
 			sleep(2);
 			break;
