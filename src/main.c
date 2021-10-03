@@ -14,36 +14,39 @@
 
 //Declared future functions to be used
 void print_menu();
-int ask4num(int min, int max, char message[]);
+int ask_4_num(int min, int max, char message[]);
 
-int main (int argc, char *argv[]) {
+int main (int argc, char *argv[]) //default args
+{
 
 	//Initially clean the console
 	system("clear");
    
-	do {
+	do
+	{
         print_menu();
 
-    	switch (ask4num(1, 10, "Option: ")) {
+    	switch (ask_4_num(1, 10, "Option: "))
+		{
 	   		case 1:
 			   //TODO: quit function
 	   			printf("Are you sure you want to exit? [y/n]: ");
-				char result;
-				scanf("%c", &result);
+				char result = getchar();
+				//scanf("%c", &result);
 
 				switch (result) {
-					case 'y': system("exit");
+					case 'y': //you dont need to repeat the sys exit or break
+						printf("\nGoodbye!\n");
+						sleep(3);
+						exit(0);
+					case 'Y':
+					case '\n':
+					case ' ':
+						system("exit");
 						break;
-					case 'Y': system("exit");
-					/* code */
-						break;
-				
-					case '\n': system("exit");
-						break;
-					case ' ': system("exit");
-						break;
+
 					default:
-					system("exit");
+						system("exit");
 						break;
 				}
 
@@ -63,6 +66,8 @@ int main (int argc, char *argv[]) {
 				break;
 	   
 	   		case 5:
+
+
 				system("clear");
 				break;
 	   
@@ -94,7 +99,7 @@ int main (int argc, char *argv[]) {
 				break;
         }
 
-	} while(1);
+	} while(1); //while true
 
    return 0;
 }
@@ -130,15 +135,18 @@ void print_menu() {
 
 // Receive the number that represents the chosen option
 
-int ask4num(int min, int max, char message[]) {
-    int option;
-    char inputString[20]; //to prevent stack smashing
+int ask_4_num(int min, int max, char message[]) {
+    int option; //another idea is to use getchar()
+    char inputString[20]; //20 to prevent stack smashing
 
     printf("%s", message);
 
     do {
         scanf("%s", inputString);
+		getchar(); //should grab the 'enter' input
+
         option = atoi(inputString); //atoi converts a string to an integer
+
         if (option < min || option > max) {
 			printf("Error: please input a number between %d-%d\n", min, max);
 			sleep(2);
