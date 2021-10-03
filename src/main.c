@@ -16,7 +16,7 @@
 void print_menu();
 int ask_4_num(int min, int max, char message[]);
 
-int main (int argc, char *argv[]) //default args
+int main (int argc, cha	r *argv[]) //default args
 {
 
 	//Initially clean the console
