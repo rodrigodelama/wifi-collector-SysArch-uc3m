@@ -9,8 +9,8 @@
 struct cell_st {
     char cell_X[1];
     char MAC_Address[16];
-    char ESSID[SIZE];
-    char Mode[SIZE];
+    char ESSID[CELL_SIZE];
+    char Mode[CELL_SIZE];
     int channel;
     char encryption[2];
     char quality[4];
