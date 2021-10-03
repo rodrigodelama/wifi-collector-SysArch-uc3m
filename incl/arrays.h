@@ -1,1 +1,1 @@
-#define SIZE = 200
+#define ARRAY_SIZE = 200

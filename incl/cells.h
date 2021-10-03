@@ -4,7 +4,7 @@
 #ifndef _CELLS_H
 #define _CELLS_H
 
-#define SIZE 200 //Fixed array size
+#define CELL_SIZE 200 //Fixed array size
 
 struct cell_st {
     char cell_X[1];

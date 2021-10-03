@@ -1,1 +1,1 @@
-#define SIZE 80
+#define STRING_SIZE 80
