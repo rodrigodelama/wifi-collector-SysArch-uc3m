@@ -16,5 +16,6 @@
   "C_Cpp_Runner.warningsAsError": false,
   "cSpell.words": [
     "SUCEM"
-  ]
+  ],
+  "C_Cpp_Runner.cppCompilerPath": "/bin/g++"
 }
