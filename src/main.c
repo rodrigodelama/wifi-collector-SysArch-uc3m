@@ -33,10 +33,17 @@ int main (int argc, char *argv[]) {
 
 				switch (result) {
 					case 'y': system("exit");
+						break;
 					case 'Y': system("exit");
 					/* code */
+						break;
 				
+					case '\n': system("exit");
+						break;
+					case ' ': system("exit");
+						break;
 					default:
+					system("exit");
 						break;
 				}
 
