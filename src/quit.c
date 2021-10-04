@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "../incl/quit.h"
+
 void quit(char result)
 {
     switch (result)
