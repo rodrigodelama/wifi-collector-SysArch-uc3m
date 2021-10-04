@@ -16,8 +16,6 @@ struct cell_st {
     char quality[4];
     char frequency[8];
     char signal_lvl[7];
-    char 
-
 
 };
 
