@@ -60,26 +60,56 @@ int main (int argc, char *argv[]) //default args
 				break;
 	   
 	   		case 3:
+			   //To be implemented in later versions
+			   printf("This functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 4:
+			   //To be implemented in later versions
+			   printf("This functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 5:
+			   //To be implemented in later versions
+			   printf("This functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 6:
+			   //To be implemented in later versions
+			   printf("This functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 7:
+			   //To be implemented in later versions
+			   printf("This functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 8:
+			   //To be implemented in later versions
+			   printf("This functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 			   	break;
 	   

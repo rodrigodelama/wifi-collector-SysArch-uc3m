@@ -6,8 +6,9 @@
 
 #define CELL_SIZE 200 //Fixed array size
 
-struct cell_st {
-    char cell_X[1];
+struct cell_st
+{
+    int cell_X;
     char MAC_Address[16];
     char ESSID[CELL_SIZE];
     char Mode[CELL_SIZE];
@@ -16,7 +17,6 @@ struct cell_st {
     char quality[4];
     char frequency[8];
     char signal_lvl[7];
-
 };
 
 void print_X();
