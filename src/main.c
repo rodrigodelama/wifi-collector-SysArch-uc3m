@@ -7,6 +7,7 @@
 #include <unistd.h> //to include sleep() function
 
 //Added our own libraries
+#include "../incl/quit.h"
 #include "../incl/arrays.h"
 #include "../incl/string.h"
 #include "../incl/cells.h"
@@ -32,25 +33,8 @@ int main (int argc, char *argv[]) //default args
 			   //TODO: quit function
 	   			printf("Are you sure you want to exit? [y/n]: ");
 				char result = getchar();
-				//scanf("%c", &result);
-
-				switch (result)
-				{
-					case 'y': //you dont need to repeat the sys exit or break
-					case 'Y':
-						printf("\nGoodbye!\n");
-						sleep(3);
-						exit(0);
-
-					case 'n':
-					case 'N':
-						break;
-
-					default:
-						printf("\nerror: input was not valid, try again\n");
-						sleep(3);
-						break;
-				}
+											//scanf("%c", &result);
+				quit(result);
 
 	   		case 2:
 			   //TODO: collect data from text files
@@ -60,26 +44,56 @@ int main (int argc, char *argv[]) //default args
 				break;
 	   
 	   		case 3:
+			   //To be implemented in later versions
+			   printf("\nThis functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 4:
+			   //To be implemented in later versions
+			   printf("\nThis functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 5:
+			   //To be implemented in later versions
+			   printf("\nThis functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 6:
+			   //To be implemented in later versions
+			   printf("\nThis functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 7:
+			   //To be implemented in later versions
+			   printf("\nThis functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 8:
+			   //To be implemented in later versions
+			   printf("\nThis functionality is not yet available!\n");
+			   printf("It will be implemented in later versions, see you then!\n");
+
+			   sleep(4);
 				system("clear");
 			   	break;
 	   
@@ -95,7 +109,7 @@ int main (int argc, char *argv[]) //default args
 
 	   		default:
 				system("clear");
-	   			printf("\nError: please input a number between 1-10\n\n");
+	   			printf("\nPlease input a number between 1-10\n\n");
 				break;
         }
 
@@ -151,7 +165,7 @@ int ask_4_num(int min, int max, char message[]) {
 
         if (option < min || option > max)
 		{
-			printf("Error: please input a number between %d-%d\n", min, max);
+			printf("\nError: please input a number between %d-%d\n", min, max);
 			sleep(2);
 			break;
 		}

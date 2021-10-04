@@ -6,7 +6,8 @@
 
 #define CELL_SIZE 200 //Fixed array size
 
-struct cell_st {
+struct cell_st
+{
     int cell_X;
     char MAC_Address[16];
     char ESSID[CELL_SIZE];
