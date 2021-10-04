@@ -61,7 +61,7 @@ int main (int argc, char *argv[]) //default args
 	   
 	   		case 3:
 			   //To be implemented in later versions
-			   printf("This functionality is not yet available!\n");
+			   printf("\nThis functionality is not yet available!\n");
 			   printf("It will be implemented in later versions, see you then!\n");
 
 			   sleep(4);
@@ -70,7 +70,7 @@ int main (int argc, char *argv[]) //default args
 	   
 	   		case 4:
 			   //To be implemented in later versions
-			   printf("This functionality is not yet available!\n");
+			   printf("\nThis functionality is not yet available!\n");
 			   printf("It will be implemented in later versions, see you then!\n");
 
 			   sleep(4);
@@ -79,7 +79,7 @@ int main (int argc, char *argv[]) //default args
 	   
 	   		case 5:
 			   //To be implemented in later versions
-			   printf("This functionality is not yet available!\n");
+			   printf("\nThis functionality is not yet available!\n");
 			   printf("It will be implemented in later versions, see you then!\n");
 
 			   sleep(4);
@@ -88,7 +88,7 @@ int main (int argc, char *argv[]) //default args
 	   
 	   		case 6:
 			   //To be implemented in later versions
-			   printf("This functionality is not yet available!\n");
+			   printf("\nThis functionality is not yet available!\n");
 			   printf("It will be implemented in later versions, see you then!\n");
 
 			   sleep(4);
@@ -97,7 +97,7 @@ int main (int argc, char *argv[]) //default args
 	   
 	   		case 7:
 			   //To be implemented in later versions
-			   printf("This functionality is not yet available!\n");
+			   printf("\nThis functionality is not yet available!\n");
 			   printf("It will be implemented in later versions, see you then!\n");
 
 			   sleep(4);
@@ -106,7 +106,7 @@ int main (int argc, char *argv[]) //default args
 	   
 	   		case 8:
 			   //To be implemented in later versions
-			   printf("This functionality is not yet available!\n");
+			   printf("\nThis functionality is not yet available!\n");
 			   printf("It will be implemented in later versions, see you then!\n");
 
 			   sleep(4);
@@ -125,7 +125,7 @@ int main (int argc, char *argv[]) //default args
 
 	   		default:
 				system("clear");
-	   			printf("\nError: please input a number between 1-10\n\n");
+	   			printf("\nPlease input a number between 1-10\n\n");
 				break;
         }
 
@@ -181,7 +181,7 @@ int ask_4_num(int min, int max, char message[]) {
 
         if (option < min || option > max)
 		{
-			printf("Error: please input a number between %d-%d\n", min, max);
+			printf("\nError: please input a number between %d-%d\n", min, max);
 			sleep(2);
 			break;
 		}
