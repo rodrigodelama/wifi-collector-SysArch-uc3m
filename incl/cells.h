@@ -19,6 +19,7 @@ struct cell_st
     char signal_lvl[7];
     
 };
+struct cell_st a;
 
 void print_X();
 void print_all();

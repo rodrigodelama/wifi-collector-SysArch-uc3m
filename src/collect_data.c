@@ -2,7 +2,7 @@
 //Declaration of our librarys
 #include "../incl/cells.h"
 
-int ask_cell_num(){
+void ask_cell_num(){
     int num;
     do{
       printf("What cell do you want to collect? (1 - 21): \n");
@@ -13,9 +13,10 @@ int ask_cell_num(){
 
     }while (num<1||num>21);
     
- return num;
-    
+    //once the cell number has been registered we save it 
+
+    a.cell_X = num;
 }
-cell_st.cell_X = ask_cell_num();
+ 
 
 
