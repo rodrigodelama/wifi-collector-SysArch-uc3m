@@ -7,6 +7,7 @@
 #include <unistd.h> //to include sleep() function
 
 //Added our own libraries
+#include "../incl/quit.h"
 #include "../incl/arrays.h"
 #include "../incl/string.h"
 #include "../incl/cells.h"
@@ -32,25 +33,8 @@ int main (int argc, char *argv[]) //default args
 			   //TODO: quit function
 	   			printf("Are you sure you want to exit? [y/n]: ");
 				char result = getchar();
-				//scanf("%c", &result);
-
-				switch (result)
-				{
-					case 'y': //you dont need to repeat the sys exit or break
-					case 'Y':
-						printf("\nGoodbye!\n");
-						sleep(3);
-						exit(0);
-
-					case 'n':
-					case 'N':
-						break;
-
-					default:
-						printf("\nerror: input was not valid, try again\n");
-						sleep(3);
-						break;
-				}
+											//scanf("%c", &result);
+				quit(result);
 
 	   		case 2:
 			   //TODO: collect data from text files
