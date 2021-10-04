@@ -1,1 +1,1 @@
-quit();
+quit(char result);
