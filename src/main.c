@@ -40,7 +40,7 @@ int main (int argc, char *argv[]) //default args
 	   		case 2:
 			   //TODO: collect data from text files
 
-				ask_cell_num();
+				ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
 
 				system("clear");
 				break;
