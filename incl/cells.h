@@ -19,6 +19,7 @@ struct cell_st
     char signal_lvl[7];
     
 };
+
 struct cell_st info_cell_01[200];
 struct cell_st info_cell_02[200];
 struct cell_st info_cell_03[200];
@@ -50,7 +51,7 @@ int Index_6 = 0;
 int Index_7 = 0;
 int Index_8 = 0;
 int Index_9 = 0;
-int Index_10= 0;
+int Index_10 = 0;
 int Index_11 = 0;
 int Index_12 = 0;
 int Index_13 = 0;

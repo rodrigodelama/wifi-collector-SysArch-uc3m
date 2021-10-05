@@ -19,7 +19,8 @@ void quit(char result)
     		break;
 
     	default:
-    		printf("\nerror: input was not valid, try again\n");
+			system("clear");
+    		printf("\nError: input was not valid, try again\n");
     		sleep(3);
     		break;
     }

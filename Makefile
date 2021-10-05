@@ -9,4 +9,4 @@ collect.o:
 
 clean:
 	rm main \
-	   *.o
+	*.o

@@ -11,7 +11,7 @@
 #include "../incl/collect.h"
 #include "../incl/arrays.h"
 #include "../incl/string.h"
-#include "../incl/cells.h"
+//#include "../incl/cells.h"
 
 
 //Declared future functions to be used
@@ -36,6 +36,7 @@ int main (int argc, char *argv[]) //default args
 				char result = getchar();
 											//scanf("%c", &result);
 				quit(result);
+				break;
 
 	   		case 2:
 			   //TODO: collect data from text files

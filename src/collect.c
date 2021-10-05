@@ -6,6 +6,8 @@
 #include "../incl/cells.h"
 
 //TODO: Deprecated - To be removed in future versions
+
+/*
 void ask_cell_num_OLD()
 {
     int num; //user input number
@@ -21,9 +23,10 @@ void ask_cell_num_OLD()
     
     //once the cell number has been registered we save it 
 
-    a.cell_X = num;
+    //a.cell_X = num;
     
 }
+*/
 
 int ask_cell_num(int min, int max, char message[]) {
     int option; //another idea is to use getchar()
