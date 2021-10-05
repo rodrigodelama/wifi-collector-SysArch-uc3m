@@ -8,6 +8,7 @@
 
 //Added our own libraries
 #include "../incl/quit.h"
+#include "../incl/collect.h"
 #include "../incl/arrays.h"
 #include "../incl/string.h"
 #include "../incl/cells.h"
@@ -39,6 +40,7 @@ int main (int argc, char *argv[]) //default args
 	   		case 2:
 			   //TODO: collect data from text files
 
+				ask_cell_num();
 
 				system("clear");
 				break;

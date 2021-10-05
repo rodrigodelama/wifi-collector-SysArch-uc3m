@@ -5,7 +5,7 @@
 
 void ask_cell_num()
 {
-    int num;
+    int num; //user input number
     do
     {
         printf("What cell do you want to collect? (1 - 21): \n");
