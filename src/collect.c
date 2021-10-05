@@ -1,8 +1,9 @@
-#include<stdio.h>
-//Declaration of our librarys
+#include <stdio.h>
+
+//Declaration of our libraries
 #include "../incl/cells.h"
 
-int ask_cell_num()
+void ask_cell_num()
 {
     int num;
     do
@@ -11,13 +12,15 @@ int ask_cell_num()
         scanf("%d", &num); 
         
         if (num < 1 || num > 21)
-            printf("ERROR--Wrong cell option\n"); 
+            printf("Error: Invalid cell option\n"); 
 
     } while (num < 1 || num > 21);
     
- return num;
+    //once the cell number has been registered we save it 
+
+    a.cell_X = num;
     
 }
+
+//old - IGNORE
 //cell_st.cell_X = ask_cell_num();
-
-
