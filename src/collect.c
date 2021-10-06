@@ -62,7 +62,17 @@ void get_cell_data()
 //old - IGNORE
 //cell_st.cell_X = ask_cell_num();
 
- //MAC (Media acces control)
+//MAC (Media acces control)(Draft)
  void MAC_SET_UP(){
+     char Mac_input[16];
+     do
+     {
+        scanf("%s",Mac_input);
+        
+        if(MAC_check(Mac_input)==1)
+            printf("\nError: please input a valid cell number");
+     
+     }while (MAC_check(Mac_input)!=1);
+    
      
  }
