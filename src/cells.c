@@ -2,6 +2,7 @@
 void print_X();
 void print_all();
 
+/*
 //boolean function to check to validate the MCA input(Draft)
 //!!!!!!PROBLEM with Mac_input(line 8 and 15) (to review)   
 bool MAC_check(char Mac_input[16]){
@@ -34,3 +35,4 @@ bool MAC_check(char Mac_input[16]){
    return accepted;
 
 }
+*/
