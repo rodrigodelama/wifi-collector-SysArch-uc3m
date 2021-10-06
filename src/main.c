@@ -35,6 +35,7 @@ int main (int argc, char *argv[]) //default args
 	   		case 2:
 			   //TODO: collect data from text files
 
+				collect_data();
 
 				system("clear");
 				break;

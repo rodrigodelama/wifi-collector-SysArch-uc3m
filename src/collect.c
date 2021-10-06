@@ -8,7 +8,7 @@
 
 //Declaration of our libraries
 #include "../incl/cells.h"
-#include "../incl/string.h"
+#include "../incl/sizes.h"
 
 //TODO: Deprecated - To be removed in future versions
 
@@ -42,12 +42,23 @@ void get_cell_data()
 
 void collect_data()
 {
-    char cell_x[] = ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
+/* TODO: FIX
+    int selection = ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
+    int l = sizeof(selection);
+
+    char selection_str[l];
+
+    char cell_x[MAX_STRING_SIZE];
+    strcpy(cell_x, sprintf(selection_str, "%c", selection) );
 
     char filename[MAX_STRING_SIZE];
-    char file_to_open[] = strcat(strcat(filename, cell_x), ".txt");
+    strcat(filename, cell_x);
+    strcat(filename, ".txt");
 
-    FILE *of = fopen(file_to_open, "r");
+    printf("%s", filename);
+*/
+
+    //FILE *of = fopen(file_to_open, "r");
 
     //fscanf(of, );
 
