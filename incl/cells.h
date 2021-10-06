@@ -1,8 +1,8 @@
 //Rodrigo De Lama - 100451775@alumnos.uc3m.es
 //Gorka Bernad - 100451457@alumnos.uc3m.es
 
-#ifndef _CELLS_H
-#define _CELLS_H
+#ifndef CELLS_H
+#define CELLS_H
 
 #define CELL_SIZE 80 //Fixed array size
 
@@ -42,6 +42,8 @@ struct cell_st info_cell_19[80];
 struct cell_st info_cell_20[80];
 struct cell_st info_cell_21[80];
 
+/*
+
 int Index_1 = 0;
 int Index_2 = 0;
 int Index_3 = 0;
@@ -63,6 +65,8 @@ int Index_18 = 0;
 int Index_19 = 0;
 int Index_20 = 0;
 int Index_21 = 0;
+
+*/
 
 void print_X();
 void print_all();

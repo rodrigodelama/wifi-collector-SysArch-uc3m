@@ -51,6 +51,11 @@ int ask_cell_num(int min, int max, char message[]) {
     return option;
 }
 
+
+//bool get
+
+//sprintf
+
 //old - IGNORE
 //cell_st.cell_X = ask_cell_num();
 

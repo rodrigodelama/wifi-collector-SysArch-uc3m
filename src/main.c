@@ -11,7 +11,7 @@
 #include "../incl/collect.h"
 #include "../incl/arrays.h"
 #include "../incl/string.h"
-//#include "../incl/cells.h"
+#include "../incl/cells.h"
 
 
 //Declared future functions to be used
