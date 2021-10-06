@@ -6,17 +6,11 @@
 #include <stdlib.h>
 #include <unistd.h> //to include sleep() function
 
-//Added our own libraries
+//Added our own libraries~
+#include "../incl/main.h"
 #include "../incl/quit.h"
 #include "../incl/collect.h"
-#include "../incl/arrays.h"
-#include "../incl/string.h"
 #include "../incl/cells.h"
-
-
-//Declared future functions to be used
-void print_menu();
-int ask_4_num(int min, int max, char message[]);
 
 int main (int argc, char *argv[]) //default args
 {
@@ -28,7 +22,7 @@ int main (int argc, char *argv[]) //default args
 	{
         print_menu();
 
-    	switch (ask_4_num(1, 10, "Option: "))
+    	switch (ask_num(1, 10, "Option: "))
 		{
 	   		case 1:
 			   //TODO: quit function
@@ -136,23 +130,7 @@ void print_menu()
    	printf("  [ 10] wificollector_display_all\n");
 }
 
-//NOTES
-
-	//readline
-	//to read lines use either getline or fgets (the latter is crossplatform)
-	
-	//fopen to open files
-	//
-	//
-	//think about what files we actually need to read
-	//
-
-	//	also think about how we are going to read the text
-
-
-// Receive the number that represents the chosen option
-
-int ask_4_num(int min, int max, char message[]) {
+int ask_num(int min, int max, char message[]) {
     int option; //another idea is to use getchar()
     char inputString[20]; //20 to prevent stack smashing
 
@@ -175,6 +153,22 @@ int ask_4_num(int min, int max, char message[]) {
 
     return option;
 }
+
+//NOTES
+
+	//readline
+	//to read lines use either getline or fgets (the latter is crossplatform)
+	
+	//fopen to open files
+	//
+	//
+	//think about what files we actually need to read
+	//
+
+	//	also think about how we are going to read the text
+
+
+// Receive the number that represents the chosen option
 
 
 //sprintf

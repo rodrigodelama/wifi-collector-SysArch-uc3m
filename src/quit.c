@@ -4,7 +4,7 @@
 
 #include "../incl/quit.h"
 
-void quit(char result)
+void quit (char result)
 {
     switch (result)
     {

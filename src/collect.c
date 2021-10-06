@@ -1,3 +1,6 @@
+//Rodrigo De Lama - 100451775@alumnos.uc3m.es
+//Gorka Bernad - 100451457@alumnos.uc3m.es
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -8,27 +11,6 @@
 #include "../incl/string.h"
 
 //TODO: Deprecated - To be removed in future versions
-
-/*
-void ask_cell_num_OLD()
-{
-    int num; //user input number
-    do
-    {
-        printf("What cell do you want to collect? (1 - 21): \n");
-        scanf("%d", &num); 
-        
-        if (num < 1 || num > 21)
-            printf("Error: Invalid cell option\n"); 
-
-    } while (num < 1 || num > 21);
-    
-    //once the cell number has been registered we save it 
-
-    //a.cell_X = num;
-    
-}
-*/
 
 int ask_cell_num(int min, int max, char message[]) {
     int option; //another idea is to use getchar()
@@ -67,7 +49,7 @@ void collect_data()
 
     FILE *of = fopen(file_to_open, "r");
 
-    fscanf(of, );
+    //fscanf(of, );
 
 
 }
@@ -80,28 +62,3 @@ void collect_data()
 
 //old - IGNORE
 //cell_st.cell_X = ask_cell_num();
-
-//MAC (Media acces control)(Draft)
-//this command could be
-void MAC_SET_UP(){
-     char Mac_input[16];
-     do
-     {
-        scanf("%s",Mac_input);
-        
-        if(MAC_check(Mac_input)==1)
-            printf("\nError: please input a valid cell number");
-
-        //possible integration per file through a switch
-     
-    } while (!MAC_check(Mac_input));
-    
-     
-}
-
-//ESSID Selector(draft)
-void ESSID_SET_UP(){
-
-    
-}
-

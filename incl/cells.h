@@ -4,43 +4,43 @@
 #ifndef CELLS_H
 #define CELLS_H
 
-#define CELL_SIZE 80 //Fixed array size
+#include "../incl/sizes.h"
 
 struct cell_st
 {
     int cell_X;
-    char MAC_Address[CELL_SIZE];
-    char ESSID[CELL_SIZE];
-    char Mode[CELL_SIZE];
+    char MAC_Address[CELL_LINE_SIZE];
+    char ESSID[CELL_LINE_SIZE];
+    char Mode[CELL_LINE_SIZE];
     int channel;
-    char encryption[CELL_SIZE];
-    char quality[CELL_SIZE];
-    char frequency[CELL_SIZE];
-    char signal_lvl[CELL_SIZE];
+    char encryption[CELL_LINE_SIZE];
+    char quality[CELL_LINE_SIZE];
+    char frequency[CELL_LINE_SIZE];
+    char signal_lvl[CELL_LINE_SIZE];
     
 };
 
-struct cell_st info_cell_01[CELL_SIZE];
-struct cell_st info_cell_02[CELL_SIZE];
-struct cell_st info_cell_03[CELL_SIZE];
-struct cell_st info_cell_04[CELL_SIZE];
-struct cell_st info_cell_05[CELL_SIZE];
-struct cell_st info_cell_06[CELL_SIZE];
-struct cell_st info_cell_07[CELL_SIZE];
-struct cell_st info_cell_08[CELL_SIZE];
-struct cell_st info_cell_09[CELL_SIZE];
-struct cell_st info_cell_10[CELL_SIZE];
-struct cell_st info_cell_11[CELL_SIZE];
-struct cell_st info_cell_12[CELL_SIZE];
-struct cell_st info_cell_13[CELL_SIZE];
-struct cell_st info_cell_14[CELL_SIZE];
-struct cell_st info_cell_15[CELL_SIZE];
-struct cell_st info_cell_16[CELL_SIZE];
-struct cell_st info_cell_17[CELL_SIZE];
-struct cell_st info_cell_18[CELL_SIZE];
-struct cell_st info_cell_19[CELL_SIZE];
-struct cell_st info_cell_20[CELL_SIZE];
-struct cell_st info_cell_21[CELL_SIZE];
+struct cell_st info_cell_01[CELL_LINE_SIZE];
+struct cell_st info_cell_02[CELL_LINE_SIZE];
+struct cell_st info_cell_03[CELL_LINE_SIZE];
+struct cell_st info_cell_04[CELL_LINE_SIZE];
+struct cell_st info_cell_05[CELL_LINE_SIZE];
+struct cell_st info_cell_06[CELL_LINE_SIZE];
+struct cell_st info_cell_07[CELL_LINE_SIZE];
+struct cell_st info_cell_08[CELL_LINE_SIZE];
+struct cell_st info_cell_09[CELL_LINE_SIZE];
+struct cell_st info_cell_10[CELL_LINE_SIZE];
+struct cell_st info_cell_11[CELL_LINE_SIZE];
+struct cell_st info_cell_12[CELL_LINE_SIZE];
+struct cell_st info_cell_13[CELL_LINE_SIZE];
+struct cell_st info_cell_14[CELL_LINE_SIZE];
+struct cell_st info_cell_15[CELL_LINE_SIZE];
+struct cell_st info_cell_16[CELL_LINE_SIZE];
+struct cell_st info_cell_17[CELL_LINE_SIZE];
+struct cell_st info_cell_18[CELL_LINE_SIZE];
+struct cell_st info_cell_19[CELL_LINE_SIZE];
+struct cell_st info_cell_20[CELL_LINE_SIZE];
+struct cell_st info_cell_21[CELL_LINE_SIZE];
 
 /*
 

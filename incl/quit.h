@@ -1,5 +1,5 @@
-#ifndef _QUIT
-#define _QUIT
+#ifndef QUIT_H
+#define QUIT_H
 
 void quit(char result);
 
