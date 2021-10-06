@@ -4,7 +4,7 @@
 #ifndef _CELLS_H
 #define _CELLS_H
 
-#define CELL_SIZE 200 //Fixed array size
+#define CELL_SIZE 80 //Fixed array size
 
 struct cell_st
 {
@@ -20,27 +20,27 @@ struct cell_st
     
 };
 
-struct cell_st info_cell_01[200];
-struct cell_st info_cell_02[200];
-struct cell_st info_cell_03[200];
-struct cell_st info_cell_04[200];
-struct cell_st info_cell_05[200];
-struct cell_st info_cell_06[200];
-struct cell_st info_cell_07[200];
-struct cell_st info_cell_08[200];
-struct cell_st info_cell_09[200];
-struct cell_st info_cell_10[200];
-struct cell_st info_cell_11[200];
-struct cell_st info_cell_12[200];
-struct cell_st info_cell_13[200];
-struct cell_st info_cell_14[200];
-struct cell_st info_cell_15[200];
-struct cell_st info_cell_16[200];
-struct cell_st info_cell_17[200];
-struct cell_st info_cell_18[200];
-struct cell_st info_cell_19[200];
-struct cell_st info_cell_20[200];
-struct cell_st info_cell_21[200];
+struct cell_st info_cell_01[80];
+struct cell_st info_cell_02[80];
+struct cell_st info_cell_03[80];
+struct cell_st info_cell_04[80];
+struct cell_st info_cell_05[80];
+struct cell_st info_cell_06[80];
+struct cell_st info_cell_07[80];
+struct cell_st info_cell_08[80];
+struct cell_st info_cell_09[80];
+struct cell_st info_cell_10[80];
+struct cell_st info_cell_11[80];
+struct cell_st info_cell_12[80];
+struct cell_st info_cell_13[80];
+struct cell_st info_cell_14[80];
+struct cell_st info_cell_15[80];
+struct cell_st info_cell_16[80];
+struct cell_st info_cell_17[80];
+struct cell_st info_cell_18[80];
+struct cell_st info_cell_19[80];
+struct cell_st info_cell_20[80];
+struct cell_st info_cell_21[80];
 
 int Index_1 = 0;
 int Index_2 = 0;
