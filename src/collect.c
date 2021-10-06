@@ -76,7 +76,7 @@ void MAC_SET_UP(){
 
         //possible integration per file through a switch
      
-     }while (MAC_check(Mac_input)!=1);
+    } while (MAC_check(Mac_input)!=1);
     
      
 }
