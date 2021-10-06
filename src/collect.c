@@ -52,7 +52,10 @@ int ask_cell_num(int min, int max, char message[]) {
 }
 
 
-//bool get
+void get_cell_data()
+{
+    char format[] = {"%*s %s", "%*s %s", "%*[^:]: %s", "%*[^:]: %s"}; //TODO: FINISH format
+}
 
 //sprintf
 
