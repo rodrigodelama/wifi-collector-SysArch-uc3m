@@ -49,9 +49,13 @@ int ask_cell_num(int min, int max, char message[]) {
     } while (option < min || option > max);
 
     return option;
+
+    
+
+
 }
 
-
+//posible switch for thr integration of the data
 //bool get
 
 //sprintf
@@ -60,7 +64,8 @@ int ask_cell_num(int min, int max, char message[]) {
 //cell_st.cell_X = ask_cell_num();
 
 //MAC (Media acces control)(Draft)
- void MAC_SET_UP(){
+//this command could be
+void MAC_SET_UP(){
      char Mac_input[16];
      do
      {
@@ -68,8 +73,17 @@ int ask_cell_num(int min, int max, char message[]) {
         
         if(MAC_check(Mac_input)==1)
             printf("\nError: please input a valid cell number");
+
+        //possible integration per file through a switch
      
      }while (MAC_check(Mac_input)!=1);
     
      
- }
+}
+
+//ESSID Selector(draft)
+void ESSID_SET_UP(){
+
+    
+}
+
