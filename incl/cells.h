@@ -9,38 +9,38 @@
 struct cell_st
 {
     int cell_X;
-    char MAC_Address[16];
+    char MAC_Address[CELL_SIZE];
     char ESSID[CELL_SIZE];
     char Mode[CELL_SIZE];
     int channel;
-    char encryption[2];
-    char quality[4];
-    char frequency[8];
-    char signal_lvl[7];
+    char encryption[CELL_SIZE];
+    char quality[CELL_SIZE];
+    char frequency[CELL_SIZE];
+    char signal_lvl[CELL_SIZE];
     
 };
 
-struct cell_st info_cell_01[80];
-struct cell_st info_cell_02[80];
-struct cell_st info_cell_03[80];
-struct cell_st info_cell_04[80];
-struct cell_st info_cell_05[80];
-struct cell_st info_cell_06[80];
-struct cell_st info_cell_07[80];
-struct cell_st info_cell_08[80];
-struct cell_st info_cell_09[80];
-struct cell_st info_cell_10[80];
-struct cell_st info_cell_11[80];
-struct cell_st info_cell_12[80];
-struct cell_st info_cell_13[80];
-struct cell_st info_cell_14[80];
-struct cell_st info_cell_15[80];
-struct cell_st info_cell_16[80];
-struct cell_st info_cell_17[80];
-struct cell_st info_cell_18[80];
-struct cell_st info_cell_19[80];
-struct cell_st info_cell_20[80];
-struct cell_st info_cell_21[80];
+struct cell_st info_cell_01[CELL_SIZE];
+struct cell_st info_cell_02[CELL_SIZE];
+struct cell_st info_cell_03[CELL_SIZE];
+struct cell_st info_cell_04[CELL_SIZE];
+struct cell_st info_cell_05[CELL_SIZE];
+struct cell_st info_cell_06[CELL_SIZE];
+struct cell_st info_cell_07[CELL_SIZE];
+struct cell_st info_cell_08[CELL_SIZE];
+struct cell_st info_cell_09[CELL_SIZE];
+struct cell_st info_cell_10[CELL_SIZE];
+struct cell_st info_cell_11[CELL_SIZE];
+struct cell_st info_cell_12[CELL_SIZE];
+struct cell_st info_cell_13[CELL_SIZE];
+struct cell_st info_cell_14[CELL_SIZE];
+struct cell_st info_cell_15[CELL_SIZE];
+struct cell_st info_cell_16[CELL_SIZE];
+struct cell_st info_cell_17[CELL_SIZE];
+struct cell_st info_cell_18[CELL_SIZE];
+struct cell_st info_cell_19[CELL_SIZE];
+struct cell_st info_cell_20[CELL_SIZE];
+struct cell_st info_cell_21[CELL_SIZE];
 
 /*
 

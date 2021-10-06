@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 //Declaration of our libraries
 #include "../incl/cells.h"
+#include "../incl/string.h"
 
 //TODO: Deprecated - To be removed in future versions
 
@@ -49,13 +51,29 @@ int ask_cell_num(int min, int max, char message[]) {
     } while (option < min || option > max);
 
     return option;
+}
 
-    
+void get_cell_data()
+{
+    char format[9][MAX_STRING_SIZE] = {"%s %s", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "" }; //TODO: FINISH format
+}
+
+void collect_data()
+{
+    char cell_x[] = ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
+
+    char filename[MAX_STRING_SIZE];
+    char file_to_open[] = strcat(strcat(filename, cell_x), ".txt");
+
+    FILE *of = fopen(file_to_open, "r");
+
+    fscanf(of, );
 
 
 }
 
-//posible switch for thr integration of the data
+
+//possible switch for thr integration of the data
 //bool get
 
 //sprintf

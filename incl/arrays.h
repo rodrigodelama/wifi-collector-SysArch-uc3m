@@ -2,7 +2,9 @@
 
 #define ARRAY_SIZE = 200
 
-struct arrays
+// We must create a
+// 200 position array of structs
+struct array
 {
     /* data */
 };
