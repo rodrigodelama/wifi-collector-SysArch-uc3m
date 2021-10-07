@@ -54,3 +54,4 @@ dkms.conf
 # VSCode & obj folder
 obj
 .vscode
+main

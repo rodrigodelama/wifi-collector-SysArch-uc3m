@@ -53,12 +53,12 @@ void get_cell_data(char filename[]) //also input an array
     //fscanf grabs each line following a format, use a for
     //fscanf(target, format, source);
     
-    FILE *wf = fopen("./input_files/cells/test.txt", "w+");
+    //FILE *wf = fopen("./input_files/cells/test.txt", "w+");
 
-    fscanf(wf, format[1], of);
+    fscanf(of, format[0], tempTarget);
 
-    //printf("%s \n", tempTarget);
-    //sleep(10);
+    printf("%s \n", tempTarget);
+    sleep(4);
 }
 
 void collect_data()
@@ -77,7 +77,7 @@ void collect_data()
     strcat(filename, ".txt");
 
     printf("%s\n\n", filename);
-    //sleep(3);
+    sleep(3);
 
     get_cell_data(filename);
 
