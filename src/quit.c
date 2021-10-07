@@ -16,10 +16,13 @@ void quit (char result)
 
     	case 'n':
     	case 'N':
+			system("clear");
     		break;
 
     	default:
     		printf("\nError: input was not valid, try again\n");
+			sleep(1);
+			system("clear");
     		break;
     }
 }

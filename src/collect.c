@@ -53,13 +53,29 @@ int ask_cell_num(int min, int max, char message[])
     } while (EOF == false);
 */
 
+    char stringToPrint[MAX_STRING_SIZE] = "";
+
     for (int i = 0; i < 9; i++)
     {
         //fscanf grabs each line following a set format, use a for
         //fscanf(target, format, source);
         fscanf(of, format[i], tempTarget[i]);
-        printf("%s ", tempTarget[i]);
+
+        //input values of the string array into a regular string
+        strcat(stringToPrint, tempTarget[i]);
+		strcat(stringToPrint, " ");
+
+        //printf("%s ", tempTarget[i]);
     }
+    char beginning[] = "Cell";
+
+
+    //strcat("Cell ", stringToPrint);
+    //strcat("%*[^%d]%d:", stringToPrint);
+    strcat(stringToPrint, "\n");
+
+    printf("%s", stringToPrint);
+
     //return cell_data;
 }
 
