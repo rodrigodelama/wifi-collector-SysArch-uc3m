@@ -36,7 +36,13 @@ int ask_cell_num(int min, int max, char message[])
     return option;
 }
 
-/*struct cell_data*/ void get_cell_data(char filename[]) //also input an array
+
+
+
+
+/*
+
+void get_cell_data(char filename[]) //also input an array
 {
     //* between % and data type means IGNORE
     char format[9][MAX_STRING_SIZE] = { "%*s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
@@ -81,6 +87,45 @@ int ask_cell_num(int min, int max, char message[])
     //return cell_data;
 }
 
+*/
+
+
+
+
+// read cells from the file 
+// to store the information read requires the function: insert_new_book() from books.{h,c}
+void cells_read(char filename[]){
+	FILE *of;
+
+	int cell_n;
+    char MAC_Address[LINE_SIZE];
+    char ESSID[LINE_SIZE];
+    char mode[LINE_SIZE];
+    int channel;
+    char encryption[LINE_SIZE];
+    char quality[LINE_SIZE];
+    char frequency[LINE_SIZE];
+    char signal_lvl[LINE_SIZE];
+
+
+	of = fopen(filename,"r");
+
+    if (of == NULL) {
+      	fprintf(stderr, "The File: %s was not found.\n", filename);
+	}
+
+//    char format[9][MAX_STRING_SIZE] = { "%*s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
+//                                        "%*[^:]: %s", "%*[^=]= %s", "%*[^:]: %s000", "%*[^=]= %s" };
+
+    while (fscanf(of, "%*s %d:\n %*s %79s\n %*[^:]: %79s\n %*[^:]: %79s\n %*[^:]: %d\n %*[^:]: %79s\n %*[^=]= %79s\n %*[^:]: %79s000\n %*[^=]= %79s\n",
+                      &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
+    {
+	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
+    }
+  
+    	fclose(of);
+}
+
 void collect_data()
 {
     int selection = ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
@@ -100,7 +145,8 @@ void collect_data()
 
     //create a struct
 
-    get_cell_data(filename);
+    //get_cell_data(filename);
+    cells_read(filename);
 
     //create an array to know if cells were already searched
 

@@ -6,7 +6,7 @@
 
 #define MAX_STRING_SIZE 80
 
-#define ARRAY_SIZE = 200
+#define ARRAY_SIZE 200
 
 // We must create a
 // 200 position array of structs
