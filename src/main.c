@@ -160,28 +160,8 @@ int ask_num(int min, int max, char message[]) {
 
 //NOTES
 
-	//readline
-	//to read lines use either getline or fgets (the latter is crossplatform)
-	
-	//fopen to open files
-	//
-	//
-	//think about what files we actually need to read
-	//
-
-	//	also think about how we are going to read the text
-
-
-// Receive the number that represents the chosen option
-
-
-//sprintf
-
 //we dont need channel we need the number
 // check strtok_2.c
 
 //"Cell %\nAddress: %s\n...."
 //finish the format to read from the text files
-
-//dont read line by line
-// READ BY FORMAT

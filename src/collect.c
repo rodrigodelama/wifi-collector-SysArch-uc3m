@@ -42,24 +42,21 @@ int ask_cell_num(int min, int max, char message[])
 
     FILE *of = fopen(filename, "r");
 
-    //char tempTarget1[MAX_STRING_SIZE];
-    //char tempTarget2[MAX_STRING_SIZE];
     char tempTarget[9][MAX_STRING_SIZE];
 
-    //run fscanf loops until EOF is thrown
+    //run fscanf looped until EOF is thrown
     //use do while
-    //fscanf grabs each line following a format, use a for
-    //fscanf(target, format, source);
-    
-    //fscanf(of, format[0], tempTarget1);
-    //fscanf(of, format[1], tempTarget2);
+/*   
+    do
+    {
 
-
-    //printf("Cell %s: ", tempTarget1);
-    //printf("%s ", tempTarget2);
+    } while (EOF == false);
+*/
 
     for (int i = 0; i < 9; i++)
     {
+        //fscanf grabs each line following a set format, use a for
+        //fscanf(target, format, source);
         fscanf(of, format[i], tempTarget[i]);
         printf("%s ", tempTarget[i]);
     }
@@ -113,7 +110,6 @@ void collect_data()
 //possible switch for thr integration of the data
 //bool get
 
-//sprintf
 
 //old - IGNORE
 /*
