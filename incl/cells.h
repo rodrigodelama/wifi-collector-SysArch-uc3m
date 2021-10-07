@@ -20,7 +20,8 @@ struct cell_st
     
 };
 
-struct cell_st info_cell_01[CELL_LINE_SIZE];
+struct cell_st cell_storage[CELL_LINE_SIZE];
+/*
 struct cell_st info_cell_02[CELL_LINE_SIZE];
 struct cell_st info_cell_03[CELL_LINE_SIZE];
 struct cell_st info_cell_04[CELL_LINE_SIZE];

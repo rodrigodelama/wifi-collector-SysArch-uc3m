@@ -84,3 +84,18 @@ void collect_data()
     //create an array to know if cells were already searched
 
 }
+
+
+//possible switch for thr integration of the data
+//bool get
+
+//sprintf
+
+//old - IGNORE
+/*
+int option = ask_cell_num(1,21, msg)
+for(int I =0; i<Cell_line_SIZE; i++){
+    if(cell_st[i].cell_X == option;)
+    display(cell_st[i])
+}
+*/
