@@ -42,21 +42,25 @@ void get_cell_data()
 
 void collect_data()
 {
-/* TODO: FIX
+// TODO: FIX
     int selection = ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
-    int l = sizeof(selection);
+    //int l = sizeof(selection);
 
-    char selection_str[l];
+    //char selection_str[l];
 
     char cell_x[MAX_STRING_SIZE];
-    strcpy(cell_x, sprintf(selection_str, "%c", selection) );
 
-    char filename[MAX_STRING_SIZE];
+    //string to char
+    sprintf(cell_x, "%d", selection);
+
+    //itoa(selection, cell_x, 10);
+
+    char filename[] = {"info_cell_"};
     strcat(filename, cell_x);
     strcat(filename, ".txt");
 
-    printf("%s", filename);
-*/
+    printf("%s\n\n", filename);
+    sleep(3);
 
     //FILE *of = fopen(file_to_open, "r");
 
