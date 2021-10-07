@@ -37,7 +37,7 @@ int main (int argc, char *argv[]) //default args
 
 				collect_data();
 				sleep(2);
-				system("clear");
+				//system("clear");
 				break;
 	   
 	   		case 3:
