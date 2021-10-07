@@ -104,6 +104,11 @@ int main (int argc, char *argv[]) //default args
 
 	   		case 10:
 			   //TODO: display all cells
+
+			   	display_all();
+				printf("Press any key to return to the main menu: ");
+				char w_for_key = getchar();
+
 				system("clear");
 			   	break;
 

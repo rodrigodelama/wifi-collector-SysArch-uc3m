@@ -7,7 +7,7 @@
 int c_index = 0;
 
 //array of structs to 
-struct data[ARRAY_SIZE] {};
+struct cell_st data[ARRAY_SIZE];
 
 int position_tracker[20][ARRAY_SIZE];
 
@@ -46,5 +46,13 @@ void display(int n)
 
 void display_all()
 {
-
+    for (int i = 0; i < ARRAY_SIZE; i++)
+    {
+        printf("Cell %d: %s %s %s %d %s %s %s000 %s", 
+                cells[i].cell_n, cells[i].MAC_Address,
+                cells[i].ESSID, cells[i].mode,
+                cells[i].channel, cells[i].encryption,
+                cells[i].quality, cells[i].frequency,
+                cells[i].signal_lvl);
+    }
 }
