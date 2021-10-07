@@ -10,27 +10,30 @@
 #include "../incl/cells.h"
 #include "../incl/sizes.h"
 
-int ask_cell_num(int min, int max, char message[]) {
-    int option; //another idea is to use getchar()
-    char inputString[20]; //20 to prevent stack smashing
+void collect_data()
+{
+// TODO: FIX
+    int selection = ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
 
-    printf("%s", message);
+    char cell_x[MAX_STRING_SIZE];
 
-    do
-	{
-        scanf("%s", inputString);
-		getchar(); //is meant to grab the 'enter' input and discard it
+    //string to char
+    sprintf(cell_x, "%d", selection);
 
-        option = atoi(inputString); //atoi converts a string to an integer
+    //Concatenating strings together to form the filename
+    char filename[] = {"./input_files/cells/info_cell_"};
+    strcat(filename, cell_x);
+    strcat(filename, ".txt");
 
-        if (option < min || option > max)
-		{
-			printf("\nError: please input a valid cell number (%d-%d): ", min, max);
-			sleep(2);
-		}
-    } while (option < min || option > max);
+    printf("%s\n", filename);
+    sleep(1);
 
-    return option;
+    //create a struct
+
+    get_cell_data(filename);
+
+    //create an array to know if cells were already searched
+
 }
 
 /*struct cell_data*/ void get_cell_data(char filename[]) //also input an array
@@ -58,30 +61,27 @@ int ask_cell_num(int min, int max, char message[]) {
     //return cell_data;
 }
 
-void collect_data()
-{
-// TODO: FIX
-    int selection = ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
+int ask_cell_num(int min, int max, char message[]) {
+    int option; //another idea is to use getchar()
+    char inputString[20]; //20 to prevent stack smashing
 
-    char cell_x[MAX_STRING_SIZE];
+    printf("%s", message);
 
-    //string to char
-    sprintf(cell_x, "%d", selection);
+    do
+	{
+        scanf("%s", inputString);
+		getchar(); //is meant to grab the 'enter' input and discard it
 
-    //Concatenating strings together to form the filename
-    char filename[] = {"./input_files/cells/info_cell_"};
-    strcat(filename, cell_x);
-    strcat(filename, ".txt");
+        option = atoi(inputString); //atoi converts a string to an integer
 
-    printf("%s\n", filename);
-    sleep(1);
+        if (option < min || option > max)
+		{
+			printf("\nError: please input a valid cell number (%d-%d): ", min, max);
+			sleep(2);
+		}
+    } while (option < min || option > max);
 
-    //create a struct
-
-    get_cell_data(filename);
-
-    //create an array to know if cells were already searched
-
+    return option;
 }
 
 
