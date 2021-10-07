@@ -35,27 +35,44 @@ int ask_cell_num(int min, int max, char message[]) {
     return option;
 }
 
-void get_cell_data()
+void get_cell_data(char filename[]) //also input an array
 {
-    char format[9][MAX_STRING_SIZE] = {"%s %s", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "" }; //TODO: FINISH format
+    //* between % and data type means IGNORE
+    // %*[^:]:
+    //TODO: FINISH format
+    char format[9][MAX_STRING_SIZE] = { "%s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
+                                        "%*[^:]: %s", "%*[^=]= %s", "%*[^:]: %s000", "%*[^=]= %s" }; 
+
+    
+    FILE *of = fopen(filename, "r");
+
+    char tempTarget[MAX_STRING_SIZE];
+
+    //run fscanf loops until EOF is thrown
+    //use do while
+    //fscanf grabs each line following a format, use a for
+    //fscanf(target, format, source);
+    
+    FILE *wf = fopen("./input_files/cells/test.txt", "w+");
+
+    fscanf(wf, format[1], of);
+
+    //printf("%s \n", tempTarget);
+    //sleep(10);
 }
 
 void collect_data()
 {
 // TODO: FIX
     int selection = ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
-    //int l = sizeof(selection);
-
-    //char selection_str[l];
 
     char cell_x[MAX_STRING_SIZE];
 
     //string to char
     sprintf(cell_x, "%d", selection);
 
-    //itoa(selection, cell_x, 10);
-
-    char filename[] = {"info_cell_"};
+    //Concatenating strings together to form the filename
+    char filename[] = {"./input_files/cells/info_cell_"};
     strcat(filename, cell_x);
     strcat(filename, ".txt");
 
@@ -64,8 +81,9 @@ void collect_data()
 
     FILE *of = fopen(filename, "r");
 
-    //fscanf(of, );
+    get_cell_data(filename);
 
+    //create an array to know if cells were already searched
 
 }
 
