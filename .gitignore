@@ -51,6 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# VSCode
-
+# VSCode & obj folder
+obj
 .vscode
