@@ -38,12 +38,9 @@ int ask_cell_num(int min, int max, char message[]) {
 /*struct cell_data*/ void get_cell_data(char filename[]) //also input an array
 {
     //* between % and data type means IGNORE
-    // %*[^:]:
-    //TODO: FINISH format
     char format[9][MAX_STRING_SIZE] = { "%*s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
                                         "%*[^:]: %s", "%*[^=]= %s", "%*[^:]: %s000", "%*[^=]= %s" }; 
 
-    
     FILE *of = fopen(filename, "r");
 
     char tempTarget[MAX_STRING_SIZE];
@@ -52,12 +49,8 @@ int ask_cell_num(int min, int max, char message[]) {
     //use do while
     //fscanf grabs each line following a format, use a for
     //fscanf(target, format, source);
-    
-    //FILE *wf = fopen("./input_files/cells/test.txt", "w+");
-
-    //create a struct
-
     fscanf(of, format[0], tempTarget);
+
 
     printf("%s \n", tempTarget);
     sleep(4);
@@ -82,6 +75,8 @@ void collect_data()
 
     printf("%s\n\n", filename);
     sleep(3);
+
+    //create a struct
 
     get_cell_data(filename);
 
