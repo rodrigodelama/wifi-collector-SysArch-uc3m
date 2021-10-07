@@ -62,7 +62,7 @@ void collect_data()
     printf("%s\n\n", filename);
     sleep(3);
 
-    //FILE *of = fopen(file_to_open, "r");
+    FILE *of = fopen(filename, "r");
 
     //fscanf(of, );
 
@@ -76,4 +76,10 @@ void collect_data()
 //sprintf
 
 //old - IGNORE
-//cell_st.cell_X = ask_cell_num();
+/*
+int option = ask_cell_num(1,21, msg)
+for(int I =0; i<Cell_line_SIZE; i++){
+    if(cell_st[i].cell_X == option;)
+    display(cell_st[i])
+}
+*/
