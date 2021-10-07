@@ -98,7 +98,7 @@ int main (int argc, char *argv[]) //default args
 			   //TODO: display the desired cell
 			   printf("\nIndicate the number of the cell for which you want to know its information (1 - 21):\n");
 				
-				display_ind_cell();
+				//display_ind_cell();
 				system("clear");
 			   	break;
 
