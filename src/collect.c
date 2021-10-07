@@ -36,62 +36,6 @@ int ask_cell_num(int min, int max, char message[])
     return option;
 }
 
-
-
-
-
-/*
-
-void get_cell_data(char filename[]) //also input an array
-{
-    //* between % and data type means IGNORE
-    char format[9][MAX_STRING_SIZE] = { "%*s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
-                                        "%*[^:]: %s", "%*[^=]= %s", "%*[^:]: %s000", "%*[^=]= %s" }; 
-
-    FILE *of = fopen(filename, "r");
-
-    char tempTarget[9][MAX_STRING_SIZE];
-
-    //run fscanf looped until EOF is thrown
-    //use do while
-
-    char stringToPrint[MAX_STRING_SIZE] = "";
-// ATTEMPT TO READ UNTIL EOF IN A LOOP
-    bool is_EOF = false;
-    do
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            //fscanf grabs each line following a set format, use a for
-            //fscanf(target, format, source);
-            fscanf(of, format[i], tempTarget[i]);
-
-            //input values of the string array into a regular string
-            strcat(stringToPrint, tempTarget[i]);
-		    strcat(stringToPrint, " ");
-
-        //printf("%s ", tempTarget[i]);
-        }
-        if (&stringToPrint == EOF) is_EOF = true;
-        //char beginning[] = "Cell";
-
-        //strcat("Cell ", stringToPrint);
-        //strcat("%*[^%d]%d:", stringToPrint);
-        strcat(stringToPrint, "\n");
-
-        printf("%s", stringToPrint);
-
-    } while (is_EOF == false);
-
-
-    //return cell_data;
-}
-
-*/
-
-
-
-
 // read cells from the file 
 // to store the information read requires the function: insert_new_book() from books.{h,c}
 void cells_read(char filename[]){
@@ -128,7 +72,7 @@ void cells_read(char filename[]){
 
 void collect_data()
 {
-    int selection = ask_cell_num(1, 21, "Please input the desired cell number (1-21): ");
+    int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
     char cell_x[MAX_STRING_SIZE];
 

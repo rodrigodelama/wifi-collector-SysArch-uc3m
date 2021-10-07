@@ -25,16 +25,16 @@ int main (int argc, char *argv[]) //default args
     	switch (ask_num(1, 10, "Option: "))
 		{
 	   		case 1:
-			   //TODO: quit function
-	   			printf("Are you sure you want to exit? [y/n]: ");
+			//Quit function
+	   			printf("\nAre you sure you want to exit? [y/n]: ");
 				char result = getchar();
 											//scanf("%c", &result);
 				quit(result);
 				break;
 
 	   		case 2:
-			   //TODO: collect data from text files
-
+			//Collects data from text files
+			//TODO: FIX saving onto struct array
 				collect_data();
 				sleep(2);
 				//system("clear");
@@ -95,19 +95,19 @@ int main (int argc, char *argv[]) //default args
 			   	break;
 	   
 	   		case 9:
-			   //TODO: display the desired cell
-			   printf("\nIndicate the number of the cell for which you want to know its information (1 - 21):\n");
-				
+			//TODO: FINISH display the desired cell
+				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
+
 				//display_ind_cell();
 				system("clear");
 			   	break;
 
 	   		case 10:
-			   //TODO: display all cells
+			//TODO: FINISH display all cells
 
 			   	display_all();
-				printf("Press any key to return to the main menu: ");
-				char w_for_key = getchar();
+				printf("\n\nPress any key to return to the main menu: ");
+				char wait_for_key = getchar();
 
 				system("clear");
 			   	break;
