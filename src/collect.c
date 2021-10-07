@@ -35,12 +35,12 @@ int ask_cell_num(int min, int max, char message[]) {
     return option;
 }
 
-void get_cell_data(char filename[]) //also input an array
+/*struct cell_data*/ void get_cell_data(char filename[]) //also input an array
 {
     //* between % and data type means IGNORE
     // %*[^:]:
     //TODO: FINISH format
-    char format[9][MAX_STRING_SIZE] = { "%s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
+    char format[9][MAX_STRING_SIZE] = { "%*s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
                                         "%*[^:]: %s", "%*[^=]= %s", "%*[^:]: %s000", "%*[^=]= %s" }; 
 
     
@@ -55,10 +55,14 @@ void get_cell_data(char filename[]) //also input an array
     
     //FILE *wf = fopen("./input_files/cells/test.txt", "w+");
 
+    //create a struct
+
     fscanf(of, format[0], tempTarget);
 
     printf("%s \n", tempTarget);
     sleep(4);
+
+    //return cell_data;
 }
 
 void collect_data()
