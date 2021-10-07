@@ -10,8 +10,6 @@
 #include "../incl/cells.h"
 #include "../incl/sizes.h"
 
-//TODO: Deprecated - To be removed in future versions
-
 int ask_cell_num(int min, int max, char message[]) {
     int option; //another idea is to use getchar()
     char inputString[20]; //20 to prevent stack smashing
@@ -44,16 +42,18 @@ int ask_cell_num(int min, int max, char message[]) {
     FILE *of = fopen(filename, "r");
 
     char tempTarget[MAX_STRING_SIZE];
+    char tempTarget2[MAX_STRING_SIZE];
 
     //run fscanf loops until EOF is thrown
     //use do while
     //fscanf grabs each line following a format, use a for
     //fscanf(target, format, source);
     fscanf(of, format[0], tempTarget);
+    fscanf(of, format[1], tempTarget2);
 
 
-    printf("%s \n", tempTarget);
-    sleep(4);
+    printf("Cell %s: ", tempTarget);
+    printf("%s ", tempTarget2);
 
     //return cell_data;
 }
@@ -73,8 +73,8 @@ void collect_data()
     strcat(filename, cell_x);
     strcat(filename, ".txt");
 
-    printf("%s\n\n", filename);
-    sleep(3);
+    printf("%s\n", filename);
+    sleep(1);
 
     //create a struct
 
