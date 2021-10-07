@@ -15,6 +15,6 @@ struct array
     /* data */
 };
 
-#define CELL_LINE_SIZE 80
+#define LINE_SIZE 80
 
 #endif

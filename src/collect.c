@@ -5,10 +5,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdbool.h>
 
 //Declaration of our libraries
 #include "../incl/cells.h"
 #include "../incl/sizes.h"
+#include "../incl/bool.h"
 
 int ask_cell_num(int min, int max, char message[])
 {
@@ -46,35 +48,35 @@ int ask_cell_num(int min, int max, char message[])
 
     //run fscanf looped until EOF is thrown
     //use do while
-/*   
-    do
-    {
-
-    } while (EOF == false);
-*/
 
     char stringToPrint[MAX_STRING_SIZE] = "";
-
-    for (int i = 0; i < 9; i++)
+// ATTEMPT TO READ UNTIL EOF IN A LOOP
+    bool is_EOF = false;
+    do
     {
-        //fscanf grabs each line following a set format, use a for
-        //fscanf(target, format, source);
-        fscanf(of, format[i], tempTarget[i]);
+        for (int i = 0; i < 9; i++)
+        {
+            //fscanf grabs each line following a set format, use a for
+            //fscanf(target, format, source);
+            fscanf(of, format[i], tempTarget[i]);
 
-        //input values of the string array into a regular string
-        strcat(stringToPrint, tempTarget[i]);
-		strcat(stringToPrint, " ");
+            //input values of the string array into a regular string
+            strcat(stringToPrint, tempTarget[i]);
+		    strcat(stringToPrint, " ");
 
         //printf("%s ", tempTarget[i]);
-    }
-    char beginning[] = "Cell";
+        }
+        if (&stringToPrint == EOF) is_EOF = true;
+        //char beginning[] = "Cell";
 
+        //strcat("Cell ", stringToPrint);
+        //strcat("%*[^%d]%d:", stringToPrint);
+        strcat(stringToPrint, "\n");
 
-    //strcat("Cell ", stringToPrint);
-    //strcat("%*[^%d]%d:", stringToPrint);
-    strcat(stringToPrint, "\n");
+        printf("%s", stringToPrint);
 
-    printf("%s", stringToPrint);
+    } while (is_EOF == false);
+
 
     //return cell_data;
 }
