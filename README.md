@@ -12,3 +12,6 @@ To compile the project:
 
 1. Download the folder "1st"
 2. Run the command: "make"
+3. Execute program : "./main"
+
+The program is organized by funcionalty and each file has been declared by a

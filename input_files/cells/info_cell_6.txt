@@ -1,6 +1,6 @@
 Cell 6
 Address: 00:11:F5:E8:A4:54
-ESSID:"Miguel 3"
+ESSID:"Miguel3"
 Mode:Master
 Channel:11
 Encryption key:off
