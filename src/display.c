@@ -17,7 +17,7 @@ void display_ind_cell()
          printf("Cell %d:",cells[i].cell_n, " %s", cells[i].MAC_Address, " %s", cells[i].ESSID, " %s", cells[i].mode, " %d", cells[i].channel, "%s", cells[i].encryption, " %s", cells[i].quality, "%s", cells[i].frequency, "%s\n", cells[i].signal_lvl);
       }
 
-      if(strlen(cells[i].cell_n)==0)
+      if(strlen(cells[i].MAC_Address)==0)
       break;
    }
 
