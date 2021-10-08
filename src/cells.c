@@ -1,15 +1,14 @@
+//Rodrigo De Lama - 100451775@alumnos.uc3m.es
+//Gorka Bernad - 100451457@alumnos.uc3m.es
+
 #include <stdio.h>
 #include <string.h> 
 
 #include "../incl/cells.h"
 #include "../incl/sizes.h"
+#include "../incl/main.h"
 
 int c_index = 0;
-
-//array of structs to 
-//struct cell_st data[ARRAY_SIZE];
-
-int position_tracker[20][ARRAY_SIZE];
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
@@ -28,37 +27,65 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
         strcpy(cells[c_index].frequency, frequency);
         strcpy(cells[c_index].signal_lvl, signal_lvl);
     
-        //Add structs to storage array
-        //data[c_index] = cells[c_index];
-
-    //TODO:
-        //Track the positions of each Cell's data
-        //position_tracker[cell_n - 1][c_index];
-
-        printf("\n  %d", c_index);
+        //printf("\n  %d", c_index); //debugging
+        printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, c_index);
         printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
                 cells[c_index].cell_n, cells[c_index].MAC_Address,
                 cells[c_index].ESSID, cells[c_index].mode,
                 cells[c_index].channel, cells[c_index].encryption,
                 cells[c_index].quality, cells[c_index].frequency,
                 cells[c_index].signal_lvl);
-
     c_index++;
     } else {
         printf("Cell Storage Array is full, please restart the program to reset the memory.");
     }
 }
 
-void display(int n)
+// Display option meant to print data from the requested, or all cells onto the commandline
+
+void display_ind_cell()
 {
-    
-}
+   int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
+   
+    for (int i = 0; i < LINE_SIZE; i++)
+    {    
+        if (cells[i].cell_n == num_cell_to_display)
+        {
+        printf("Cell %d: %s %s %s %d %s %s %s000 %s\n", 
+                cells[i].cell_n, cells[i].MAC_Address,
+                cells[i].ESSID, cells[i].mode,
+                cells[i].channel, cells[i].encryption,
+                cells[i].quality, cells[i].frequency,
+                cells[i].signal_lvl);
+        }
+
+        //TODO:
+        if (&cells[i].cell_n == NULL)
+            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menu");
+            break;
+    }
+
+    printf("Do you want to add another access point? [y/N]: ");
+        char result = getchar();
+        switch (result)
+        {
+            case 'y':
+            case 'Y': 
+                printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
+                display_ind_cell();
+      
+            case 'n':
+            case 'N':
+                break;
+        }
+
+}   
 
 void display_all()
 {    
     for (int i = 0; i < c_index; i++)
     {
-        printf("Cell %d: %s %s %s %d %s %s %s000 %s\n", 
+        printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
                 cells[i].cell_n, cells[i].MAC_Address,
                 cells[i].ESSID, cells[i].mode,
                 cells[i].channel, cells[i].encryption,

@@ -36,8 +36,6 @@ int ask_cell_num(int min, int max, char message[])
     return option;
 }
 
-// read cells from the file 
-// to store the information read requires the function: insert_new_book() from books.{h,c}
 void cells_read(char filename[])
 {
 	FILE *of;
@@ -59,29 +57,14 @@ void cells_read(char filename[])
       	fprintf(stderr, "The File: %s was not found.\n", filename);
 	} else {
 
-        //    char format[9][MAX_STRING_SIZE] = { "%*s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
-        //                                        "%*[^:]: %s", "%*[^=]= %s", "%*[^:]: %s000", "%*[^=]= %s" };
+        //Alternative more versatile formatting - breaks fscanf(), reads 2 times all structs but the last one
         // "%*s %d %*[^:]: %s %*[^:]: %s %*[^:]: %s %*[^:]: %d%*[^:]:%s%*[^=]=%s%*[^:]:%s%*[^=]=%s"
         
-//TODO: BIG ISSUE W fscanf()
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%s\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
 	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
         }
-
-/*                
-        int i = 1;
-
-        while (i < 4)
-        {
-        fscanf(of, "%*s %d\n %*s %s\n %*[^:]: %s\n %*[^:]: %s\n %*[^:]: %d\n %*[^:]: %s\n %*[^=]= %s\n %*[^:]: %s\n %*[^=]= %s %* \n",
-                      &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl);
-                      
-	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
-        i++;
-        }
-*/  
         fclose(of);
     }
 }
@@ -105,9 +88,6 @@ void collect_data()
 
     cells_read(filename);
 
-    //create an array to know if cells were already searched
-
-
     printf("\nDo you want to add another access point? [y/n]: ");
 				char result = getchar();
     switch (result)
@@ -123,20 +103,7 @@ void collect_data()
 
     	default:
     		printf("\nError: input was not valid, try again\n");
+            system("clear");
     		break;
     }  
 }   
-
-
-//possible switch for thr integration of the data
-//bool get
-
-
-//old - IGNORE
-/*
-int option = ask_cell_num(1,21, msg)
-for(int I =0; i<Cell_line_SIZE; i++){
-    if(cell_st[i].cell_n == option;)
-    display(cell_st[i])
-}
-*/

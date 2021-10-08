@@ -6,16 +6,14 @@
 #include <stdlib.h>
 #include <unistd.h> //to include sleep() function
 
-//Added our own libraries~
+//Added our own libraries
 #include "../incl/main.h"
 #include "../incl/quit.h"
 #include "../incl/collect.h"
 #include "../incl/cells.h"
-#include "../incl/display.h"
 
-int main (int argc, char *argv[]) //default args
+int main (int argc, char *argv[])
 {
-
 	//Initially clean the console
 	system("clear");
    
@@ -26,87 +24,74 @@ int main (int argc, char *argv[]) //default args
     	switch (ask_num(1, 10, "Option: "))
 		{
 	   		case 1:
-			//Quit function
+				//Quit function
 	   			printf("\nAre you sure you want to exit? [y/n]: ");
 				char result = getchar();
 				quit(result);
 				break;
 
 	   		case 2:
-			//Collects data from text files
-			//TODO: FIX saving onto struct array
+				//Collects data from text files
 				collect_data();
 				sleep(2);
 				//system("clear");
 				break;
 	   
 	   		case 3:
-			   //To be implemented in later versions
-			   printf("\nThis functionality is not yet available!\n");
-			   printf("It will be implemented in later versions, see you then!\n");
-
-			   sleep(4);
+			   	//To be implemented in later versions
+			   	printf("\nThis functionality is not yet available!\n");
+			   	printf("It will be implemented in later versions, see you then!\n");
+			   	sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 4:
-			   //To be implemented in later versions
-			   printf("\nThis functionality is not yet available!\n");
-			   printf("It will be implemented in later versions, see you then!\n");
-
-			   sleep(4);
+			   	//To be implemented in later versions
+			   	printf("\nThis functionality is not yet available!\n");
+			   	printf("It will be implemented in later versions, see you then!\n");
+			   	sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 5:
-			   //To be implemented in later versions
-			   printf("\nThis functionality is not yet available!\n");
-			   printf("It will be implemented in later versions, see you then!\n");
-
-			   sleep(4);
+			   	//To be implemented in later versions
+			   	printf("\nThis functionality is not yet available!\n");
+			   	printf("It will be implemented in later versions, see you then!\n");
+			   	sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 6:
-			   //To be implemented in later versions
-			   printf("\nThis functionality is not yet available!\n");
-			   printf("It will be implemented in later versions, see you then!\n");
-
-			   sleep(4);
+			   	//To be implemented in later versions
+			   	printf("\nThis functionality is not yet available!\n");
+			   	printf("It will be implemented in later versions, see you then!\n");
+			   	sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 7:
-			   //To be implemented in later versions
-			   printf("\nThis functionality is not yet available!\n");
-			   printf("It will be implemented in later versions, see you then!\n");
-
-			   sleep(4);
+			   	//To be implemented in later versions
+			   	printf("\nThis functionality is not yet available!\n");
+			  	printf("It will be implemented in later versions, see you then!\n");
+			   	sleep(4);
 				system("clear");
 				break;
 	   
 	   		case 8:
-			   //To be implemented in later versions
-			   printf("\nThis functionality is not yet available!\n");
-			   printf("It will be implemented in later versions, see you then!\n");
-
-			   sleep(4);
+			   	//To be implemented in later versions
+			   	printf("\nThis functionality is not yet available!\n");
+			   	printf("It will be implemented in later versions, see you then!\n");
+			   	sleep(4);
 				system("clear");
 			   	break;
 	   
 	   		case 9:
-			//TODO: FINISH display the desired cell
 				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-
-				//run a for through cells struct array searching for cell_n matches w desired number
-				
 				display_ind_cell();
 				system("clear");
 			   	break;
 
 	   		case 10:
-			//TODO: FINISH display all cells
-
 			   	display_all();
 				printf("\n\nPress any key to return to the main menu: ");
 				char wait_for_key = getchar();
@@ -119,10 +104,9 @@ int main (int argc, char *argv[]) //default args
 	   			printf("\nPlease input a number between 1-10\n\n");
 				break;
         }
-
 	} while(1); //while true
 
-   return 0;
+   	return 0;
 }
 
 // Prints the menu on the terminal
@@ -141,7 +125,8 @@ void print_menu()
    	printf("  [ 10] wificollector_display_all\n");
 }
 
-int ask_num(int min, int max, char message[]) {
+int ask_num(int min, int max, char message[])
+{
     int option; //another idea is to use getchar()
     char inputString[20]; //20 to prevent stack smashing
 
@@ -164,11 +149,3 @@ int ask_num(int min, int max, char message[]) {
 
     return option;
 }
-
-//NOTES
-
-//we dont need channel we need the number
-// check strtok_2.c
-
-//"Cell %\nAddress: %s\n...."
-//finish the format to read from the text files

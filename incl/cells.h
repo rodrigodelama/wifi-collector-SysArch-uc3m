@@ -24,7 +24,7 @@ struct cell_st cells[LINE_SIZE];
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE]);
-void display(int n);
+void display_ind_cell();
 void display_all();
 int find_cell(char cell_n);
 

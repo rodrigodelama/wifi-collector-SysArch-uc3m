@@ -5,6 +5,7 @@
 #define MAIN_H
 
 //Declared future functions to be used
+int main (int argc, char *argv[]);
 void print_menu();
 int ask_num(int min, int max, char message[]);
 

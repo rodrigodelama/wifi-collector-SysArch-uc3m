@@ -1,3 +1,6 @@
+//Rodrigo De Lama - 100451775@alumnos.uc3m.es
+//Gorka Bernad - 100451457@alumnos.uc3m.es
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
