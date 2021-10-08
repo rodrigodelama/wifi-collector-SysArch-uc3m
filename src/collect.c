@@ -61,9 +61,10 @@ void cells_read(char filename[])
 
         //    char format[9][MAX_STRING_SIZE] = { "%*s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
         //                                        "%*[^:]: %s", "%*[^=]= %s", "%*[^:]: %s000", "%*[^=]= %s" };
+        // "%*s %d %*[^:]: %s %*[^:]: %s %*[^:]: %s %*[^:]: %d%*[^:]:%s%*[^=]=%s%*[^:]:%s%*[^=]=%s"
         
 //TODO: BIG ISSUE W fscanf()
-        while (fscanf(of, "%*s %d %*[^:]: %s %*[^:]: %s %*[^:]: %s %*[^:]: %d%*[^:]:%s%*[^=]=%s%*[^:]:%s%*[^=]=%s",
+        while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%s\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
 	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
