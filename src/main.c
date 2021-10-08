@@ -97,6 +97,8 @@ int main (int argc, char *argv[]) //default args
 			//TODO: FINISH display the desired cell
 				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
 
+				//run a for through cells struct array searching for cell_n matches w desired number
+				
 				//display_ind_cell();
 				system("clear");
 			   	break;

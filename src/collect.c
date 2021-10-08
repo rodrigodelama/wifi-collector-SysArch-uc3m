@@ -38,7 +38,8 @@ int ask_cell_num(int min, int max, char message[])
 
 // read cells from the file 
 // to store the information read requires the function: insert_new_book() from books.{h,c}
-void cells_read(char filename[]){
+void cells_read(char filename[])
+{
 	FILE *of;
 
 	int cell_n;
@@ -56,18 +57,32 @@ void cells_read(char filename[]){
 
     if (of == NULL) {
       	fprintf(stderr, "The File: %s was not found.\n", filename);
-	}
+	} else {
 
-//    char format[9][MAX_STRING_SIZE] = { "%*s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
-//                                        "%*[^:]: %s", "%*[^=]= %s", "%*[^:]: %s000", "%*[^=]= %s" };
-
-    while (fscanf(of, "%*s %d:\n %*s %s\n %*[^:]: %s\n %*[^:]: %s\n %*[^:]: %d\n %*[^:]: %s\n %*[^=]= %s\n %*[^:]: %s000\n %*[^=]= %s\n",
+        //    char format[9][MAX_STRING_SIZE] = { "%*s %s:", "%*s %s", "%*[^:]: %s", "%*[^:]: %s", "%*[^:]: %s",
+        //                                        "%*[^:]: %s", "%*[^=]= %s", "%*[^:]: %s000", "%*[^=]= %s" };
+        
+//TODO: BIG ISSUE W fscanf()
+        while (fscanf(of, "%*s %d %*[^:]: %s %*[^:]: %s %*[^:]: %s %*[^:]: %d%*[^:]:%s%*[^=]=%s%*[^:]:%s%*[^=]=%s",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
-    {
+        {
 	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
+        }
+
+/*                
+        int i = 1;
+
+        while (i < 4)
+        {
+        fscanf(of, "%*s %d\n %*s %s\n %*[^:]: %s\n %*[^:]: %s\n %*[^:]: %d\n %*[^:]: %s\n %*[^=]= %s\n %*[^:]: %s\n %*[^=]= %s %* \n",
+                      &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl);
+                      
+	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
+        i++;
+        }
+*/  
+        fclose(of);
     }
-  
-    	fclose(of);
 }
 
 void collect_data()
@@ -87,15 +102,12 @@ void collect_data()
     printf("%s\n", filename);
     sleep(1);
 
-    //create a struct
-
-    //get_cell_data(filename);
     cells_read(filename);
 
     //create an array to know if cells were already searched
 
 
-    printf("Do you want to add another access point? [y/n]: ");
+    printf("\nDo you want to add another access point? [y/n]: ");
 				char result = getchar();
     switch (result)
     {
