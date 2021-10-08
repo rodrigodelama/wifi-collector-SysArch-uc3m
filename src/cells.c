@@ -63,7 +63,7 @@ void display_ind_cell()
         counter++;
         
         if (counter == 80){
-            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menuª\n");
+            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menuª\n");  //Print in case the selected cells haven't been implemented
             break;}
     
     }
@@ -82,6 +82,8 @@ void display_ind_cell()
         }
 
 }   
+
+//Display option to print all data saved
 
 void display_all()
 {    
