@@ -49,10 +49,10 @@ void display_all()
     for (int i = 0; i < ARRAY_SIZE; i++)
     {
         printf("Cell %d: %s %s %s %d %s %s %s000 %s", 
-                cells[i].cell_n, cells[i].MAC_Address,
-                cells[i].ESSID, cells[i].mode,
-                cells[i].channel, cells[i].encryption,
-                cells[i].quality, cells[i].frequency,
-                cells[i].signal_lvl);
+                data[i].cell_n, data[i].MAC_Address,
+                data[i].ESSID, data[i].mode,
+                data[i].channel, data[i].encryption,
+                data[i].quality, data[i].frequency,
+                data[i].signal_lvl);
     }
 }

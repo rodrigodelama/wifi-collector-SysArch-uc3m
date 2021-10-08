@@ -28,7 +28,6 @@ int main (int argc, char *argv[]) //default args
 			//Quit function
 	   			printf("\nAre you sure you want to exit? [y/n]: ");
 				char result = getchar();
-											//scanf("%c", &result);
 				quit(result);
 				break;
 
