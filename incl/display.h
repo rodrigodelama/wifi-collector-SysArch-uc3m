@@ -4,5 +4,6 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
+void display_ind_cell();
 
 #endif
