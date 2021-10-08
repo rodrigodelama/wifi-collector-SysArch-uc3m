@@ -11,6 +11,7 @@
 #include "../incl/quit.h"
 #include "../incl/collect.h"
 #include "../incl/cells.h"
+#include "../incl/display.h"
 
 int main (int argc, char *argv[]) //default args
 {
@@ -99,7 +100,7 @@ int main (int argc, char *argv[]) //default args
 
 				//run a for through cells struct array searching for cell_n matches w desired number
 				
-				//display_ind_cell();
+				display_ind_cell();
 				system("clear");
 			   	break;
 
