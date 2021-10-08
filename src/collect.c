@@ -89,14 +89,14 @@ void collect_data()
 {
     int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
-    char cell_x[MAX_STRING_SIZE];
+    char cell_n[MAX_STRING_SIZE];
 
     //string to char
-    sprintf(cell_x, "%d", selection);
+    sprintf(cell_n, "%d", selection);
 
     //Concatenating strings together to form the filename
     char filename[] = {"./input_files/cells/info_cell_"};
-    strcat(filename, cell_x);
+    strcat(filename, cell_n);
     strcat(filename, ".txt");
 
     printf("%s\n", filename);
@@ -135,7 +135,7 @@ void collect_data()
 /*
 int option = ask_cell_num(1,21, msg)
 for(int I =0; i<Cell_line_SIZE; i++){
-    if(cell_st[i].cell_X == option;)
+    if(cell_st[i].cell_n == option;)
     display(cell_st[i])
 }
 */

@@ -10,14 +10,14 @@ void display_ind_cell()
     
    int num_cell_to_display = ask_cell_num(1, 21, " "); //registration of the cell to display
    
-   for(int i = 0; i<CELL_LINE_SIZE; i++)
+   for(int i = 0; i<LINE_SIZE; i++)
    {
-      if(cell_storage[i].cell_X==num_cell_to_display)
+      if(cells[i].cell_n==num_cell_to_display)
       {
-         printf("Cell %d:",cell_storage[i].cell_X, " %s", cell_storage[i].MAC_Address, " %s", cell_storage[i].ESSID, " %s", cell_storage[i].Mode, " %d", cell_storage[i].channel, "%s", cell_storage[i].encryption, " %s", cell_storage[i].quality, "%s", cell_storage[i].frequency, "%s\n", cell_storage[i].signal_lvl);
+         printf("Cell %d:",cells[i].cell_n, " %s", cells[i].MAC_Address, " %s", cells[i].ESSID, " %s", cells[i].mode, " %d", cells[i].channel, "%s", cells[i].encryption, " %s", cells[i].quality, "%s", cells[i].frequency, "%s\n", cells[i].signal_lvl);
       }
 
-      if(strlen(cell_storage[i].cell_X)==0)
+      if(strlen(cells[i].cell_n)==0)
       break;
    }
 
@@ -39,3 +39,16 @@ void display_ind_cell()
       }
 
 }   
+/*
+void display_all(){
+    for(int i = 0; i<LINE_SIZE; i++)
+   {
+      printf("Cell %d:",cells[i].cell_n, " %s", cells[i].MAC_Address, " %s", cells[i].ESSID, " %s", cells[i].mode " %d", cells[i].channel, "%s", cells[i].encryption, " %s", cells[i].quality, "%s", cells[i].frequency, "%s\n", cells[i].signal_lvl);
+  
+      if(strlen(cells[i].cell_n)==0)
+      break;
+   
+   }
+
+}
+*/
