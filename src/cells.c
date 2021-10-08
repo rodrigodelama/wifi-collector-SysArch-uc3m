@@ -46,7 +46,7 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
 void display_ind_cell()
 {
    int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
-   
+   int counter = 0;
     for (int i = 0; i < LINE_SIZE; i++)
     {    
         if (cells[i].cell_n == num_cell_to_display)
@@ -58,14 +58,16 @@ void display_ind_cell()
                 cells[i].quality, cells[i].frequency,
                 cells[i].signal_lvl);
         }
-
-        //TODO:
-        if (&cells[i].cell_n == NULL)
-            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menu");
-            break;
+        
+        if(cells[i].cell_n != num_cell_to_display)
+        counter++;
+        
+        if (counter == 80){
+            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menuª\n");
+            break;}
+    
     }
-
-    printf("Do you want to add another access point? [y/N]: ");
+    printf("Do you want to read another collection of cells? [y/N]: ");
         char result = getchar();
         switch (result)
         {
