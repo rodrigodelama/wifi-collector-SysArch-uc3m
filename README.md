@@ -14,6 +14,6 @@ To compile the project:
 2. Run the command: "make"
 3. Execute program : "./main"
 
-The progect's code is organized by funcionalty and each file has been declared by their .h they also have .c files to hold the functions and operations.
+The progect's code is organized by funcionalty, and each file has been declared by their header .h files, with their respective .c files where the functions with their operations are.
 
-The info_cell_6.txt was incorrecte wouldnt allow the proper run of the program.
+The info_cell_6.txt had an incorrect format in ESSID, and wouldn't allow the proper running of the program.
