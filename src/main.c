@@ -33,8 +33,6 @@ int main (int argc, char *argv[])
 	   		case 2:
 				//Collects data from text files
 				collect_data();
-				//sleep(2);
-				//system("clear");
 				break;
 	   
 	   		case 3:
@@ -94,9 +92,8 @@ int main (int argc, char *argv[])
 	   		case 10:
 			   	display_all();
 				printf("\n\nPress any key to return to the main menu: ");
-				char wait_for_key = getchar();
-
-				system("clear");
+					char wait_for_key = getchar();
+					system("clear");
 			   	break;
 
 	   		default:
@@ -109,7 +106,7 @@ int main (int argc, char *argv[])
    	return 0;
 }
 
-// Prints the menu on the terminal
+// Prints the menu onto the terminal
 void print_menu()
 {
 	printf("[2021] SUCEM S.L. Wifi Collector\n");
