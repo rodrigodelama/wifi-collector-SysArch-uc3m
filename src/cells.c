@@ -37,12 +37,11 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
                 cells[c_index].signal_lvl);
     c_index++;
     } else {
-        printf("Cell Storage Array is full, please restart the program to reset the memory.");
+        printf("\n\nCell Storage Array is full, please restart the program to reset the memory.");
     }
 }
 
 // Display option meant to print data from the requested, or all cells onto the commandline
-
 void display_ind_cell()
 {
    int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
@@ -51,7 +50,7 @@ void display_ind_cell()
     {    
         if (cells[i].cell_n == num_cell_to_display)
         {
-        printf("Cell %d: %s %s %s %d %s %s %s000 %s\n", 
+        printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
                 cells[i].cell_n, cells[i].MAC_Address,
                 cells[i].ESSID, cells[i].mode,
                 cells[i].channel, cells[i].encryption,
@@ -63,11 +62,11 @@ void display_ind_cell()
         counter++;
         
         if (counter == 80){
-            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menuª\n");  //Print in case the selected cells haven't been implemented
+            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menu\n");  //Print in case the selected cells haven't been implemented
             break;}
     
     }
-    printf("Do you want to read another collection of cells? [y/N]: ");
+    printf("\n\nDo you want to read another collection of cells? [y/n]: ");
         char result = getchar();
         switch (result)
         {
@@ -79,12 +78,13 @@ void display_ind_cell()
             case 'n':
             case 'N':
                 break;
+
+            //MISSING DEFAULT TO RELOOP
         }
 
 }   
 
 //Display option to print all data saved
-
 void display_all()
 {    
     for (int i = 0; i < c_index; i++)

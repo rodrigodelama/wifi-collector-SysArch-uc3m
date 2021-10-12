@@ -83,8 +83,8 @@ void collect_data()
     strcat(filename, cell_n);
     strcat(filename, ".txt");
 
-    printf("%s\n", filename);
-    sleep(1);
+    //printf("%s\n", filename);
+    //sleep(1);
 
     cells_read(filename);
 

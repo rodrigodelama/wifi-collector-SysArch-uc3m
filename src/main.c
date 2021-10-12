@@ -33,7 +33,7 @@ int main (int argc, char *argv[])
 	   		case 2:
 				//Collects data from text files
 				collect_data();
-				sleep(2);
+				//sleep(2);
 				//system("clear");
 				break;
 	   
