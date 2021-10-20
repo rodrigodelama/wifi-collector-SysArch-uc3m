@@ -60,7 +60,8 @@ void cells_read(char filename[])
         //Alternative more versatile formatting - breaks fscanf(), reads 2 times all structs but the last one
         // "%*s %d %*[^:]: %s %*[^:]: %s %*[^:]: %s %*[^:]: %d%*[^:]:%s%*[^=]=%s%*[^:]:%s%*[^=]=%s"
         
-        while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%s\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
+        // in ESSID for cell 6 change %s to a type that includes the space in the string
+        while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
 	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
