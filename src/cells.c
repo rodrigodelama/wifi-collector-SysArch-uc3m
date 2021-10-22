@@ -77,9 +77,10 @@ void display_ind_cell()
       
             case 'n':
             case 'N':
-                break;
+            break;
 
-            //MISSING DEFAULT TO RELOOP
+            //TODO: MISSING DEFAULT TO RE-LOOP
+            default:
         }
 
 }   

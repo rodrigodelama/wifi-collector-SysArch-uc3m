@@ -132,7 +132,7 @@ int ask_num(int min, int max, char message[])
     do
 	{
         scanf("%s", inputString);
-		getchar(); //is meant to grab the 'enter' input and discard it
+		getchar(); //meant to grab the 'enter' input and discard it
 
         option = atoi(inputString); //atoi converts a string to an integer
 
