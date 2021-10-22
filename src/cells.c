@@ -61,10 +61,11 @@ void display_ind_cell()
         if(cells[i].cell_n != num_cell_to_display)
         counter++;
         
-        if (counter == 80){
+        if (counter == 80)
+        {
             printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menu\n");  //Print in case the selected cells haven't been implemented
-            break;}
-    
+            break;
+        }
     }
     printf("\n\nDo you want to read another collection of cells? [y/n]: ");
         char result = getchar();
@@ -82,7 +83,6 @@ void display_ind_cell()
             //TODO: MISSING DEFAULT TO RE-LOOP
             default:
         }
-
 }   
 
 //Display option to print all data saved

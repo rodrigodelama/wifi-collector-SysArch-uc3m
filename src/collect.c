@@ -5,12 +5,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <stdbool.h>
+//#include <stdbool.h>
 
 //Declaration of our libraries
 #include "../incl/cells.h"
 #include "../incl/sizes.h"
-#include "../incl/bool.h"
+//#include "../incl/bool.h"
 
 int ask_cell_num(int min, int max, char message[])
 {
@@ -50,17 +50,11 @@ void cells_read(char filename[])
     char frequency[LINE_SIZE];
     char signal_lvl[LINE_SIZE];
 
-
 	of = fopen(filename,"r");
 
     if (of == NULL) {
       	fprintf(stderr, "The File: %s was not found.\n", filename);
 	} else {
-
-        //Alternative more versatile formatting - breaks fscanf(), reads 2 times all structs but the last one
-        // "%*s %d %*[^:]: %s %*[^:]: %s %*[^:]: %s %*[^:]: %d%*[^:]:%s%*[^=]=%s%*[^:]:%s%*[^=]=%s"
-        
-        // in ESSID for cell 6 change %s to a type that includes the space in the string
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
@@ -83,9 +77,6 @@ void collect_data()
     char filename[] = {"./input_files/cells/info_cell_"};
     strcat(filename, cell_n);
     strcat(filename, ".txt");
-
-    //printf("%s\n", filename);
-    //sleep(1);
 
     cells_read(filename);
 
