@@ -23,15 +23,15 @@ int main (int argc, char *argv[])
 
     	switch (ask_num(1, 10, "Option: "))
 		{
+			//Quit function
 	   		case 1:
-				//Quit function
 	   			printf("\nAre you sure you want to exit? [y/n]: ");
 				char result = getchar();
 				quit(result);
 				break;
 
+			//Collects data from text files
 	   		case 2:
-				//Collects data from text files
 				collect_data();
 				break;
 	   
@@ -82,13 +82,15 @@ int main (int argc, char *argv[])
 			   	sleep(4);
 				system("clear");
 			   	break;
-	   
+	   		
+			//Displays only the desired cells by the user
 	   		case 9:
 				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
 				display_ind_cell();
 				system("clear");
 			   	break;
 
+			//Displays all scanned data
 	   		case 10:
 			   	display_all();
 				printf("\n\nPress any key to return to the main menu: ");
@@ -106,7 +108,6 @@ int main (int argc, char *argv[])
    	return 0;
 }
 
-// Prints the menu onto the terminal
 void print_menu()
 {
 	printf("[2021] SUCEM S.L. Wifi Collector\n");

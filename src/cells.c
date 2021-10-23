@@ -28,6 +28,8 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
         strcpy(cells[c_index].signal_lvl, signal_lvl);
     
         //printf("\n  %d", c_index); //debugging
+
+        //TODO: modify this for DYNAMIC ARRAYS
         printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, c_index);
         printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
                 cells[c_index].cell_n, cells[c_index].MAC_Address,
@@ -67,22 +69,24 @@ void display_ind_cell()
             break;
         }
     }
-    printf("\n\nDo you want to read another collection of cells? [y/n]: ");
-        char result = getchar();
-        switch (result)
-        {
-            case 'y':
-            case 'Y': 
-                printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-                display_ind_cell();
-      
-            case 'n':
-            case 'N':
-            break;
 
-            //TODO: MISSING DEFAULT TO RE-LOOP
-            default:
-        }
+    printf("\n\nDo you want to read another collection of cells? [y/n]: ");
+    char result = getchar();
+    switch (result)
+    {
+        case 'y':
+        case 'Y': 
+            printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
+            display_ind_cell();
+      
+        case 'n':
+        case 'N':
+        break;
+
+        //TODO: MISSING DEFAULT TO RE-LOOP
+        default:
+            //TODO: code the while above the switch
+    }
 }   
 
 //Display option to print all data saved

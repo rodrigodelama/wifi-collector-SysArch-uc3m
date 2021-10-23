@@ -6,7 +6,8 @@
 
 #include "../incl/bool.h"
 
-int main() {
+int main()
+{
     bool t = true;
     bool f = false;
 

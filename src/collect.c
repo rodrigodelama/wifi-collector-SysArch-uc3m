@@ -7,14 +7,13 @@
 #include <string.h>
 //#include <stdbool.h>
 
-//Declaration of our libraries
 #include "../incl/cells.h"
 #include "../incl/sizes.h"
 //#include "../incl/bool.h"
 
 int ask_cell_num(int min, int max, char message[])
 {
-    int option; //another idea is to use getchar()
+    int option;
     char inputString[20]; //20 to prevent stack smashing
 
     printf("%s", message);
@@ -52,7 +51,8 @@ void cells_read(char filename[])
 
 	of = fopen(filename,"r");
 
-    if (of == NULL) {
+    if (of == NULL)
+    {
       	fprintf(stderr, "The File: %s was not found.\n", filename);
 	} else {
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
@@ -91,11 +91,11 @@ void collect_data()
     	case 'n':
     	case 'N':
             system("clear");
-    		break;
+    	break;
 
     	default:
     		printf("\nError: input was not valid, try again\n");
             system("clear");
-    		break;
+    	break;
     }  
 }   
