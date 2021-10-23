@@ -9,44 +9,38 @@
 #include "../incl/main.h"
 
 int c_index = 0;
-int counter = 0;
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE])
 {
-    if (counter != 0 && counter % INIT_SIZE == 0)
+    //TODO: finish implementing DYNAMIC ARRAYS
+    if (c_index != 0 && c_index % INIT_SIZE == 0)
     {
-        cellsDynamic = (cell_st*) realloc(cell_st, (counter + INIT_SIZE)*sizeof(cell_st)); //mem address, data to realloc
+        cells = (cell_st*) realloc(cell_st, (c_index + INIT_SIZE)*sizeof(cell_st)); //mem address, data to realloc
         printf("(Allocated another 5 positions in the Dynamic Array\n");
     }
-    if (c_index < ARRAY_SIZE)
-    {
-        //Add data to the structs
-        cells[c_index].cell_n = cell_n;
-        strcpy(cells[c_index].MAC_Address, MAC_Address);
-        strcpy(cells[c_index].ESSID, ESSID);
-        strcpy(cells[c_index].mode, mode);
-        cells[c_index].channel = channel;
-        strcpy(cells[c_index].encryption, encryption);
-        strcpy(cells[c_index].quality, quality);
-        strcpy(cells[c_index].frequency, frequency);
-        strcpy(cells[c_index].signal_lvl, signal_lvl);
-    
-        //printf("\n  %d", c_index); //debugging
 
-        //TODO: modify this for DYNAMIC ARRAYS
-        printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, c_index);
-        printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
-                cells[c_index].cell_n, cells[c_index].MAC_Address,
-                cells[c_index].ESSID, cells[c_index].mode,
-                cells[c_index].channel, cells[c_index].encryption,
-                cells[c_index].quality, cells[c_index].frequency,
-                cells[c_index].signal_lvl);
-    c_index++;
-    } else {
-        printf("\n\nCell Storage Array is full, please restart the program to reset the memory.");
-    }
+    //Add data to the structs
+    cells[c_index].cell_n = cell_n;
+    strcpy(cells[c_index].MAC_Address, MAC_Address);
+    strcpy(cells[c_index].ESSID, ESSID);
+    strcpy(cells[c_index].mode, mode);
+    cells[c_index].channel = channel;
+    strcpy(cells[c_index].encryption, encryption);
+    strcpy(cells[c_index].quality, quality);
+    strcpy(cells[c_index].frequency, frequency);
+    strcpy(cells[c_index].signal_lvl, signal_lvl);
+    
+    //printf("\n  %d", c_index); //debugging
+
+    printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, c_index);
+    printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
+            cells[c_index].cell_n, cells[c_index].MAC_Address,
+            cells[c_index].ESSID, cells[c_index].mode,
+            cells[c_index].channel, cells[c_index].encryption,
+            cells[c_index].quality, cells[c_index].frequency,
+            cells[c_index].signal_lvl);
 }
 
 // Display option meant to print data from the requested, or all cells onto the commandline
@@ -89,7 +83,7 @@ void display_ind_cell()
         case 'N':
         break;
 
-        //TODO: MISSING DEFAULT TO RE-LOOP
+        //FIXME: MISSING DEFAULT TO RE-LOOP
         default:
             //TODO: code the while above the switch
     }

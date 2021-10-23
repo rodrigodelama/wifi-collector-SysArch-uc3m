@@ -22,7 +22,7 @@ typedef struct cell_st
 
 //struct cell_st cells[LINE_SIZE];
 
-cell_st *cellsDynamic[LINE_SIZE] = (cell_st*) calloc(INIT_SIZE, sizeof(cell_st));
+cell_st *cells[LINE_SIZE] = (cell_st*) calloc(INIT_SIZE, sizeof(cell_st));
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
