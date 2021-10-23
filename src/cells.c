@@ -2,6 +2,7 @@
 //Gorka Bernad - 100451457@alumnos.uc3m.es
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h> 
 
 #include "../incl/cells.h"
@@ -17,16 +18,16 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     //TODO: finish implementing DYNAMIC ARRAYS
     if (c_index != 0 && c_index % INIT_SIZE == 0)
     {
-        cells = (cell_st*) realloc(cell_st, (c_index + INIT_SIZE)*sizeof(cell_st)); //mem address, data to realloc
-        printf("(Allocated another 5 positions in the Dynamic Array\n");
+        cells = (cell*) realloc(cells, (c_index + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
+        printf("(Allocated another 5 positions to the Dynamic Array)\n");
     }
 
     //Add data to the structs
-    cells[c_index].cell_n = cell_n;
+    cell_n = &cells[c_index].cell_n;
     strcpy(cells[c_index].MAC_Address, MAC_Address);
     strcpy(cells[c_index].ESSID, ESSID);
     strcpy(cells[c_index].mode, mode);
-    cells[c_index].channel = channel;
+    channel = &cells[c_index].channel;
     strcpy(cells[c_index].encryption, encryption);
     strcpy(cells[c_index].quality, quality);
     strcpy(cells[c_index].frequency, frequency);
@@ -35,10 +36,10 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     //printf("\n  %d", c_index); //debugging
 
     printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, c_index);
-    printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
-            cells[c_index].cell_n, cells[c_index].MAC_Address,
+    printf("\nCell %ls: %s %s %s %ls %s %s %s000 %s\n", 
+            &cells[c_index].cell_n, cells[c_index].MAC_Address,
             cells[c_index].ESSID, cells[c_index].mode,
-            cells[c_index].channel, cells[c_index].encryption,
+            &cells[c_index].channel, cells[c_index].encryption,
             cells[c_index].quality, cells[c_index].frequency,
             cells[c_index].signal_lvl);
 }
@@ -52,10 +53,10 @@ void display_ind_cell()
     {    
         if (cells[i].cell_n == num_cell_to_display)
         {
-        printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
-                cells[i].cell_n, cells[i].MAC_Address,
+        printf("\nCell %ls: %s %s %s %ls %s %s %s000 %s", 
+                &cells[i].cell_n, cells[i].MAC_Address,
                 cells[i].ESSID, cells[i].mode,
-                cells[i].channel, cells[i].encryption,
+                &cells[i].channel, cells[i].encryption,
                 cells[i].quality, cells[i].frequency,
                 cells[i].signal_lvl);
         }
@@ -84,7 +85,7 @@ void display_ind_cell()
         break;
 
         //FIXME: MISSING DEFAULT TO RE-LOOP
-        default:
+        //default:
             //TODO: code the while above the switch
     }
 }   
@@ -94,10 +95,10 @@ void display_all()
 {    
     for (int i = 0; i < c_index; i++)
     {
-        printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
-                cells[i].cell_n, cells[i].MAC_Address,
+        printf("\nCell %ls: %s %s %s %ls %s %s %s000 %s", 
+                &cells[i].cell_n, cells[i].MAC_Address,
                 cells[i].ESSID, cells[i].mode,
-                cells[i].channel, cells[i].encryption,
+                &cells[i].channel, cells[i].encryption,
                 cells[i].quality, cells[i].frequency,
                 cells[i].signal_lvl);
     }   

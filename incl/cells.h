@@ -4,6 +4,8 @@
 #ifndef CELLS_H
 #define CELLS_H
 
+#include <stdlib.h>
+
 #include "../incl/sizes.h"
 
 typedef struct cell_st
@@ -17,12 +19,10 @@ typedef struct cell_st
     char quality[LINE_SIZE];
     char frequency[LINE_SIZE];
     char signal_lvl[LINE_SIZE];
-    char address[LINE_SIZE];
-} cell_st;
+} cell;
 
-//struct cell_st cells[LINE_SIZE];
-
-cell_st *cells[LINE_SIZE] = (cell_st*) calloc(INIT_SIZE, sizeof(cell_st));
+//FIXME: error: initializer element is not constant
+cell *cells = (cell*) calloc(INIT_SIZE, sizeof(cell));
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
