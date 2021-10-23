@@ -9,11 +9,17 @@
 #include "../incl/main.h"
 
 int c_index = 0;
+int counter = 0;
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE])
 {
+    if (counter != 0 && counter % INIT_SIZE == 0)
+    {
+        cellsDynamic = (cell_st*) realloc(cell_st, (counter + INIT_SIZE)*sizeof(cell_st)); //mem address, data to realloc
+        printf("(Allocated another 5 positions in the Dynamic Array\n");
+    }
     if (c_index < ARRAY_SIZE)
     {
         //Add data to the structs

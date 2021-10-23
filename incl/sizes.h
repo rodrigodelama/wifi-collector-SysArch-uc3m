@@ -10,4 +10,6 @@
 
 #define LINE_SIZE 80
 
+#define INIT_SIZE 5
+
 #endif
