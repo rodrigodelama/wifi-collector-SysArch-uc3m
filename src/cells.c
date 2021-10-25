@@ -25,7 +25,7 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
 
     //FIXME: Data is not being added correctly to the dynamic array
     //Add data to the structs
-    cell_n = (intptr_t) &cells[c_index].cell_n; //casting - https://stackoverflow.com/questions/22624737/casting-a-pointer-to-an-int
+    //ncell_n = (intptr_t) &cells[c_index].cell_n; //casting - https://stackoverflow.com/questions/22624737/casting-a-pointer-to-an-int
     strcpy(cells[c_index].MAC_Address, MAC_Address);
     strcpy(cells[c_index].ESSID, ESSID);
     strcpy(cells[c_index].mode, mode);
@@ -44,6 +44,7 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
             &cells[c_index].channel, cells[c_index].encryption,
             cells[c_index].quality, cells[c_index].frequency,
             cells[c_index].signal_lvl);
+  c_index++;
 }
 
 // Display option meant to print data from the requested, or all cells onto the commandline
