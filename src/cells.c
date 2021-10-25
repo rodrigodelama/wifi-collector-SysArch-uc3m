@@ -59,7 +59,7 @@ void display_ind_cell(cell *cells)
     int counter = 0;
     for (int i = 0; i < LINE_SIZE; i++)
     {    
-        if (cells[i]->cell_n == num_cell_to_display)
+        if (cells[i].cell_n == num_cell_to_display)
         {
         printf("\nCell %ls: %s %s %s %ls %s %s %s000 %s", 
                 &cells[i].cell_n, cells[i].MAC_Address,

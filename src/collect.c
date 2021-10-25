@@ -9,6 +9,7 @@
 
 #include "../incl/cells.h"
 #include "../incl/sizes.h"
+#include "../incl/main.h"
 //#include "../incl/bool.h"
 
 int ask_cell_num(int min, int max, char message[])
@@ -58,7 +59,7 @@ void cells_read(char filename[])
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
-	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
+	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
         }
         fclose(of);
     }

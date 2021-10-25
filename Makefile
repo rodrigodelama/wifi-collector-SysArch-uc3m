@@ -1,6 +1,4 @@
-main: bool.o cells.o collect.o main.o quit.o
-
-bool.o:
+main: cells.o collect.o main.o quit.o
 
 cells.o:
 	gcc -c src/cells.c
