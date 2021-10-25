@@ -26,7 +26,7 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     //FIXME: Data is not being added correctly to the dynamic array
     //Add data to the structs array
 
-    //changing values to pointers
+    //changing input values to pointers
     int *cell_n_ptr = (intptr_t) cell_n;
     int *channel_ptr = (intptr_t) channel;
 
