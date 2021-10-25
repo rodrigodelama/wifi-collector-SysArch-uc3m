@@ -17,13 +17,13 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
                      cell *cells)
 {
-    //TODO: finish implementing DYNAMIC ARRAYS
     if (c_index != 0 && c_index % INIT_SIZE == 0)
     {
         cells = (cell*) realloc(cells, (c_index + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
         printf("(Allocated another 5 positions to the Dynamic Array)\n");
     }
 
+    //FIXME: Data is not being added correctly to the dynamic array
     //Add data to the structs
     cell_n = (intptr_t) &cells[c_index].cell_n; //casting - https://stackoverflow.com/questions/22624737/casting-a-pointer-to-an-int
     strcpy(cells[c_index].MAC_Address, MAC_Address);
