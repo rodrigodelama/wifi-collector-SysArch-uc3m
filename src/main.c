@@ -19,7 +19,7 @@ int main (int argc, char *argv[])
 	system("clear");
    
    	//Creating our dynamic array
-	cell *cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
+	cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
 
 	do
 	{
@@ -90,13 +90,13 @@ int main (int argc, char *argv[])
 			//Displays only the desired cells by the user
 	   		case 9:
 				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-				display_ind_cell();
+				display_ind_cell(cells);
 				system("clear");
 			   	break;
 
 			//Displays all scanned data
 	   		case 10:
-			   	display_all();
+			   	display_all(cells);
 				printf("\n\nPress any key to return to the main menu: ");
 					char wait_for_key = getchar();
 					system("clear");

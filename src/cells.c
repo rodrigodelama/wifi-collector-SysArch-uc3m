@@ -20,7 +20,8 @@ int c_index = 0;
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
-                     char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE])
+                     char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
+                     cell *cells)
 {
     //TODO: finish implementing DYNAMIC ARRAYS
     if (c_index != 0 && c_index % INIT_SIZE == 0)
@@ -52,13 +53,13 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
 }
 
 // Display option meant to print data from the requested, or all cells onto the commandline
-void display_ind_cell()
+void display_ind_cell(cell *cells)
 {
-   int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
-   int counter = 0;
+    int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
+    int counter = 0;
     for (int i = 0; i < LINE_SIZE; i++)
     {    
-        if (cells[i].cell_n == num_cell_to_display)
+        if (cells[i]->cell_n == num_cell_to_display)
         {
         printf("\nCell %ls: %s %s %s %ls %s %s %s000 %s", 
                 &cells[i].cell_n, cells[i].MAC_Address,
@@ -85,20 +86,20 @@ void display_ind_cell()
         case 'y':
         case 'Y': 
             printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-            display_ind_cell();
+            display_ind_cell(cells);
       
         case 'n':
         case 'N':
         break;
 
-        //FIXME: MISSING DEFAULT TO RE-LOOP
+        //TODO: MISSING DEFAULT TO RE-LOOP
         //default:
-            //TODO: code the while above the switch
+            //code the while that shall englobe the switch
     }
 }   
 
 //Display option to print all data saved
-void display_all()
+void display_all(cell *cells)
 {    
     for (int i = 0; i < c_index; i++)
     {
