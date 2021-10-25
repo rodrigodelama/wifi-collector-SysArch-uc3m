@@ -35,7 +35,7 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     strcpy(cells[c_index].frequency, frequency);
     strcpy(cells[c_index].signal_lvl, signal_lvl);
     
-    //printf("\n  %d", c_index); //debugging
+    printf("\n  %d", c_index); //debugging
 
     printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, c_index);
     printf("\nCell %ls: %s %s %s %ls %s %s %s000 %s\n", 
