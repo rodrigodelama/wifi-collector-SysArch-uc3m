@@ -11,12 +11,16 @@
 #include "../incl/quit.h"
 #include "../incl/collect.h"
 #include "../incl/cells.h"
+#include "../incl/sizes.h"
 
 int main (int argc, char *argv[])
 {
 	//Initially clean the console
 	system("clear");
    
+   	//Creating our dynamic array
+	cell *cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
+
 	do
 	{
         print_menu();

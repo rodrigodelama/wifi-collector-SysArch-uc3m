@@ -3,13 +3,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h> 
+#include <string.h>
+#include <stdint.h>
 
 #include "../incl/cells.h"
-#include "../incl/sizes.h"
 #include "../incl/main.h"
+#include "../incl/sizes.h"
+
+//int demonstration = INIT_SIZE;
+//#define TEST_SIZE 5 //instead of using INIT_SIZE
 
 int c_index = 0;
+
+//FIXME: error: initializer element is not constant
+//FIXED by declaring in main()
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
@@ -23,11 +30,11 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     }
 
     //Add data to the structs
-    cell_n = &cells[c_index].cell_n;
+    cell_n = (intptr_t) &cells[c_index].cell_n; //casting - https://stackoverflow.com/questions/22624737/casting-a-pointer-to-an-int
     strcpy(cells[c_index].MAC_Address, MAC_Address);
     strcpy(cells[c_index].ESSID, ESSID);
     strcpy(cells[c_index].mode, mode);
-    channel = &cells[c_index].channel;
+    channel = (intptr_t) &cells[c_index].channel;
     strcpy(cells[c_index].encryption, encryption);
     strcpy(cells[c_index].quality, quality);
     strcpy(cells[c_index].frequency, frequency);

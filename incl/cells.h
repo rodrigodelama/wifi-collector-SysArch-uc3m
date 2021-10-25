@@ -21,9 +21,6 @@ typedef struct cell_st
     char signal_lvl[LINE_SIZE];
 } cell;
 
-//FIXME: error: initializer element is not constant
-cell *cells = (cell*) calloc(INIT_SIZE, sizeof(cell));
-
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE]);
