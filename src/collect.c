@@ -5,12 +5,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-//#include <stdbool.h>
 
 #include "../incl/cells.h"
 #include "../incl/sizes.h"
 #include "../incl/main.h"
-//#include "../incl/bool.h"
 
 int ask_cell_num(int min, int max, char message[])
 {

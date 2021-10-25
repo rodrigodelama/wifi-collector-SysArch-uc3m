@@ -10,13 +10,7 @@
 #include "../incl/main.h"
 #include "../incl/sizes.h"
 
-//int demonstration = INIT_SIZE;
-//#define TEST_SIZE 5 //instead of using INIT_SIZE
-
 int c_index = 0;
-
-//FIXME: error: initializer element is not constant
-//FIXED by declaring in main()
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],

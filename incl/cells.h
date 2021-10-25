@@ -4,8 +4,6 @@
 #ifndef CELLS_H
 #define CELLS_H
 
-#include <stdlib.h>
-
 #include "../incl/sizes.h"
 
 typedef struct cell_st
