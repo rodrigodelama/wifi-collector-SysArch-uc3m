@@ -24,12 +24,17 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     }
 
     //FIXME: Data is not being added correctly to the dynamic array
-    //Add data to the structs
-    &cells[c_index].cell_n = cell_n;
+    //Add data to the structs array
+
+    //changing values to pointers
+    int *cell_n_ptr = (intptr_t) cell_n;
+    int *channel_ptr = (intptr_t) channel;
+
+    cells[c_index].cell_n = cell_n_ptr;
     strcpy(cells[c_index].MAC_Address, MAC_Address);
     strcpy(cells[c_index].ESSID, ESSID);
     strcpy(cells[c_index].mode, mode);
-    &cells[c_index].channel = channel;
+    cells[c_index].channel = channel_ptr;
     strcpy(cells[c_index].encryption, encryption);
     strcpy(cells[c_index].quality, quality);
     strcpy(cells[c_index].frequency, frequency);
