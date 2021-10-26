@@ -30,11 +30,11 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     int *cell_n_ptr = (intptr_t) cell_n;
     int *channel_ptr = (intptr_t) channel;
 
-    cells[c_index].cell_n = cell_n_ptr;
+    *cells[c_index].cell_n = cell_n_ptr;
     strcpy(cells[c_index].MAC_Address, MAC_Address);
     strcpy(cells[c_index].ESSID, ESSID);
     strcpy(cells[c_index].mode, mode);
-    cells[c_index].channel = channel_ptr;
+    *cells[c_index].channel = channel_ptr;
     strcpy(cells[c_index].encryption, encryption);
     strcpy(cells[c_index].quality, quality);
     strcpy(cells[c_index].frequency, frequency);
