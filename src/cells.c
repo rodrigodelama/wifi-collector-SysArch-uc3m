@@ -20,33 +20,33 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     if (c_index != 0 && c_index % INIT_SIZE == 0)
     {
         cells = (cell*) realloc(cells, (c_index + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
-        printf("(Allocated another 5 positions to the Dynamic Array)\n");
+        printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
     }
 
     //FIXME: Data is not being added correctly to the dynamic array
     //Add data to the structs array
 
     //changing input values to pointers
-    int *cell_n_ptr = (intptr_t) cell_n;
-    int *channel_ptr = (intptr_t) channel;
+    //int *cell_n_ptr = (intptr_t) cell_n;
+    //int *channel_ptr = (intptr_t) channel;
 
-    *cells[c_index].cell_n = cell_n_ptr;
+    cells[c_index].cell_n = cell_n;
     strcpy(cells[c_index].MAC_Address, MAC_Address);
     strcpy(cells[c_index].ESSID, ESSID);
     strcpy(cells[c_index].mode, mode);
-    *cells[c_index].channel = channel_ptr;
+    cells[c_index].channel = channel;
     strcpy(cells[c_index].encryption, encryption);
     strcpy(cells[c_index].quality, quality);
     strcpy(cells[c_index].frequency, frequency);
     strcpy(cells[c_index].signal_lvl, signal_lvl);
     
-    printf("\n  %d", c_index); //debugging
+    //printf("\n  %d", c_index); //debugging
 
     printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, c_index);
-    printf("\nCell %ls: %s %s %s %ls %s %s %s000 %s\n", 
-            &cells[c_index].cell_n, cells[c_index].MAC_Address,
+    printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
+            cells[c_index].cell_n, cells[c_index].MAC_Address,
             cells[c_index].ESSID, cells[c_index].mode,
-            &cells[c_index].channel, cells[c_index].encryption,
+            cells[c_index].channel, cells[c_index].encryption,
             cells[c_index].quality, cells[c_index].frequency,
             cells[c_index].signal_lvl);
     c_index++;
@@ -61,10 +61,10 @@ void display_ind_cell(cell *cells)
     {    
         if (cells[i].cell_n == num_cell_to_display)
         {
-        printf("\nCell %ls: %s %s %s %ls %s %s %s000 %s", 
-                &cells[i].cell_n, cells[i].MAC_Address,
+        printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
+                cells[i].cell_n, cells[i].MAC_Address,
                 cells[i].ESSID, cells[i].mode,
-                &cells[i].channel, cells[i].encryption,
+                cells[i].channel, cells[i].encryption,
                 cells[i].quality, cells[i].frequency,
                 cells[i].signal_lvl);
         }
@@ -103,10 +103,10 @@ void display_all(cell *cells)
 {    
     for (int i = 0; i < c_index; i++)
     {
-        printf("\nCell %ls: %s %s %s %ls %s %s %s000 %s", 
-                &cells[i].cell_n, cells[i].MAC_Address,
+        printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
+                cells[i].cell_n, cells[i].MAC_Address,
                 cells[i].ESSID, cells[i].mode,
-                &cells[i].channel, cells[i].encryption,
+                cells[i].channel, cells[i].encryption,
                 cells[i].quality, cells[i].frequency,
                 cells[i].signal_lvl);
     }   
