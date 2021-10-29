@@ -4,7 +4,7 @@
 #ifndef CELLS_H
 #define CELLS_H
 
-#include "../incl/sizes.h"
+#include "../incl/dependencies.h"
 
 typedef struct cell_st
 {
@@ -18,8 +18,6 @@ typedef struct cell_st
     char frequency[LINE_SIZE];
     char signal_lvl[LINE_SIZE];
 } cell;
-
-cell *cells;
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],

@@ -8,7 +8,7 @@
 
 #include "../incl/cells.h"
 #include "../incl/main.h"
-#include "../incl/sizes.h"
+#include "../incl/dependencies.h"
 
 int c_index = 0;
 

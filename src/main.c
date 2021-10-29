@@ -11,7 +11,7 @@
 #include "../incl/quit.h"
 #include "../incl/collect.h"
 #include "../incl/cells.h"
-#include "../incl/sizes.h"
+#include "../incl/dependencies.h"
 
 int main (int argc, char *argv[])
 {
@@ -19,7 +19,7 @@ int main (int argc, char *argv[])
 	system("clear");
    
    	//Creating our dynamic array
-	cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
+	cell *cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
 
 	do
 	{
@@ -36,7 +36,7 @@ int main (int argc, char *argv[])
 
 			//Collects data from text files
 	   		case 2:
-				collect_data();
+				collect_data(cells);
 				break;
 	   
 	   		case 3:
@@ -109,6 +109,7 @@ int main (int argc, char *argv[])
         }
 	} while(1); //while true
 
+	free(cells);
    	return 0;
 }
 

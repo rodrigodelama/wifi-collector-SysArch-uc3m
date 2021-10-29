@@ -7,8 +7,7 @@
 #include <string.h>
 
 #include "../incl/cells.h"
-#include "../incl/sizes.h"
-#include "../incl/main.h"
+#include "../incl/dependencies.h"
 
 int ask_cell_num(int min, int max, char message[])
 {
@@ -34,7 +33,7 @@ int ask_cell_num(int min, int max, char message[])
     return option;
 }
 
-void cells_read(char filename[])
+void cells_read(char filename[], cell *cells)
 {
 	FILE *of;
 
@@ -53,17 +52,19 @@ void cells_read(char filename[])
     if (of == NULL)
     {
       	fprintf(stderr, "The File: %s was not found.\n", filename);
-	} else {
+	}
+    else
+    {
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
-	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
+	        insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
         }
         fclose(of);
     }
 }
 
-void collect_data()
+void collect_data(cell *cells)
 {
     int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
@@ -77,7 +78,7 @@ void collect_data()
     strcat(filename, cell_n);
     strcat(filename, ".txt");
 
-    cells_read(filename);
+    cells_read(filename, cells);
 
     printf("\nDo you want to add another access point? [y/n]: ");
 				char result = getchar();
@@ -85,7 +86,7 @@ void collect_data()
     {
     	case 'y': //you dont need to repeat the sys exit or break
     	case 'Y':
-            collect_data();
+            collect_data(cells);
 
     	case 'n':
     	case 'N':
