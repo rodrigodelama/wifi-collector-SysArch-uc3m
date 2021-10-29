@@ -13,6 +13,8 @@
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
 
+int index_c = 0;
+
 int main (int argc, char *argv[])
 {
 	//Initially clean the console
@@ -36,7 +38,13 @@ int main (int argc, char *argv[])
 
 			//Collects data from text files
 	   		case 2:
-				collect_data(cells);
+				index_c = collect_data(cells);
+				printf("%d", index_c);
+				if (index_c != 0 && index_c % INIT_SIZE == 0)
+    			{
+        			cells = (cell*) realloc(cells, (index_c + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
+        			printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
+    			}
 				break;
 	   
 	   		case 3:

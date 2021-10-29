@@ -9,6 +9,8 @@
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
 
+int ind = 0;
+
 int ask_cell_num(int min, int max, char message[])
 {
     int option;
@@ -61,10 +63,11 @@ void cells_read(char filename[], cell *cells)
 	        insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
         }
         fclose(of);
+        ind++;
     }
 }
 
-void collect_data(cell *cells)
+int collect_data(cell *cells)
 {
     int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
@@ -97,5 +100,6 @@ void collect_data(cell *cells)
     		printf("\nError: input was not valid, try again\n");
             system("clear");
     	break;
-    }  
+    }
+    return ind;
 }   

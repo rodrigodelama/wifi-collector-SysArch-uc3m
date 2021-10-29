@@ -17,11 +17,6 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
                      cell *cells)
 {
-    if (c_index != 0 && c_index % INIT_SIZE == 0)
-    {
-        cells = (cell*) realloc(cells, (c_index + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
-        printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
-    }
 
     //FIXME: Data is not being added correctly to the dynamic array
     //Add data to the structs array

@@ -7,7 +7,7 @@
 #define COLLECT_H
 
 //void ask_cell_num_OLD();
-void collect_data(cell *cells);
+int collect_data(cell *cells);
 void cells_read(char filename[], cell *cells);
 int ask_cell_num(int min, int max, char message[]);
 
