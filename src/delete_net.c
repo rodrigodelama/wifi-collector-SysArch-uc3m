@@ -16,13 +16,14 @@ void delete_net(char net[], cell *cells)
    {
       if(net == cells[i].ESSID)
       {
-         for(int j=i;i < c_index; j++)
+         for(int j=i;i < c_index; j++)//movement of the pointers when deleting
          {
          *cell_t_dlt = &cells[j+1];
    
    
          }
          //free(&cell_t_dlt[i]);
+         c_index--;
       }
    }
 }
