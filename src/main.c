@@ -14,11 +14,12 @@
 #include "../incl/dependencies.h"
 #include "../incl/delete_net.h"
 
-int index_c = 0;
-int *ptr = &index_c;
+
 
 int main (int argc, char *argv[])
 {
+int index_c = 0;
+int *ptr = &index_c;
 	//Initially clean the console
 	system("clear");
    
@@ -43,11 +44,11 @@ int main (int argc, char *argv[])
 				//index_c = collect_data(cells);
 				collect_data(cells,ptr);
 				//printf("%d", *ptr);
-				if (*ptr != 0 && *ptr % INIT_SIZE == 0)
+				/*if (*ptr != 0 && *ptr % INIT_SIZE == 0)
     			{
         			printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
         			cells = (cell*) realloc(cells, (*ptr + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
-    			}
+    			}*/
 				break;
 	   
 	   		case 3:
@@ -108,7 +109,7 @@ int main (int argc, char *argv[])
 
 			//Displays all scanned data
 	   		case 10:
-			   	display_all(cells);
+			   	display_all(cells, ptr);
 				printf("\n\nPress any key to return to the main menu: ");
 					char wait_for_key = getchar();
 					system("clear");

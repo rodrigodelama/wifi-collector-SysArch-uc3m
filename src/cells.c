@@ -10,12 +10,12 @@
 #include "../incl/main.h"
 #include "../incl/dependencies.h"
 
-int c_index = 0;
+//int c_index = 0;
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
-                     cell *cells)
+                     cell *cells, int * ptr)
 {
 
     //FIXME: Data is not being added correctly to the dynamic array
@@ -25,26 +25,26 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     //int *cell_n_ptr = (intptr_t) cell_n;
     //int *channel_ptr = (intptr_t) channel;
 
-    cells[c_index].cell_n = cell_n;
-    strcpy(cells[c_index].MAC_Address, MAC_Address);
-    strcpy(cells[c_index].ESSID, ESSID);
-    strcpy(cells[c_index].mode, mode);
-    cells[c_index].channel = channel;
-    strcpy(cells[c_index].encryption, encryption);
-    strcpy(cells[c_index].quality, quality);
-    strcpy(cells[c_index].frequency, frequency);
-    strcpy(cells[c_index].signal_lvl, signal_lvl);
+    cells[*ptr].cell_n = cell_n;
+    strcpy(cells[*ptr].MAC_Address, MAC_Address);
+    strcpy(cells[*ptr].ESSID, ESSID);
+    strcpy(cells[*ptr].mode, mode);
+    cells[*ptr].channel = channel;
+    strcpy(cells[*ptr].encryption, encryption);
+    strcpy(cells[*ptr].quality, quality);
+    strcpy(cells[*ptr].frequency, frequency);
+    strcpy(cells[*ptr].signal_lvl, signal_lvl);
     
-    //printf("\n  %d", c_index); //debugging
+    //printf("\n  %d", *ptr); //debugging
 
-    printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, c_index);
+    printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, *ptr);
     printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
-            cells[c_index].cell_n, cells[c_index].MAC_Address,
-            cells[c_index].ESSID, cells[c_index].mode,
-            cells[c_index].channel, cells[c_index].encryption,
-            cells[c_index].quality, cells[c_index].frequency,
-            cells[c_index].signal_lvl);
-    c_index++;
+            cells[*ptr].cell_n, cells[*ptr].MAC_Address,
+            cells[*ptr].ESSID, cells[*ptr].mode,
+            cells[*ptr].channel, cells[*ptr].encryption,
+            cells[*ptr].quality, cells[*ptr].frequency,
+            cells[*ptr].signal_lvl);
+    (*ptr)++;
 }
 
 // Display option meant to print data from the requested, or all cells onto the commandline
@@ -94,9 +94,9 @@ void display_ind_cell(cell *cells)
 }   
 
 //Display option to print all data saved
-void display_all(cell *cells)
+void display_all(cell *cells, int *ptr)
 {    
-    for (int i = 0; i < c_index; i++)
+    for (int i = 0; i < *ptr; i++)
     {
         printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
                 cells[i].cell_n, cells[i].MAC_Address,

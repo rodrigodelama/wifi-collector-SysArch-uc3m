@@ -6,7 +6,7 @@
 
 //#include"../incl/cells.h"
 #include"../src/cells.c"
-
+/*
 void delete_net(char net[], cell *cells)
 {
    int counter = 0;
@@ -26,4 +26,4 @@ void delete_net(char net[], cell *cells)
          c_index--;
       }
    }
-}
+}*/
