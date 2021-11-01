@@ -12,18 +12,17 @@ void delete_net(char net[], cell *cells, int *ptr)
    int counter = 0;
    cell **cell_t_dlt;
    cell_t_dlt = &cells;
-   for(int i = 0; i < c_index; i++)
+   for(int i = 0; i < *ptr; i++)
    {
       if(net == cells[i].ESSID)
       {
-         for(int j=i;i < c_index; j++)//movement of the pointers when deleting
+         free(cell_t_dlt[i]);
+         for(int j=i;i < *ptr; j++)//movement of the pointers when deleting
          {
-         *cell_t_dlt = &cells[j+1];
-   
-   
+         *cell_t_dlt = &cells[j+1];  
          }
-         //free(&cell_t_dlt[i]);
-         c_index--;
+         
+        (*ptr)--;
       }
    }
 }

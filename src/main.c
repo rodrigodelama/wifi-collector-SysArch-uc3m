@@ -68,11 +68,10 @@ int *ptr = &index_c;
 				break;
 	   
 	   		case 5:
+			   	printf("\nIndicate the ESSID (use ""):")
+				   scanf(%s,net[])
+				delete_net(char net[],cells);
 			   	
-				   //delete_net(char net[],cells);
-			   	printf("\nThis functionality is not yet available!\n");
-			   	printf("It will be implemented in later versions, see you then!\n");
-			   	sleep(4);
 				system("clear");
 				break;
 	   
