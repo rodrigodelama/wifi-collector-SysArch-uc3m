@@ -14,7 +14,7 @@ int ind = 0;
 int ask_cell_num(int min, int max, char message[])
 {
     int option;
-    char inputString[20]; //20 to prevent stack smashing
+    char inputString[20]; //20 to prevjent stack smashing
 
     printf("%s", message);
 
@@ -35,7 +35,7 @@ int ask_cell_num(int min, int max, char message[])
     return option;
 }
 
-void cells_read(char filename[], cell *cells)
+void cells_read(char filename[], cell *cells, int *ptr)
 {
 	FILE *of;
 
@@ -60,14 +60,19 @@ void cells_read(char filename[], cell *cells)
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
-	        insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
+	        if (*ptr != 0 && *ptr % INIT_SIZE == 0)
+                    {
+                        printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
+                        cells = (cell*) realloc(cells, (*ptr + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
+                    }
+            insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
         }
         fclose(of);
-        ind++;
+        *ptr++;
     }
 }
 
-int collect_data(cell *cells)
+void collect_data(cell *cells,int* ptr)
 {
     int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
@@ -81,7 +86,7 @@ int collect_data(cell *cells)
     strcat(filename, cell_n);
     strcat(filename, ".txt");
 
-    cells_read(filename, cells);
+    cells_read(filename, cells, ptr);
 
     printf("\nDo you want to add another access point? [y/n]: ");
 				char result = getchar();
@@ -89,7 +94,7 @@ int collect_data(cell *cells)
     {
     	case 'y': //you dont need to repeat the sys exit or break
     	case 'Y':
-            collect_data(cells);
+            collect_data(cells, ptr);
 
     	case 'n':
     	case 'N':
@@ -101,5 +106,4 @@ int collect_data(cell *cells)
             system("clear");
     	break;
     }
-    return ind;
 }   

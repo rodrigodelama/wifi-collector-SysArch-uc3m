@@ -12,8 +12,10 @@
 #include "../incl/collect.h"
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
+#include "../incl/delete_net.h"
 
 int index_c = 0;
+int *ptr = &index_c;
 
 int main (int argc, char *argv[])
 {
@@ -38,12 +40,13 @@ int main (int argc, char *argv[])
 
 			//Collects data from text files
 	   		case 2:
-				index_c = collect_data(cells);
-				printf("%d", index_c);
-				if (index_c != 0 && index_c % INIT_SIZE == 0)
+				//index_c = collect_data(cells);
+				collect_data(cells,ptr);
+				//printf("%d", *ptr);
+				if (*ptr != 0 && *ptr % INIT_SIZE == 0)
     			{
-        			cells = (cell*) realloc(cells, (index_c + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
         			printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
+        			cells = (cell*) realloc(cells, (*ptr + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
     			}
 				break;
 	   
@@ -64,7 +67,8 @@ int main (int argc, char *argv[])
 				break;
 	   
 	   		case 5:
-			   	//To be implemented in later versions
+			   	
+				   //delete_net(char net[],cells);
 			   	printf("\nThis functionality is not yet available!\n");
 			   	printf("It will be implemented in later versions, see you then!\n");
 			   	sleep(4);
