@@ -6,6 +6,6 @@
 
 #include"../incl/cells.h"
 
-void delete_net(char net[], cell *cells);
+void delete_net(char net[], cell *cells, int *ptr);
 
 #endif

@@ -67,7 +67,6 @@ void cells_read(char filename[], cell *cells, int *ptr)
             insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells, ptr);
         }
         fclose(of);
-        (*ptr)++;
     }
 }
 
