@@ -25,7 +25,6 @@ int *ptr = &index_c;
    
    	//Creating our dynamic array
 	cell *cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
-
 	do
 	{
         print_menu();
@@ -68,9 +67,9 @@ int *ptr = &index_c;
 				break;
 	   
 	   		case 5:
-			   	printf("\nIndicate the ESSID (use ""):")
-				   scanf(%s,net[])
-				delete_net(char net[],cells);
+			   	printf("\nIndicate the ESSID (use ""):");
+				 //  scanf(%s,net[]);
+				//delete_net(char net[],cells);
 			   	
 				system("clear");
 				break;
