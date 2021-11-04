@@ -23,7 +23,7 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
                      cell *cells, int *ptr);
-void display_ind_cell(cell *cells);
+void display_ind_cell(cell *cells, int *ptr);
 void display_all(cell *cells, int *ptr);
 int find_cell(char cell_n);
 

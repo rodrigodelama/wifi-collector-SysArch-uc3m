@@ -48,11 +48,10 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
 }
 
 // Display option meant to print data from the requested, or all cells onto the commandline
-void display_ind_cell(cell *cells)
+void display_ind_cell(cell *cells,int *ptr)
 {
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
-    int counter = 0;
-    for (int i = 0; i < LINE_SIZE; i++)
+    for (int i = 0; i < *ptr; i++)
     {    
         if (cells[i].cell_n == num_cell_to_display)
         {
@@ -63,15 +62,7 @@ void display_ind_cell(cell *cells)
                 cells[i].quality, cells[i].frequency,
                 cells[i].signal_lvl);
         }
-        
-        if(cells[i].cell_n != num_cell_to_display)
-        counter++;
-        
-        if (counter == 80)
-        {
-            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menu\n");  //Print in case the selected cells haven't been implemented
-            break;
-        }
+                
     }
 
     printf("\n\nDo you want to read another collection of cells? [y/n]: ");
@@ -81,7 +72,7 @@ void display_ind_cell(cell *cells)
         case 'y':
         case 'Y': 
             printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-            display_ind_cell(cells);
+            display_ind_cell(cells,ptr);
       
         case 'n':
         case 'N':
