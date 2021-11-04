@@ -5,7 +5,8 @@
 #define MAIN_H
 
 //Declared future functions to be used
-int main (int argc, char *argv[]);
+void initialize_array(cell *cells);
+int main (int argc, char *argv[], cell *cells);
 void print_menu();
 int ask_num(int min, int max, char message[]);
 

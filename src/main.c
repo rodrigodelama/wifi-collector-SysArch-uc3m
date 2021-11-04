@@ -7,16 +7,27 @@
 #include <unistd.h> //to include sleep() function
 
 //Added our own libraries
+#include "../incl/cells.h"
+#include "../incl/collect.h"
+#include "../incl/delete_net.h"
+#include "../incl/dependencies.h"
 #include "../incl/main.h"
 #include "../incl/quit.h"
-#include "../incl/collect.h"
-#include "../incl/cells.h"
 
-int main (int argc, char *argv[])
+
+void initialize_array(cell *cells)
+{
+ 	cells = NULL;
+}
+
+int main (int argc, char *argv[], cell *cells)
 {
 	//Initially clean the console
 	system("clear");
-   
+
+	//Initialize the dynamic array
+	cells = (cell*) calloc(INIT_SIZE, sizeof(cell));
+	
 	do
 	{
         print_menu();
@@ -32,7 +43,7 @@ int main (int argc, char *argv[])
 
 	   		case 2:
 				//Collects data from text files
-				collect_data();
+				collect_data(cells);
 				sleep(2);
 				//system("clear");
 				break;
@@ -87,12 +98,12 @@ int main (int argc, char *argv[])
 	   
 	   		case 9:
 				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-				display_ind_cell();
+				display_ind_cell(cells);
 				system("clear");
 			   	break;
 
 	   		case 10:
-			   	display_all();
+			   	display_all(cells);
 				printf("\n\nPress any key to return to the main menu: ");
 				char wait_for_key = getchar();
 

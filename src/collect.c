@@ -9,7 +9,8 @@
 
 //Declaration of our libraries
 #include "../incl/cells.h"
-#include "../incl/sizes.h"
+#include "../src/cells.c"
+#include "../incl/dependencies.h"
 #include "../incl/bool.h"
 
 int ask_cell_num(int min, int max, char message[])
@@ -36,7 +37,7 @@ int ask_cell_num(int min, int max, char message[])
     return option;
 }
 
-void cells_read(char filename[])
+void cells_read(char filename[], cell *cells)
 {
 	FILE *of;
 
@@ -53,8 +54,9 @@ void cells_read(char filename[])
 
 	of = fopen(filename,"r");
 
-    if (of == NULL) {
-      	fprintf(stderr, "The File: %s was not found.\n", filename);
+    if (of == NULL)
+    {
+        fprintf(stderr, "The File: %s was not found.\n", filename);
 	} else {
 
         //Alternative more versatile formatting - breaks fscanf(), reads 2 times all structs but the last one
@@ -63,13 +65,18 @@ void cells_read(char filename[])
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%s\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
-	    insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
+            if (c_index != 0 && c_index % INIT_SIZE == 0)
+            {
+                printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
+                cells = (cell*) realloc(cells, (c_index + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
+            }
+	        insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
         }
         fclose(of);
     }
 }
 
-void collect_data()
+void collect_data(cell *cells)
 {
     int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
@@ -83,10 +90,7 @@ void collect_data()
     strcat(filename, cell_n);
     strcat(filename, ".txt");
 
-    printf("%s\n", filename);
-    sleep(1);
-
-    cells_read(filename);
+    cells_read(filename, cells);
 
     printf("\nDo you want to add another access point? [y/n]: ");
 				char result = getchar();
@@ -94,16 +98,16 @@ void collect_data()
     {
     	case 'y': //you dont need to repeat the sys exit or break
     	case 'Y':
-            collect_data();
+            collect_data(cells);
 
     	case 'n':
     	case 'N':
             system("clear");
-    		break;
+    	break;
 
     	default:
     		printf("\nError: input was not valid, try again\n");
             system("clear");
-    		break;
+    	break;
     }  
 }   
