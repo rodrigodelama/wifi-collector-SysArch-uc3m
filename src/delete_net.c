@@ -15,7 +15,7 @@ void delete_net(cell *cells, int *ptr)
 				   scanf("%s", net);
    /*char net_chosen[sizeof(net)];
    strcpy(net_chosen,remove_extra(net));*/
-   int counter = 0;
+   int counter = *ptr;
    cell **cell_t_dlt;
    cell_t_dlt = &cells;
    for(int i = 0; i < *ptr; i++)
@@ -30,9 +30,8 @@ void delete_net(cell *cells, int *ptr)
          }
         (*ptr)--;
       } 
-      counter++;
    }
-   if(counter == (int)sizeof(cells)){
+   if(counter == *ptr){
       printf("No net under that ESSID found\n Do you want to delete another net?[y,n]: ");
       char choice = getchar();
       switch (choice)
