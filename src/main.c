@@ -14,12 +14,11 @@
 #include "../incl/dependencies.h"
 #include "../incl/delete_net.h"
 
-
-
 int main (int argc, char *argv[])
 {
-int index_c = 0;
-int *ptr = &index_c;
+	int index_c = 0;
+	int *ptr = &index_c;
+
 	//Initially clean the console
 	system("clear");
    
@@ -32,6 +31,8 @@ int *ptr = &index_c;
 	
 	do
 	{
+		printf("\n\nindex: %d\n\n", index_c);
+
         print_menu();
 
     	switch (ask_num(1, 10, "Option: "))
