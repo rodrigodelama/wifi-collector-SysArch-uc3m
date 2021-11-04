@@ -6,7 +6,7 @@
 
 #include "../incl/dependencies.h"
 
-//int c_index;
+int c_index;
 typedef struct cell_st
 {
     int cell_n;

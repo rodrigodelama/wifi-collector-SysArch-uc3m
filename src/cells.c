@@ -6,7 +6,7 @@
 
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
-#include "../src/main.c"
+#include "../incl/main.h"
 
 int c_index = 0;
 

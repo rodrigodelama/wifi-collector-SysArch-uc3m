@@ -9,7 +9,6 @@
 
 //Declaration of our libraries
 #include "../incl/cells.h"
-#include "../src/cells.c"
 #include "../incl/dependencies.h"
 #include "../incl/bool.h"
 
