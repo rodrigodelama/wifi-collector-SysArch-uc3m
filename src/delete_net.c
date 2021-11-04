@@ -8,8 +8,11 @@
 #include"../incl/cells.h"
 //#include"../src/cells.c"
 
-void delete_net(char net[], cell *cells, int *ptr)
-{  
+void delete_net(cell *cells, int *ptr)
+{  char com_cste = '"';
+   printf("\nIndicate the ESSID (use %c): ", com_cste);
+					char net[MAX_STRING_SIZE];
+				   scanf("%s", net);
    /*char net_chosen[sizeof(net)];
    strcpy(net_chosen,remove_extra(net));*/
    int counter = 0;
@@ -17,15 +20,35 @@ void delete_net(char net[], cell *cells, int *ptr)
    cell_t_dlt = &cells;
    for(int i = 0; i < *ptr; i++)
    {
-      if(strcmp(net,cells[i].ESSID))
+      if(strcmp(net,cells[i].ESSID)==0)
       {
+         free(cell_t_dlt[i]); 
          printf("Found ESSID %s at position %d\n", net, i);
-         free(cell_t_dlt[i]);
          for(int j=i;i < *ptr; j++)//movement of the pointers when deleting
          {
-         *cell_t_dlt = &cells[j+1];  
+         cell_t_dlt[i] = &cells[j+1];  
          }
         (*ptr)--;
+      } 
+      counter++;
+   }
+   if(counter == (int)sizeof(cells)){
+      printf("No net under that ESSID found\n Do you want to delete another net?[y,n]: ");
+      char choice = getchar();
+      switch (choice)
+      {
+      case 'Y':
+      case 'y':
+         delete_net(cells,ptr);
+         break;
+      case 'N':
+      case 'n':
+         system("clear");
+         break;
+      default:
+         printf("\nError: input was not valid, try again\n");
+            system("clear");
+         break;
       }
    }
 }

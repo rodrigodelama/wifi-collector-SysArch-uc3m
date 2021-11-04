@@ -60,13 +60,8 @@ int *ptr = &index_c;
 				break;
 	   
 	   		case 5:
-			   	printf("\nIndicate the ESSID (use ""): ");
-					char net[MAX_STRING_SIZE];
-				   scanf("%s", net);
-				   
-				delete_net(net, cells, ptr);
+				delete_net(cells, ptr);
 				break;
-	   
 	   		case 6:
 			   	//To be implemented in later versions
 			   	printf("\nThis functionality is not yet available!\n");
