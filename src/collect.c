@@ -67,7 +67,7 @@ void cells_read(char filename[], cell **cells, int *ptr)
                 //printf("\n\ncells (dyn array): %ld\n\n", (*ptr + INIT_SIZE)*sizeof(*cells));
 
                 printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
-                *cells = (cell*) realloc(*cells, (*ptr + 1 + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
+                *cells = (cell*) realloc(*cells, (*ptr + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
 
                 //printf("\n\nexpansion: %ld\n\n", (*ptr + INIT_SIZE)*sizeof(cell));
             }
