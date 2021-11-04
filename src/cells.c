@@ -10,20 +10,11 @@
 #include "../incl/main.h"
 #include "../incl/dependencies.h"
 
-//int c_index = 0;
-
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
-                     cell *cells, int * ptr)
+                     cell *cells, int *ptr)
 {
-
-    //FIXME: Data is not being added correctly to the dynamic array
-    //Add data to the structs array
-
-    //changing input values to pointers
-    //int *cell_n_ptr = (intptr_t) cell_n;
-    //int *channel_ptr = (intptr_t) channel;
 
     cells[*ptr].cell_n = cell_n;
     strcpy(cells[*ptr].MAC_Address, MAC_Address);

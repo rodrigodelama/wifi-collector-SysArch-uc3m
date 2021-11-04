@@ -13,7 +13,7 @@
 int ask_cell_num(int min, int max, char message[])
 {
     int option;
-    char inputString[20]; //20 to prevjent stack smashing
+    char inputString[20]; //20 to prevent stack smashing
 
     printf("%s", message);
 
@@ -59,11 +59,12 @@ void cells_read(char filename[], cell *cells, int *ptr)
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
+            //FIXME: Data is not being added correctly to the dynamic array
 	        if(*ptr != 0 && *ptr % INIT_SIZE == 0)
-                    {
-                        printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
-                        cells = (cell*) realloc(cells, (*ptr + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
-                    }
+            {
+                printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
+                cells = (cell*) realloc(cells, (*ptr + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
+            }
             insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells, ptr);
         }
         fclose(of);

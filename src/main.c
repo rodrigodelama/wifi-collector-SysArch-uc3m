@@ -40,14 +40,7 @@ int *ptr = &index_c;
 
 			//Collects data from text files
 	   		case 2:
-				//index_c = collect_data(cells);
-				collect_data(cells,ptr);
-				//printf("%d", *ptr);
-				/*if (*ptr != 0 && *ptr % INIT_SIZE == 0)
-    			{
-        			printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
-        			cells = (cell*) realloc(cells, (*ptr + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
-    			}*/
+				collect_data(cells, ptr);
 				break;
 	   
 	   		case 3:
@@ -67,11 +60,11 @@ int *ptr = &index_c;
 				break;
 	   
 	   		case 5:
-			   	printf("\nIndicate the ESSID (use ""):");
-				   char net[20];
-				   scanf("%s",net);
+			   	printf("\nIndicate the ESSID (use ""): ");
+					char net[MAX_STRING_SIZE];
+				   scanf("%s", net);
+				   
 				delete_net(net, cells, ptr);
-			   	
 				break;
 	   
 	   		case 6:

@@ -14,7 +14,7 @@ void quit (char result)
     	case 'y':
     	case 'Y': //No need to repeat sys exit or break on both y and Y
     		printf("\nGoodbye!\n");
-    		sleep(3);
+    		sleep(2);
     		exit(0);
 
     	case 'n':
