@@ -1,4 +1,4 @@
-main: cells.o collect.o main.o quit.o
+main: cells.o collect.o main.o quit.o delete_net.o
 
 cells.o:
 	gcc -c src/cells.c
@@ -8,6 +8,8 @@ main.o:
 	gcc -c src/main.c
 quit.o:
 	gcc -c src/quit.c
+delete_net.o:
+	gcc -c src/delete_net.c
 
 implement-wifi-collector: cp /.main wifi-collector \
 				rm main

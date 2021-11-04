@@ -68,10 +68,10 @@ int *ptr = &index_c;
 	   
 	   		case 5:
 			   	printf("\nIndicate the ESSID (use ""):");
-				 //  scanf(%s,net[]);
-				//delete_net(char net[],cells);
+				   char net[20];
+				   scanf("%s",net);
+				delete_net(net, cells, ptr);
 			   	
-				system("clear");
 				break;
 	   
 	   		case 6:
@@ -101,7 +101,7 @@ int *ptr = &index_c;
 			//Displays only the desired cells by the user
 	   		case 9:
 				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-				display_ind_cell(cells);
+				display_ind_cell(cells, ptr);
 				system("clear");
 			   	break;
 
