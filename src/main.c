@@ -15,17 +15,13 @@
 #include "../incl/quit.h"
 
 
-void initialize_array(cell *cells)
-{
- 	cells = NULL;
-}
-
-int main (int argc, char *argv[], cell *cells)
+int main (int argc, char *argv[])
 {
 	//Initially clean the console
 	system("clear");
 
 	//Initialize the dynamic array
+	cell *cells = NULL;
 	cells = (cell*) calloc(INIT_SIZE, sizeof(cell));
 	
 	do
@@ -44,7 +40,6 @@ int main (int argc, char *argv[], cell *cells)
 	   		case 2:
 				//Collects data from text files
 				collect_data(cells);
-				sleep(2);
 				//system("clear");
 				break;
 	   

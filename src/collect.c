@@ -64,11 +64,6 @@ void cells_read(char filename[], cell *cells)
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%s\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
-            if (c_index != 0 && c_index % INIT_SIZE == 0)
-            {
-                printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
-                cells = (cell*) realloc(cells, (c_index + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
-            }
 	        insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
         }
         fclose(of);

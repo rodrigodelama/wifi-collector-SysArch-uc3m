@@ -2,6 +2,7 @@
 //Gorka Bernad - 100451457@alumnos.uc3m.es
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h> 
 
 #include "../incl/cells.h"
@@ -15,6 +16,12 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
                      cell *cells)
 {
+    if (c_index != 0 && c_index % INIT_SIZE == 0)
+    {
+        printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
+        cells = (cell*) realloc(cells, (c_index + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
+        printf("%ld", sizeof(cell));
+    }
     //Add data to the structs
     cells[c_index].cell_n = cell_n;
     strcpy(cells[c_index].MAC_Address, MAC_Address);
@@ -41,10 +48,11 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
 
 void display_ind_cell(cell *cells)
 {
-   int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
-   int counter = 0;
+    int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
+    int counter = 0;
+            printf("\n");
     for (int i = 0; i < LINE_SIZE; i++)
-    {    
+    {
         if (cells[i].cell_n == num_cell_to_display)
         {
         printf("Cell %d: %s %s %s %d %s %s %s000 %s\n", 
@@ -58,25 +66,27 @@ void display_ind_cell(cell *cells)
         if(cells[i].cell_n != num_cell_to_display)
         counter++;
         
-        if (counter == 80){
-            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menu\n");  //Print in case the selected cells haven't been implemented
-            break;}
-    
-    }
-    printf("Do you want to read another collection of cells? [y/N]: ");
-        char result = getchar();
-        switch (result)
+        if (counter == 80)
         {
-            case 'y':
-            case 'Y': 
-                printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-                display_ind_cell(cells);
-      
-            case 'n':
-            case 'N':
-                break;
+            printf("\nThis cell was not scanned yet, please scan it in option 2 in the main menu\n");  //Print in case the selected cells haven't been implemented
+            break;
         }
+    }
 
+    printf("\nDo you want to read another collection of cells? [y/n]: ");
+    
+    char result = getchar();
+    switch (result)
+    {
+        case 'y':
+        case 'Y': 
+        printf("\nIndicate the number of the cell for which you want to know its information (1 - 21):");
+        display_ind_cell(cells);
+  
+        case 'n':
+        case 'N':
+        break;
+    }
 }   
 
 //Display option to print all data saved
