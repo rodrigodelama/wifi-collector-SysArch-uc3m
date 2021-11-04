@@ -62,8 +62,13 @@ void cells_read(char filename[], cell *cells, int *ptr)
             //FIXME: Data is not being added correctly to the dynamic array
 	        if(*ptr != 0 && *ptr % INIT_SIZE == 0)
             {
+                printf("\n\ncell (struct): %ld\n\n", sizeof(cell));
+                printf("\n\ncells (dyn array): %ld\n\n", (*ptr + INIT_SIZE)*sizeof(cells));
+
                 printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
                 cells = (cell*) realloc(cells, (*ptr + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
+
+                printf("\n\nexpansion: %ld\n\n", (*ptr + INIT_SIZE)*sizeof(cell));
             }
             insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells, ptr);
         }
@@ -71,7 +76,7 @@ void cells_read(char filename[], cell *cells, int *ptr)
     }
 }
 
-void collect_data(cell *cells,int* ptr)
+void collect_data(cell *cells, int *ptr)
 {
     int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 

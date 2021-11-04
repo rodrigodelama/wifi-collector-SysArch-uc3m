@@ -25,6 +25,11 @@ int *ptr = &index_c;
    
    	//Creating our dynamic array
 	cell *cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
+											//is 568 bytes
+								//init size is 5
+	printf("\n\n%ld\n\n", sizeof(cell));
+	printf("\n\n%ld\n\n", sizeof(cells));
+	
 	do
 	{
         print_menu();
