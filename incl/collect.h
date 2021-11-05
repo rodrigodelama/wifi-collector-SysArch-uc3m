@@ -1,5 +1,11 @@
-//Rodrigo De Lama - 100451775@alumnos.uc3m.es
-//Gorka Bernad - 100451457@alumnos.uc3m.es
+/**
+ * Gorka Bernad - 100451457@alumnos.uc3m.es
+ * Rodrigo De Lama - 100451775@alumnos.uc3m.es
+ * 
+ * collect.h:
+ * - declares functions to collect the info about the cell number to be inserted into the array,
+ *   read the cell files, checks that the number is valid
+ */
 
 #include "../incl/cells.h"
 

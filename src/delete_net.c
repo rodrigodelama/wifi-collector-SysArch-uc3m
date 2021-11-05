@@ -4,6 +4,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include <unistd.h>
 
 #include"../incl/cells.h"
 
@@ -31,29 +32,33 @@ void delete_net(cell **cells)
          position--;
       }
       
-      cells[position] = NULL;
+      //cells[position] = NULL;
    
-      if(counter == position)
+   }
+   /*
+   if(counter == position)
+   {
+      printf("No such ESSID found\n\nDo you want to delete another ESSID? [y/n]: ");
+      char choice = getchar();
+      switch (choice)
       {
-         printf("No such ESSID found\n\nDo you want to delete another ESSID? [y/n]: ");
-         char choice = getchar();
-         switch (choice)
-         {
-            case 'Y':
-            case 'y':
-               delete_net(cells);
-            break;
+         case 'Y':
+         case 'y':
+            delete_net(cells);
+         break;
 
-            case 'N':
-            case 'n':
-               system("clear");
-            break;
+         case 'N':
+         case 'n':
+            system("clear");
+         break;
 
-            default:
-               printf("\nError: input was not valid, try again\n");
-               system("clear");
-            break;
-         }
+         default:
+            printf("\nError: input was not valid, try again\n");
+            system("clear");
+         break;
       }
    }
+
+   extra comfort code to be completed on next submission
+   */
 }

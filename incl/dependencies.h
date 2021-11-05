@@ -1,5 +1,10 @@
-//Rodrigo De Lama - 100451775@alumnos.uc3m.es
-//Gorka Bernad - 100451457@alumnos.uc3m.es
+/**
+ * Gorka Bernad - 100451457@alumnos.uc3m.es
+ * Rodrigo De Lama - 100451775@alumnos.uc3m.es
+ * 
+ * dependencies.h:
+ * - to store certain constans to be used all over the project
+ */
 
 #ifndef DEPENDENCIES_H
 #define DEPENDENCIES_H

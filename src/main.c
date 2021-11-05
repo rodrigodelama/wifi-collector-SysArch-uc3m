@@ -49,7 +49,7 @@ int main (int argc, char *argv[])
 			   	//To be implemented in later versions
 			   	printf("\nThis functionality is not yet available!\n");
 			   	printf("It will be implemented in later versions, see you then!\n");
-			   	sleep(4);
+			   	sleep(2);
 				system("clear");
 				break;
 	   
@@ -57,7 +57,7 @@ int main (int argc, char *argv[])
 			   	//To be implemented in later versions
 			   	printf("\nThis functionality is not yet available!\n");
 			   	printf("It will be implemented in later versions, see you then!\n");
-			   	sleep(4);
+			   	sleep(2);
 				system("clear");
 				break;
 	   
@@ -68,7 +68,7 @@ int main (int argc, char *argv[])
 			   	//To be implemented in later versions
 			   	printf("\nThis functionality is not yet available!\n");
 			   	printf("It will be implemented in later versions, see you then!\n");
-			   	sleep(4);
+			   	sleep(2);
 				system("clear");
 				break;
 	   
@@ -76,7 +76,7 @@ int main (int argc, char *argv[])
 			   	//To be implemented in later versions
 			   	printf("\nThis functionality is not yet available!\n");
 			  	printf("It will be implemented in later versions, see you then!\n");
-			   	sleep(4);
+			   	sleep(2);
 				system("clear");
 				break;
 	   
@@ -84,7 +84,7 @@ int main (int argc, char *argv[])
 			   	//To be implemented in later versions
 			   	printf("\nThis functionality is not yet available!\n");
 			   	printf("It will be implemented in later versions, see you then!\n");
-			   	sleep(4);
+			   	sleep(2);
 				system("clear");
 			   	break;
 	   		

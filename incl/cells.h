@@ -1,5 +1,12 @@
-//Rodrigo De Lama - 100451775@alumnos.uc3m.es
-//Gorka Bernad - 100451457@alumnos.uc3m.es
+/**
+ * Gorka Bernad - 100451457@alumnos.uc3m.es
+ * Rodrigo De Lama - 100451775@alumnos.uc3m.es
+ * 
+ * cells.h:
+ * - declares our dynamic array of structures of type cell_st
+ * - declares the global int value position, to be used to track our position when traversing the array
+ * - declares methods to: insert a new cell, display a specific individual cell and< to display all recorded cell
+ */
 
 #ifndef CELLS_H
 #define CELLS_H
@@ -32,6 +39,5 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
                      cell **cells);
 void display_ind_cell(cell **cells);
 void display_all(cell **cells);
-int find_cell(char cell_n);
 
 #endif
