@@ -27,30 +27,31 @@ void delete_net(cell **cells)
          {
             (*cells)[j] = (*cells)[j+1];
          }
+
          position--;
       } 
-   }
-   
-   if(counter == position)
-   {
-      printf("No net under that ESSID found\n Do you want to delete another net? [y/n]: ");
-      char choice = getchar();
-      switch (choice)
-      {
-         case 'Y':
-         case 'y':
-            delete_net(cells);
-         break;
+         cells[position] = NULL;
+         if(counter == position){
+            printf("No such ESSID found\n\nDo you want to delete another ESSID? [y/n]: ");
+            char choice = getchar();
+            switch (choice)
+            {
+               case 'Y':
+               case 'y':
+                  delete_net(cells);
+                  break;
 
-         case 'N':
-         case 'n':
-            system("clear");
-         break;
+               case 'N':
+               case 'n':
+                  system("clear");
+                  break;
 
-         default:
-            printf("\nError: input was not valid, try again\n");
-            system("clear");
-         break;
-      }
+               default:
+                  printf("\nError: input was not valid, try again\n");
+                  system("clear");
+                  break;
+               }
+            }
    }
+
 }
