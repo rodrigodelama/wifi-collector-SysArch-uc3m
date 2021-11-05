@@ -66,7 +66,7 @@ int main (int argc, char *argv[])
 				break;
 	   
 	   		case 5:
-				//delete_net(cells);
+				delete_net(&cells);
 				break;
 	   		case 6:
 			   	//To be implemented in later versions

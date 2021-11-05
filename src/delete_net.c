@@ -7,15 +7,12 @@
 
 #include"../incl/cells.h"
 
-void delete_net(cell *cells)
+void delete_net(cell **cells)
 {  
-   char com_cste = '"';
-   printf("\nIndicate the ESSID (use %c): ", com_cste);
+   //char com_cste = '"';
+   printf("\nIndicate the ESSID (use \"): "/*, com_cste*/);
 					char net[MAX_STRING_SIZE];
 				   scanf("%s", net);
-
-   /*char net_chosen[sizeof(net)];
-   strcpy(net_chosen,remove_extra(net));*/
 
    int counter = position;
    cell **cell_t_dlt;
@@ -23,12 +20,13 @@ void delete_net(cell *cells)
 
    for(int i = 0; i < position; i++)
    {
-      if(strcmp(net, cells[i].ESSID)==0)
-      { *cell_t_dlt = &cells[i];
+      if(strcmp(net, (*cells)[i].ESSID) == 0)
+      {
+         *cell_t_dlt = &cells[i];
          printf("Found ESSID %s at position %d\n", net, i);
-         for(int j=i;i < position; j++)//movement of the pointers when deleting
+         for(int j = i; i < position; j++)//movement of the pointers when deleting
          {
-         cells[j] = cells[j+1];  
+            cells[j] = cells[j+1];  
          }
          free(cell_t_dlt[i]); 
          position--;
@@ -36,7 +34,7 @@ void delete_net(cell *cells)
    }
    
    if(counter == position){
-      printf("No net under that ESSID found\n Do you want to delete another net?[y,n]: ");
+      printf("No net under that ESSID found\n Do you want to delete another net? [y/n]: ");
       char choice = getchar();
       switch (choice)
       {
