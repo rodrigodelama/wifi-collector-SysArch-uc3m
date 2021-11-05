@@ -34,7 +34,7 @@ int ask_cell_num(int min, int max, char message[])
     return option;
 }
 
-void cells_read(char filename[], cell **cells, int *ptr)
+void cells_read(char filename[], cell *cells)
 {
 	FILE *of;
 
@@ -60,24 +60,24 @@ void cells_read(char filename[], cell **cells, int *ptr)
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
             //FIXME: Data is not being added correctly to the dynamic array
-	        if(*ptr != 0 && *ptr % INIT_SIZE == 0)
+	        if(position != 0 && position % INIT_SIZE == 0)
             {
-                //printf("\n\ncell (struct): %ld\n\n", sizeof(cell));
-                
-                //printf("\n\ncells (dyn array): %ld\n\n", (*ptr + INIT_SIZE)*sizeof(*cells));
+                printf("\n\nsize of cell (struct): %ld\n\n", sizeof(cell));
+                printf("\n\nposition: %d\n\n", position);
+                printf("\n\nsize of cells (dyn array): %ld\n\n", sizeof(*cells));
 
                 printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
-                *cells = (cell*) realloc(*cells, (*ptr + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
+                cells = (cell*) realloc(cells, (position + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
 
-                //printf("\n\nexpansion: %ld\n\n", (*ptr + INIT_SIZE)*sizeof(cell));
+                printf("\n\nexpansion: %ld\n\n", (position + INIT_SIZE)*sizeof(cell));
             }
-            insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, *cells, ptr);
+            insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, &cells);
         }
         fclose(of);
     }
 }
 
-void collect_data(cell *cells, int *ptr)
+void collect_data(cell **cells)
 {
     int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
@@ -91,7 +91,7 @@ void collect_data(cell *cells, int *ptr)
     strcat(filename, cell_n);
     strcat(filename, ".txt");
 
-    cells_read(filename, &cells, ptr);
+    cells_read(filename, *cells); //see why pointer
 
     printf("\nDo you want to add another access point? [y/n]: ");
 				char result = getchar();
@@ -99,7 +99,7 @@ void collect_data(cell *cells, int *ptr)
     {
     	case 'y': //you dont need to repeat the sys exit or break
     	case 'Y':
-            collect_data(cells, ptr);
+            collect_data(cells);
 
     	case 'n':
     	case 'N':

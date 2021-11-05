@@ -16,8 +16,8 @@
 
 int main (int argc, char *argv[])
 {
-	int index_c = 0;
-	int *ptr = &index_c;
+	//position = 0;
+	//int *ptr = &position;
 
 	//Initially clean the console
 	system("clear");
@@ -31,7 +31,7 @@ int main (int argc, char *argv[])
 	
 	do
 	{
-		printf("\n\nindex: %d\n\n", index_c);
+		printf("\n\nindex: %d\n\n", position);
 
         print_menu();
 
@@ -46,7 +46,7 @@ int main (int argc, char *argv[])
 
 			//Collects data from text files
 	   		case 2:
-				collect_data(cells, ptr);
+				collect_data(&cells);
 				break;
 	   
 	   		case 3:
@@ -66,7 +66,7 @@ int main (int argc, char *argv[])
 				break;
 	   
 	   		case 5:
-				delete_net(cells, ptr);
+				delete_net(cells);
 				break;
 	   		case 6:
 			   	//To be implemented in later versions
@@ -95,13 +95,13 @@ int main (int argc, char *argv[])
 			//Displays only the desired cells by the user
 	   		case 9:
 				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-				display_ind_cell(cells, ptr);
+				display_ind_cell(&cells);
 				system("clear");
 			   	break;
 
 			//Displays all scanned data
 	   		case 10:
-			   	display_all(cells, ptr);
+			   	display_all(&cells);
 				printf("\n\nPress any key to return to the main menu: ");
 					char wait_for_key = getchar();
 					system("clear");
