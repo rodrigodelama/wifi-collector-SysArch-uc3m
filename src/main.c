@@ -31,7 +31,7 @@ int main (int argc, char *argv[])
 
         print_menu();
 
-    	switch (ask_num(1, 10, "  Option: "))
+    	switch (ask_num(1, 10, "\n  Option: "))
 		{
 			//Quit function
 	   		case 1:
@@ -63,9 +63,6 @@ int main (int argc, char *argv[])
 	   
 	   		case 5:
 				delete_net(&cells);
-				printf("\n\nPress any key to return to the main menu: ");
-					getchar();
-				system("clear");
 				break;
 	   		case 6:
 			   	//To be implemented in later versions
