@@ -22,12 +22,8 @@ int main (int argc, char *argv[])
 	//Initially clean the console
 	system("clear");
    
-   	//Creating our dynamic array
+   	//initiallizing our dynamic array
 	cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
-										//is 568 bytes
-						//init size is 5
-	//printf("\n\n%ld\n\n", sizeof(cell));
-	//printf("\n\n%ld\n\n", sizeof(cells));
 	
 	do
 	{
@@ -35,7 +31,7 @@ int main (int argc, char *argv[])
 
         print_menu();
 
-    	switch (ask_num(1, 10, "Option: "))
+    	switch (ask_num(1, 10, "  Option: "))
 		{
 			//Quit function
 	   		case 1:
@@ -67,6 +63,9 @@ int main (int argc, char *argv[])
 	   
 	   		case 5:
 				delete_net(&cells);
+				printf("\n\nPress any key to return to the main menu: ");
+					getchar();
+				system("clear");
 				break;
 	   		case 6:
 			   	//To be implemented in later versions
@@ -104,7 +103,7 @@ int main (int argc, char *argv[])
 			   	display_all(&cells);
 				printf("\n\nPress any key to return to the main menu: ");
 					getchar(); //to grab enter
-					system("clear");
+				system("clear");
 			   	break;
 
 	   		default:

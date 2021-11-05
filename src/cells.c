@@ -39,7 +39,7 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
     position++;
 }
 
-// Display option meant to print data from the requested, or all cells onto the commandline
+//Display option meant to print data from the requested, or all cells onto the commandline
 void display_ind_cell(cell **cells)
 {
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
@@ -76,10 +76,6 @@ void display_ind_cell(cell **cells)
         case 'n':
         case 'N':
         break;
-
-        //TODO: MISSING DEFAULT TO RE-LOOP
-        //default:
-            //code the while that shall englobe the switch
     }
 }   
 

@@ -8,11 +8,10 @@
 #include"../incl/cells.h"
 
 void delete_net(cell **cells)
-{  
-   //char com_cste = '"';
-   printf("\nIndicate the ESSID (use \"\"): "/*, com_cste*/);
-					char net[MAX_STRING_SIZE];
-				   scanf("%s", net);
+{
+   printf("\nIndicate the ESSID (use \"\"): ");
+		char net[MAX_STRING_SIZE];
+	   scanf("%s", net);
 
    int counter = position;
    
@@ -23,18 +22,17 @@ void delete_net(cell **cells)
          printf("Found ESSID %s at position %d\n\n", net, i);
          free(cells[i]);
 
-         // Double for is used in case there are multiple hits for the desired ESSID to be deleted
-         for(int j = i; j < position; j++) //movement of the pointers when deleting
+         //the double for is used in case there are multiple hits for the desired ESSID to be deleted
+         for(int j = i; j < position; j++) //shuffle of the pointers when deleting
          {
             (*cells)[j] = (*cells)[j+1];
          }
-
-         //cells[position] = NULL;
          position--;
       } 
    }
    
-   if(counter == position){
+   if(counter == position)
+   {
       printf("No net under that ESSID found\n Do you want to delete another net? [y/n]: ");
       char choice = getchar();
       switch (choice)
@@ -42,39 +40,17 @@ void delete_net(cell **cells)
          case 'Y':
          case 'y':
             delete_net(cells);
-            break;
+         break;
 
          case 'N':
          case 'n':
             system("clear");
-            break;
+         break;
 
          default:
             printf("\nError: input was not valid, try again\n");
             system("clear");
-            break;
-         }
-      }
-   
-}
-
-/*char remove_extra(char net[])
-{
-   char net_copy[sizeof(net)];
-   strcpy(net_copy,net);
-   for(int i = 0; i < sizeof(net); i++)//check the array
-   {
-      if(net[0] == net_copy[i+1])
-      {
-         net_copy[i+1] = NULL;
          break;
       }
-      if(net[0] == net_copy[i])
-      {
-         for(int j = 0; j<sizeof(net); j++)
-         {
-         net_copy[j] = net[j+1];
-         }
-      }
    }
-   return net_copy;*/
+}

@@ -9,7 +9,6 @@
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
 
-
 int ask_cell_num(int min, int max, char message[])
 {
     int option;
@@ -59,17 +58,10 @@ void cells_read(char filename[], cell **cells)
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
-            //FIXME: Data is not being added correctly to the dynamic array
 	        if(position != 0 && position % INIT_SIZE == 0)
             {
-                //printf("\nsize of cell (struct): %ld\n", sizeof(cell));
-                //printf("\nposition: %d\n", position);
-                //printf("\nsize of cells (dyn array): %ld\n", sizeof(*cells));
-
                 printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
                 *cells = (cell*) realloc(*cells, (position + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
-
-                //printf("\nexpansion: %ld\n", (position + INIT_SIZE)*sizeof(cell));
             }
             insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
         }

@@ -19,13 +19,12 @@ typedef struct cell_st
     char signal_lvl[LINE_SIZE];
 } cell;
 
+//560 bytes bc size of 7*LINE_SIZE + 8 bytes, 4 for each int
+
+//creating our dynamic array of structs
 cell *cells;
 
 int position;
-
-//560 bytes bc size of 7*LINE_SIZE
-//+
-//8 bytes, 4 for each int
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
