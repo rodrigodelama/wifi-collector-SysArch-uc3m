@@ -62,14 +62,14 @@ void cells_read(char filename[], cell **cells)
             //FIXME: Data is not being added correctly to the dynamic array
 	        if(position != 0 && position % INIT_SIZE == 0)
             {
-                printf("\n\nsize of cell (struct): %ld\n\n", sizeof(cell));
-                printf("\n\nposition: %d\n\n", position);
-                printf("\n\nsize of cells (dyn array): %ld\n\n", sizeof(*cells));
+                //printf("\nsize of cell (struct): %ld\n", sizeof(cell));
+                //printf("\nposition: %d\n", position);
+                //printf("\nsize of cells (dyn array): %ld\n", sizeof(*cells));
 
                 printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
                 *cells = (cell*) realloc(*cells, (position + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
 
-                printf("\n\nexpansion: %ld\n\n", (position + INIT_SIZE)*sizeof(cell));
+                //printf("\nexpansion: %ld\n", (position + INIT_SIZE)*sizeof(cell));
             }
             insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
         }
@@ -77,24 +77,8 @@ void cells_read(char filename[], cell **cells)
     }
 }
 
-/*
-void init_dyn_array()
-{
-    cells = (cell*) calloc(INIT_SIZE, sizeof(cell));
-}
-*/
-
 void collect_data(cell **cells)
 {
-    /*
-    int init_counter = 0;
-    if (init_counter == 0)
-    {
-        init_dyn_array();
-    init_counter++;
-    }
-    */
-
     int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
     char cell_n[MAX_STRING_SIZE];
@@ -107,7 +91,7 @@ void collect_data(cell **cells)
     strcat(filename, cell_n);
     strcat(filename, ".txt");
 
-    cells_read(filename, cells); //see why pointer
+    cells_read(filename, cells);
 
     printf("\nDo you want to add another access point? [y/n]: ");
 				char result = getchar();

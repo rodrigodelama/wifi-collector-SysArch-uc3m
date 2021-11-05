@@ -66,7 +66,7 @@ int main (int argc, char *argv[])
 				break;
 	   
 	   		case 5:
-				delete_net(&cells);
+				//delete_net(&cells);
 				break;
 	   		case 6:
 			   	//To be implemented in later versions
@@ -103,7 +103,7 @@ int main (int argc, char *argv[])
 	   		case 10:
 			   	display_all(&cells);
 				printf("\n\nPress any key to return to the main menu: ");
-					char wait_for_key = getchar();
+					getchar(); //to grab enter
 					system("clear");
 			   	break;
 

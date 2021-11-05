@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#include <unistd.h>
 
 #include "../incl/cells.h"
 #include "../incl/main.h"
@@ -44,9 +45,17 @@ void display_ind_cell(cell **cells)
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
     for (int i = 0; i < position; i++)
     {    
+        /*
+        if (cells[num_cell_to_display] == NULL)
+        {
+            printf("This cell has not been recorded yet, please try another cell number");
+            sleep(2);
+            break;
+        }
+        else */
         if ((*cells)[i].cell_n == num_cell_to_display)
         {
-        printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
+            printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
                 (*cells)[i].cell_n, (*cells)[i].MAC_Address,
                 (*cells)[i].ESSID, (*cells)[i].mode,
                 (*cells)[i].channel, (*cells)[i].encryption,
