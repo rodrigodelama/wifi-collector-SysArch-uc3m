@@ -1,4 +1,4 @@
-main: cells.o collect.o main.o quit.o
+main: cells.o collect.o delete_net.o main.o quit.o
 
 cells.o:
 	gcc -Wall -c -g src/cells.c

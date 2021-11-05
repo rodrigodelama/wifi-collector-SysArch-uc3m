@@ -10,25 +10,25 @@
 void delete_net(cell **cells)
 {  
    //char com_cste = '"';
-   printf("\nIndicate the ESSID (use \"): "/*, com_cste*/);
+   printf("\nIndicate the ESSID (use \"\"): "/*, com_cste*/);
 					char net[MAX_STRING_SIZE];
 				   scanf("%s", net);
 
    int counter = position;
-   cell **cell_t_dlt;
-   cell_t_dlt = &cells;
-
+   
    for(int i = 0; i < position; i++)
    {
       if(strcmp(net, (*cells)[i].ESSID) == 0)
-      {
-         *cell_t_dlt = &cells[i];
-         printf("Found ESSID %s at position %d\n", net, i);
-         for(int j = i; i < position; j++)//movement of the pointers when deleting
+      { 
+         printf("Found ESSID %s at position %d\n\n", net, i);
+
+         for(int j = i; j < position; j++) //movement of the pointers when deleting
          {
-            cells[j] = cells[j+1];  
+            cells[j] = cells[j+1];
+            free(cells[i]); 
          }
-         free(cell_t_dlt[i]); 
+
+         //cells[position] = NULL;
          position--;
       } 
    }

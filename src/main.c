@@ -31,7 +31,7 @@ int main (int argc, char *argv[])
 	
 	do
 	{
-		printf("\n\nindex: %d\n\n", position);
+		//printf("\n\nindex: %d\n\n", position); //debugging
 
         print_menu();
 
@@ -66,7 +66,7 @@ int main (int argc, char *argv[])
 				break;
 	   
 	   		case 5:
-				//delete_net(&cells);
+				delete_net(&cells);
 				break;
 	   		case 6:
 			   	//To be implemented in later versions
