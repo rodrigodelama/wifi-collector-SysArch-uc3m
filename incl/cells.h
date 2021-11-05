@@ -19,7 +19,7 @@ typedef struct cell_st
     char signal_lvl[LINE_SIZE];
 } cell;
 
-//cell *cells;
+cell *cells;
 
 int position;
 

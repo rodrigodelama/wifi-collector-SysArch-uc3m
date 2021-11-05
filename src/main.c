@@ -23,11 +23,11 @@ int main (int argc, char *argv[])
 	system("clear");
    
    	//Creating our dynamic array
-	cell *cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
-											//is 568 bytes
-								//init size is 5
-	printf("\n\n%ld\n\n", sizeof(cell));
-	printf("\n\n%ld\n\n", sizeof(cells));
+	cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
+										//is 568 bytes
+						//init size is 5
+	//printf("\n\n%ld\n\n", sizeof(cell));
+	//printf("\n\n%ld\n\n", sizeof(cells));
 	
 	do
 	{
@@ -66,7 +66,7 @@ int main (int argc, char *argv[])
 				break;
 	   
 	   		case 5:
-				delete_net(cells);
+				//delete_net(cells);
 				break;
 	   		case 6:
 			   	//To be implemented in later versions

@@ -16,25 +16,25 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
                      cell **cells)
 {
 
-    cells[position]->cell_n = cell_n;
-    strcpy(cells[position]->MAC_Address, MAC_Address);
-    strcpy(cells[position]->ESSID, ESSID);
-    strcpy(cells[position]->mode, mode);
-    cells[position]->channel = channel;
-    strcpy(cells[position]->encryption, encryption);
-    strcpy(cells[position]->quality, quality);
-    strcpy(cells[position]->frequency, frequency);
-    strcpy(cells[position]->signal_lvl, signal_lvl);
+    (*cells)[position].cell_n = cell_n;
+    strcpy((*cells)[position].MAC_Address, MAC_Address);
+    strcpy((*cells)[position].ESSID, ESSID);
+    strcpy((*cells)[position].mode, mode);
+    (*cells)[position].channel = channel;
+    strcpy((*cells)[position].encryption, encryption);
+    strcpy((*cells)[position].quality, quality);
+    strcpy((*cells)[position].frequency, frequency);
+    strcpy((*cells)[position].signal_lvl, signal_lvl);
     
     //printf("\n  %d", position); //debugging
 
     printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, position);
     printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
-            cells[position]->cell_n, cells[position]->MAC_Address,
-            cells[position]->ESSID, cells[position]->mode,
-            cells[position]->channel, cells[position]->encryption,
-            cells[position]->quality, cells[position]->frequency,
-            cells[position]->signal_lvl);
+            (*cells)[position].cell_n, (*cells)[position].MAC_Address,
+            (*cells)[position].ESSID, (*cells)[position].mode,
+            (*cells)[position].channel, (*cells)[position].encryption,
+            (*cells)[position].quality, (*cells)[position].frequency,
+            (*cells)[position].signal_lvl);
     position++;
 }
 
@@ -44,14 +44,14 @@ void display_ind_cell(cell **cells)
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
     for (int i = 0; i < position; i++)
     {    
-        if (cells[i]->cell_n == num_cell_to_display)
+        if ((*cells)[i].cell_n == num_cell_to_display)
         {
         printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
-                cells[i]->cell_n, cells[i]->MAC_Address,
-                cells[i]->ESSID, cells[i]->mode,
-                cells[i]->channel, cells[i]->encryption,
-                cells[i]->quality, cells[i]->frequency,
-                cells[i]->signal_lvl);
+                (*cells)[i].cell_n, (*cells)[i].MAC_Address,
+                (*cells)[i].ESSID, (*cells)[i].mode,
+                (*cells)[i].channel, (*cells)[i].encryption,
+                (*cells)[i].quality, (*cells)[i].frequency,
+                (*cells)[i].signal_lvl);
         }        
     }
 
@@ -80,10 +80,10 @@ void display_all(cell **cells)
     for (int i = 0; i < position; i++)
     {
         printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
-                cells[i]->cell_n, cells[i]->MAC_Address,
-                cells[i]->ESSID, cells[i]->mode,
-                cells[i]->channel, cells[i]->encryption,
-                cells[i]->quality, cells[i]->frequency,
-                cells[i]->signal_lvl);
+                (*cells)[i].cell_n, (*cells)[i].MAC_Address,
+                (*cells)[i].ESSID, (*cells)[i].mode,
+                (*cells)[i].channel, (*cells)[i].encryption,
+                (*cells)[i].quality, (*cells)[i].frequency,
+                (*cells)[i].signal_lvl);
     }   
 }
