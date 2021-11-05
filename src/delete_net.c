@@ -21,11 +21,12 @@ void delete_net(cell **cells)
       if(strcmp(net, (*cells)[i].ESSID) == 0)
       { 
          printf("Found ESSID %s at position %d\n\n", net, i);
+         free(cells[i]);
 
+         // Double for is used in case there are multiple hits for the desired ESSID to be deleted
          for(int j = i; j < position; j++) //movement of the pointers when deleting
          {
-            cells[j] = cells[j+1];
-            free(cells[i]); 
+            (*cells)[j] = (*cells)[j+1];
          }
 
          //cells[position] = NULL;
