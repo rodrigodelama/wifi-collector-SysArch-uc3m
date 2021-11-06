@@ -9,7 +9,7 @@
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
 
-int ask_cell_num(int min, int max, char message[])
+int ask_num(int min, int max, char message[])
 {
     int option;
     char inputString[20]; //20 to prevent stack smashing
@@ -27,6 +27,7 @@ int ask_cell_num(int min, int max, char message[])
 		{
 			printf("\nError: please input a valid cell number (%d-%d): ", min, max);
 			sleep(2);
+            break;
 		}
     } while (option < min || option > max);
 
@@ -71,7 +72,7 @@ void cells_read(char filename[], cell **cells)
 
 void collect_data(cell **cells)
 {
-    int selection = ask_cell_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
+    int selection = ask_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
     char cell_n[MAX_STRING_SIZE];
 

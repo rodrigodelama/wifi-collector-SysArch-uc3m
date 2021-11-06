@@ -128,28 +128,3 @@ void print_menu()
    	printf("  [ 9] wificollector_display\n");
    	printf("  [ 10] wificollector_display_all\n");
 }
-
-int ask_num(int min, int max, char message[])
-{
-    int option; //another idea is to use getchar()
-    char inputString[20]; //20 to prevent stack smashing
-
-    printf("%s", message);
-
-    do
-	{
-        scanf("%s", inputString);
-		getchar(); //meant to grab the 'enter' input and discard it
-
-        option = atoi(inputString); //atoi converts a string to an integer
-
-        if (option < min || option > max)
-		{
-			printf("\nError: please input a number between %d-%d\n", min, max);
-			sleep(2);
-			break;
-		}
-    } while (option < min || option > max);
-
-    return option;
-}

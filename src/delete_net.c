@@ -35,7 +35,7 @@ void delete_net(cell **cells)
       //cells[position] = NULL;
    
    }
-   /*
+
    if(counter == position)
    {
       printf("No such ESSID found\n\nDo you want to delete another ESSID? [y/n]: ");
@@ -59,6 +59,7 @@ void delete_net(cell **cells)
       }
    }
 
+   /*
    extra comfort code to be completed on next submission
    */
 }
