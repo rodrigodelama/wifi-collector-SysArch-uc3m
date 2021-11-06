@@ -40,4 +40,6 @@ void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SI
 void display_ind_cell(cell **cells);
 void display_all(cell **cells);
 
+int ask_num(int min, int max, char message[]);
+
 #endif

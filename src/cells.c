@@ -8,8 +8,9 @@
 #include <unistd.h>
 
 #include "../incl/cells.h"
-#include "../incl/main.h"
+#include "../incl/collect.h"
 #include "../incl/dependencies.h"
+//#include "../incl/main.h"
 
 void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
@@ -46,6 +47,8 @@ void display_ind_cell(cell **cells)
     for (int i = 0; i < position; i++)
     {    
         /*
+        comfort code to be implemented later
+
         if (cells[num_cell_to_display] == NULL)
         {
             printf("This cell has not been recorded yet, please try another cell number");
