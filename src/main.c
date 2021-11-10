@@ -14,7 +14,7 @@
 #include "../incl/dependencies.h"
 #include "../incl/delete_net.h"
 
-int main (int argc, char *argv[])
+int main ()
 {
 	//position = 0;
 	//int *ptr = &position;

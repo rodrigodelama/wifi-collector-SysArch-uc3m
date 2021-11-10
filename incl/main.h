@@ -10,7 +10,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int main (int argc, char *argv[]);
+int main ();
 int ask_num(int min, int max, char message[]);
 void print_menu()
 {

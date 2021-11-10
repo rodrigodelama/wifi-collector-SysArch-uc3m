@@ -54,5 +54,6 @@ dkms.conf
 # Own additions
 # VSCode files, main file, and obj folder
 obj
-.vscode
 main
+.vscode
+/src/build
