@@ -1,46 +1,57 @@
+//Gorka Bernad - 100451457@alumnos.uc3m.es
+//Rodrigo De Lama - 100451775@alumnos.uc3m.es
+
+//All credit to the respective owner - Boni Garcia (@bonigarcia on GitHub)
+//Linked list file, based on Boni Garcia's "linked_list.c"
+//https://github.com/bonigarcia/c-examples/blob/master/dynamic_mem/linked_list.c
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/*
- * Node definition
- */
-typedef struct Node {
-    int data;
-    struct Node *next;
-} Node;
+#include "../incl/linked_list.h"
 
-/*
- * Create new node (using data as input)
- */
-Node* create_node(int data) {
+// Node definition in .h 
+
+//Create new node
+Node* create_node(int cell_n, char MAC_Address[], char ESSID[], char mode[], int channel,
+                  char encryption[], char quality[], char frequency[], char signal_lvl[])
+{
     Node *node = (Node*) malloc(sizeof(Node));
-    node->data = data;
+    node->cell_n = cell_n;
+    node->MAC_Address = MAC_Address;
+    node->ESSID = ESSID;
+    node->mode = mode;
+    node->channel = channel;
+    node->encryption = encryption;
+    node->quality = quality;
+    node->frequency = frequency;
+    node->signal_lvl = signal_lvl;
     node->next = NULL;
 
     return node;
 }
 
-/*
- * Insert Node at the beginning
- */
-void push(Node **head_ref, Node *new_node) {
+//Insert Node at the beginning
+void push(Node **head_ref, Node *new_node)
+{
     new_node->next = *head_ref;
     *head_ref = new_node;
 }
 
-/*
- * Insert Node at the end
- */
-void append(Node **head_ref, Node *new_node) {
+//Insert Node at the end
+void append(Node **head_ref, Node *new_node)
+{
     Node *last = *head_ref;
 
-    if (*head_ref == NULL) {
+    if (*head_ref == NULL)
+    {
         *head_ref = new_node;
         return;
     }
 
-    while (last->next != NULL) {
+    while (last->next != NULL)
+    {
         last = last->next;
     }
 
@@ -48,11 +59,11 @@ void append(Node **head_ref, Node *new_node) {
     return;
 }
 
-/*
- * Insert Node after a giving position
- */
-void insert_after(Node *prev_node, Node *new_node) {
-    if (prev_node == NULL) {
+//Insert Node after a giving position
+void insert_after(Node *prev_node, Node *new_node)
+{
+    if (prev_node == NULL)
+    {
         printf("The previous node cannot be NULL\n");
         return;
     }
@@ -61,20 +72,26 @@ void insert_after(Node *prev_node, Node *new_node) {
     prev_node->next = new_node;
 }
 
-/*
- * Print list content on the standard output.
- */
-void print_list(Node *head) {
-    while (head != NULL) {
-        printf(" %d", head->data);
+//Print list content on the standard output
+void print_list(Node *head)
+{
+    while (head != NULL)
+    {
+        printf(" %d", head->cell_n);
+        printf(" %d", head->MAC_Address);
+        printf(" %d", head->ESSID);
+        printf(" %d", head->mode);
+        printf(" %d", head->channel);
+        printf(" %d", head->encryption);
+        printf(" %d", head->quality);
+        printf(" %d", head->frequency);
+        printf(" %d", head->signal_lvl);
         head = head->next;
     }
     printf("\n");
 }
 
-/*
- * Delete list (free memory).
- */
+//Delete list (free memory)
 void clear_list(Node **head_ref) {
     Node *current = *head_ref;
     Node *next;
@@ -88,19 +105,20 @@ void clear_list(Node **head_ref) {
     *head_ref = NULL;
 }
 
-/*
- * Make a copy of a list.
- */
-Node* clone_list(Node *head) {
+//Make a copy of a list
+Node* clone_list(Node *head)
+{
     Node *current = head;
     Node *new_list = NULL;
     Node *tail = NULL;
 
-    while (current != NULL) {
+    while (current != NULL)
+    {
         Node *new_node = (Node*) malloc(sizeof(Node));
         memcpy(new_node, current, sizeof(Node));
 
-        if (new_list == NULL) {
+        if (new_list == NULL)
+        {
             push(&new_list, new_node);
             tail = new_list;
         } else {
@@ -113,99 +131,174 @@ Node* clone_list(Node *head) {
     return new_list;
 }
 
-/*
- * Swap nodes.
- */
-void swap(Node *a, Node *b) {
+//Swap nodes
+void swap(Node *a, Node *b)
+{
     Node tmp;
-    tmp.data = a->data;
-    a->data = b->data;
-    b->data = tmp.data;
+    //cell_n
+    tmp.cell_n = a->cell_n;
+    a->cell_n = b->cell_n;
+    b->cell_n = tmp.cell_n;
+    //MAC_Address
+    tmp.MAC_Address = a->MAC_Address;
+    a->MAC_Address = b->MAC_Address;
+    b->MAC_Address = tmp.MAC_Address;
+    //ESSID
+    tmp.ESSID = a->ESSID;
+    a->ESSID = b->ESSID;
+    b->ESSID = tmp.ESSID;
+    //mode
+    tmp.mode = a->mode;
+    a->mode = b->mode;
+    b->mode = tmp.mode;
+    //channel
+    tmp.channel = a->channel;
+    a->channel = b->channel;
+    b->channel = tmp.channel;
+    //encryption
+    tmp.encryption = a->encryption;
+    a->encryption = b->encryption;
+    b->encryption = tmp.encryption;
+    //quality
+    tmp.quality = a->quality;
+    a->quality = b->quality;
+    b->quality = tmp.quality;
+    //frequency
+    tmp.frequency = a->frequency;
+    a->frequency = b->frequency;
+    b->frequency = tmp.frequency;
+    //signal_lvl
+    tmp.signal_lvl = a->signal_lvl;
+    a->signal_lvl = b->signal_lvl;
+    b->signal_lvl = tmp.signal_lvl;
 }
 
-/*
- * Delete node by value.
- */
-void delete_node(Node **head_ref, int key) {
-    struct Node *tmp = *head_ref, *prev;
+//Delete node by value
 
-    if (tmp != NULL && tmp->data == key) {
+//USE char ESSID[] as our key
+//*head_ref is the pointer to our head node
+//use strcmp() to compare char arrays here
+
+void delete_node(Node **head_ref, int key, char ESSID[] /*ESSID is our key*/)
+{
+    Node *tmp = *head_ref, *prev;
+
+    //cell_n
+    if (tmp != NULL && tmp->cell_n == key)
+    {
         *head_ref = tmp->next;
         free(tmp);
         return;
     }
-
-    while (tmp != NULL && tmp->data != key) {
+    while (tmp != NULL && tmp->cell_n != key)
+    {
+        prev = tmp;
+        tmp = tmp->next;
+    }
+    //MAC_Address
+    if (tmp != NULL && tmp->MAC_Address == key)
+    {
+        *head_ref = tmp->next;
+        free(tmp);
+        return;
+    }
+    while (tmp != NULL && tmp->MAC_Address != key)
+    {
+        prev = tmp;
+        tmp = tmp->next;
+    }
+    //ESSID
+    if (tmp != NULL && tmp->ESSID == key)
+    {
+        *head_ref = tmp->next;
+        free(tmp);
+        return;
+    }
+    while (tmp != NULL && tmp->ESSID != key)
+    {
+        prev = tmp;
+        tmp = tmp->next;
+    }
+    //mode
+    if (tmp != NULL && tmp->mode == key)
+    {
+        *head_ref = tmp->next;
+        free(tmp);
+        return;
+    }
+    while (tmp != NULL && tmp->mode != key)
+    {
+        prev = tmp;
+        tmp = tmp->next;
+    }
+    //channel
+    if (tmp != NULL && tmp->channel == key)
+    {
+        *head_ref = tmp->next;
+        free(tmp);
+        return;
+    }
+    while (tmp != NULL && tmp->channel != key)
+    {
+        prev = tmp;
+        tmp = tmp->next;
+    }
+    //encryption
+    if (tmp != NULL && tmp->encryption == key)
+    {
+        *head_ref = tmp->next;
+        free(tmp);
+        return;
+    }
+    while (tmp != NULL && tmp->encryption != key)
+    {
+        prev = tmp;
+        tmp = tmp->next;
+    }
+    //quality
+    if (tmp != NULL && tmp->quality == key)
+    {
+        *head_ref = tmp->next;
+        free(tmp);
+        return;
+    }
+    while (tmp != NULL && tmp->quality != key)
+    {
+        prev = tmp;
+        tmp = tmp->next;
+    }
+    //frequency
+    if (tmp != NULL && tmp->frequency == key)
+    {
+        *head_ref = tmp->next;
+        free(tmp);
+        return;
+    }
+    while (tmp != NULL && tmp->frequency != key)
+    {
+        prev = tmp;
+        tmp = tmp->next;
+    }
+    //signal_lvl
+    if (tmp != NULL && tmp->signal_lvl == key)
+    {
+        *head_ref = tmp->next;
+        free(tmp);
+        return;
+    }
+    while (tmp != NULL && tmp->signal_lvl != key)
+    {
         prev = tmp;
         tmp = tmp->next;
     }
 
-    if (tmp == NULL) {
+    //
+    if (tmp == NULL)
+    {
         return;
     }
 
     prev->next = tmp->next;
 
     free(tmp);
-}
-
-int main() {
-    Node *head = NULL;
-
-    // Push 6
-    Node *node_6 = create_node(6);
-    push(&head, node_6);
-    printf("Insert 6 at the beginning. Linked list is:");
-    print_list(head);
-
-    // Push 7
-    Node *node_7 = create_node(7);
-    push(&head, node_7);
-    printf("Insert 7 at the beginning. Linked list is:");
-    print_list(head);
-
-    // Push 1
-    Node *node_1 = create_node(1);
-    push(&head, node_1);
-    printf("Insert 1 at the beginning. Linked list is:");
-    print_list(head);
-
-    // Delete 7
-    delete_node(&head, 7);
-    printf("Delete node with value 7. Linked list is:");
-    print_list(head);
-
-    // Append 4
-    Node *node_4 = create_node(4);
-    append(&head, node_4);
-    printf("Insert 4 at the end. Linked list is:");
-    print_list(head);
-
-    // Insert 8
-    Node *node_8 = create_node(8);
-    insert_after(head->next, node_8);
-    printf("Insert 8 after second node. Linked list is:");
-    print_list(head);
-
-    // Swap nodes 8 and 1
-    swap(node_8, node_1);
-    printf("Swapping 8 and 1. Linked list is:");
-    print_list(head);
-
-    // Copy list
-    Node *head_copy = clone_list(head);
-    printf("Copy of linked list:");
-    print_list(head_copy);
-
-    // Delete original list
-    clear_list(&head);
-    printf("Original linked list after deleting:");
-    print_list(head);
-
-    // Delete copied list
-    clear_list(&head_copy);
-    printf("Copy of linked list after deleting:");
-    print_list(head_copy);
-
-    return 0;
 }

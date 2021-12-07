@@ -13,6 +13,7 @@
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
 #include "../incl/delete_net.h"
+#include "../incl/linked_list.h"
 
 int main ()
 {
@@ -22,6 +23,10 @@ int main ()
 	//Initially clean the console
 	system("clear");
    
+	//Initialize our Linked List
+	//cells shall be the name of our list once again
+	Node head;
+
    	//initiallizing our dynamic array
 	head = (cell_list)malloc(sizeof(cell_list)); //calloc() makes a mem allocation w all 0's
 	
