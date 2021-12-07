@@ -12,12 +12,12 @@ cell_list delete_net(cell_list head)
 {
    printf("\nIndicate the ESSID (use \"\"): ");
 		char net[MAX_STRING_SIZE];
-	   scanf("%s", net);
+	   scanf("%s", net); //net is the name of the ESSID we want to find in the list
 
    int counter = num_cell_ND;
    
    struct cell *ptr;
-   if( head != NULL && strcmp(net, (*head).ESSID) == 0)
+   if(head != NULL && strcmp(net, (*head).ESSID) == 0)
    {
       struct cell *tmp = head->next;
       free(head);
@@ -26,15 +26,15 @@ cell_list delete_net(cell_list head)
 
    int i = 0;
 
-   for(ptr = head; ptr != NULL; ptr =ptr->next)
-   {  i++;
+   for(ptr = head; ptr != NULL; ptr = ptr->next)
+   { 
+      i++;
       if(strcmp(net, (*ptr).next->ESSID) == 0)
       { 
          printf("Found ESSID %s at position %d\n\n", net, i);
          free(ptr);
 
          //the double for is used in case there are multiple hits for the desired ESSID to be deleted
-         
 
          num_cell_ND--;
       }

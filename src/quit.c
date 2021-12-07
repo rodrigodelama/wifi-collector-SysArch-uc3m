@@ -7,9 +7,9 @@
 
 #include "../incl/quit.h"
 
-void quit (char result)
+void quit(char result)
 {
-    switch (result)
+    switch(result)
     {
     	case 'y':
     	case 'Y': //No need to repeat sys exit or break on both y and Y

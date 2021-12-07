@@ -26,7 +26,7 @@ typedef struct cell
     char signal_lvl[LINE_SIZE];
     struct cell *next;
 
-}*cell_list;
+} *cell_list;
 
 cell_list head;
 

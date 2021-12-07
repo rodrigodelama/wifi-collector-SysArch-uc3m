@@ -15,20 +15,14 @@
 #include "../incl/delete_net.h"
 #include "../incl/linked_list.h"
 
-int main ()
+int main()
 {
-	//position = 0;
-	//int *ptr = &position;
-
 	//Initially clean the console
 	system("clear");
    
 	//Initialize our Linked List
-	//cells shall be the name of our list once again
-	Node head;
-
-   	//initiallizing our dynamic array
-	head = (cell_list)malloc(sizeof(cell_list)); //calloc() makes a mem allocation w all 0's
+	//head is the first node of our list
+	head = (cell_list) malloc(sizeof(cell_list)); //calloc() makes a mem allocation w all 0's
 	
 	do
 	{
@@ -114,11 +108,14 @@ int main ()
 				break;
         }
 	} while(1); //while true
+
 	struct cell *ptr = head;
-	while(ptr != NULL){
-	ptr = head->next;	
-	free(head);
-	head = ptr;
+	while(ptr != NULL)
+	{
+		ptr = head->next;	
+		free(head);
+		head = ptr;
 	}
+	
    	return 0;
 }
