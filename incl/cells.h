@@ -26,18 +26,18 @@ typedef struct cell
     char signal_lvl[LINE_SIZE];
     struct cell *next;
 
-} *cell_list;
+} *node;
 
-cell_list head;
+node head;
 
 int num_cell_ND;
 
-cell_list insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
+node insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
-                     cell_list head);
-void display_ind_cell(cell_list head);
-void display_all(cell_list head);
+                     node head);
+void display_ind_cell(node head);
+void display_all(node head);
 
 int ask_num(int min, int max, char message[]);
 

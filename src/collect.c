@@ -7,6 +7,7 @@
 #include <string.h>
 
 #include "../incl/cells.h"
+#include "../incl/linked_list.h"
 #include "../incl/dependencies.h"
 
 int ask_num(int min, int max, char message[])
@@ -34,7 +35,7 @@ int ask_num(int min, int max, char message[])
     return option;
 }
 
-cell_list cells_read(char filename[], cell_list head)
+node cells_read(char filename[], node head)
 {
 	FILE *of;
 
@@ -67,7 +68,7 @@ cell_list cells_read(char filename[], cell_list head)
     return head;
 }
 
-cell_list collect_data(cell_list head)
+node collect_data(node head)
 {
     int selection = ask_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 

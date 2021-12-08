@@ -12,10 +12,10 @@
 #include "../incl/dependencies.h"
 //#include "../incl/main.h"
 
-cell_list insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
+node insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
-                     cell_list head)
+                     node head)
 {
     //this is for the next node after head
     if(head != NULL)
@@ -51,7 +51,7 @@ cell_list insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LI
 }
 
 //Display option meant to print data from the requested, or all cells onto the commandline
-void display_ind_cell(cell_list head)
+void display_ind_cell(node head)
 {
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
     struct cell *ptr;
@@ -94,7 +94,7 @@ void display_ind_cell(cell_list head)
 }   
 
 //Display option to print all data saved
-void display_all(cell_list head)
+void display_all(node head)
 {    
     struct cell *ptr;
     for (ptr = head; ptr != NULL; ptr = ptr->next)

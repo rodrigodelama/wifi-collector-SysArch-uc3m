@@ -8,7 +8,7 @@
 
 #include"../incl/cells.h"
 
-cell_list delete_net(cell_list head)
+node delete_net(node head)
 {
    printf("\nIndicate the ESSID (use \"\"): ");
 		char net[MAX_STRING_SIZE];

@@ -22,7 +22,7 @@ int main()
    
 	//Initialize our Linked List
 	//head is the first node of our list
-	head = (cell_list) malloc(sizeof(cell_list)); //calloc() makes a mem allocation w all 0's
+	head = (node) malloc(sizeof(node)); //calloc() makes a mem allocation w all 0's
 	
 	do
 	{

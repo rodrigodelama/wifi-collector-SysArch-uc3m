@@ -12,8 +12,8 @@
 #ifndef COLLECT_H
 #define COLLECT_H
 
-cell_list collect_data(cell_list head);
-void cells_read(char filename[], cell_list head);
+node collect_data(node head);
+void cells_read(char filename[], node head);
 int ask_cell_num(int min, int max, char message[]);
 
 #endif
