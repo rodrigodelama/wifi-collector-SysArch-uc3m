@@ -17,31 +17,34 @@ cell_list insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LI
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
                      cell_list head)
 {
-    if( head != NULL){
+    //this is for the next node after head
+    if(head != NULL)
+    {
         struct cell *new_cell;
         new_cell = (struct cell*)malloc(sizeof(struct cell*));
         new_cell->next = head;
         head = new_cell;
     }
-    (*head).cell_n = cell_n;
-    strcpy((*head).MAC_Address, MAC_Address);
-    strcpy((*head).ESSID, ESSID);
-    strcpy((*head).mode, mode);
-    (*head).channel = channel;
-    strcpy((*head).encryption, encryption);
-    strcpy((*head).quality, quality);
-    strcpy((*head).frequency, frequency);
-    strcpy((*head).signal_lvl, signal_lvl);
+
+    head->cell_n = cell_n;
+    strcpy(head->MAC_Address, MAC_Address);
+    strcpy(head->ESSID, ESSID);
+    strcpy(head->mode, mode);
+    head->channel = channel;
+    strcpy(head->encryption, encryption);
+    strcpy(head->quality, quality);
+    strcpy(head->frequency, frequency);
+    strcpy(head->signal_lvl, signal_lvl);
     
     //printf("\n  %d", position); //debugging
 
-    printf("\nData read from info_cell_%d.txt (added to position %d of the array)", cell_n, num_cell_ND);
+    printf("\nData read from info_cell_%d.txt (added to position %d of the list)", cell_n, num_cell_ND);
     printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
-            (*head).cell_n, (*head).MAC_Address,
-            (*head).ESSID, (*head).mode,
-            (*head).channel, (*head).encryption,
-            (*head).quality, (*head).frequency,
-            (*head).signal_lvl);
+            head->cell_n, head->MAC_Address,
+            head->ESSID, head->mode,
+            head->channel, head->encryption,
+            head->quality, head->frequency,
+            head->signal_lvl);
     num_cell_ND++;
     
     return head;
@@ -64,14 +67,14 @@ void display_ind_cell(cell_list head)
             break;
         }
         else */
-        if ((*ptr).cell_n == num_cell_to_display)
+        if (ptr->cell_n == num_cell_to_display)
         {
             printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
-                (*ptr).cell_n, (*ptr).MAC_Address,
-                (*ptr).ESSID, (*ptr).mode,
-                (*ptr).channel, (*ptr).encryption,
-                (*ptr).quality, (*ptr).frequency,
-                (*ptr).signal_lvl);
+                ptr->cell_n, ptr->MAC_Address,
+                ptr->ESSID, ptr->mode,
+                ptr->channel, ptr->encryption,
+                ptr->quality, ptr->frequency,
+                ptr->signal_lvl);
         }        
     }
 
@@ -97,10 +100,10 @@ void display_all(cell_list head)
     for (ptr = head; ptr != NULL; ptr = ptr->next)
     {
         printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
-                (*ptr).cell_n, (*ptr).MAC_Address,
-                (*ptr).ESSID, (*ptr).mode,
-                (*ptr).channel, (*ptr).encryption,
-                (*ptr).quality, (*ptr).frequency,
-                (*ptr).signal_lvl);
+                ptr->cell_n, ptr->MAC_Address,
+                ptr->ESSID, ptr->mode,
+                ptr->channel, ptr->encryption,
+                ptr->quality, ptr->frequency,
+                ptr->signal_lvl);
     }   
 }

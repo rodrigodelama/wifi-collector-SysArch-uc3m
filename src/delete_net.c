@@ -17,7 +17,7 @@ cell_list delete_net(cell_list head)
    int counter = num_cell_ND;
    
    struct cell *ptr;
-   if(head != NULL && strcmp(net, (*head).ESSID) == 0)
+   if(head != NULL && strcmp(net, head->ESSID) == 0)
    {
       struct cell *tmp = head->next;
       free(head);

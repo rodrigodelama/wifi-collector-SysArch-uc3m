@@ -16,7 +16,7 @@
 //Create new node
 Node *create_node(int cell_n, char MAC_Address[], char ESSID[], char mode[], int channel,
                   char encryption[], char quality[], char frequency[], char signal_lvl[])
-{
+{   
     Node *node = (Node*) malloc(sizeof(Node));
     node->cell_n = cell_n;
     node->MAC_Address = MAC_Address;
