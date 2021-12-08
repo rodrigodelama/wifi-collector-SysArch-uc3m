@@ -41,7 +41,7 @@ int main()
 
 			//Collects data from text files
 	   		case 2:
-				head = (cell_list) collect_data(head);
+				head = collect_data(head);
 				break;
 	   
 	   		case 3:

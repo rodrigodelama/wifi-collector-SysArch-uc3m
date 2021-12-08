@@ -12,7 +12,7 @@
 #ifndef COLLECT_H
 #define COLLECT_H
 
-int collect_data(cell_list head);
+cell_list collect_data(cell_list head);
 void cells_read(char filename[], cell_list head);
 int ask_cell_num(int min, int max, char message[]);
 
