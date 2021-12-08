@@ -13,7 +13,7 @@
 
 #include "../incl/dependencies.h"
 
-typedef struct cell_st
+typedef struct cell
 {
     int cell_n;
     char MAC_Address[LINE_SIZE];
@@ -24,28 +24,20 @@ typedef struct cell_st
     char quality[LINE_SIZE];
     char frequency[LINE_SIZE];
     char signal_lvl[LINE_SIZE];
-} cell;
-
-<<<<<<< Updated upstream
-=======
     struct cell *next;
-};
 
-typedef struct cell *cell_list;
->>>>>>> Stashed changes
-//560 bytes bc size of 7*LINE_SIZE + 8 bytes, 4 for each int
+}*cell_list;
 
-//creating our dynamic array of structs
-cell *cells;
+cell_list head;
 
-int position;
+int num_cell_ND;
 
-void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
+cell_list insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
-                     cell **cells);
-void display_ind_cell(cell **cells);
-void display_all(cell **cells);
+                     cell_list head);
+void display_ind_cell(cell_list head);
+void display_all(cell_list head);
 
 int ask_num(int min, int max, char message[]);
 

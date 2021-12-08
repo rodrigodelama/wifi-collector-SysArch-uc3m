@@ -34,7 +34,7 @@ int ask_num(int min, int max, char message[])
     return option;
 }
 
-void cells_read(char filename[], cell **head)
+void cells_read(char filename[], cell_list head)
 {
 	FILE *of;
 
@@ -65,7 +65,7 @@ void cells_read(char filename[], cell **head)
     }
 }
 
-void collect_data(cell **head)
+void collect_data(cell_list head)
 {
     int selection = ask_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 

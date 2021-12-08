@@ -11,6 +11,6 @@
 
 #include"../incl/cells.h"
 
-void delete_net(cell **cells);
+cell_list delete_net(cell_list head);
 
 #endif

@@ -23,7 +23,7 @@ int main ()
 	system("clear");
    
    	//initiallizing our dynamic array
-	cells = (cell*) calloc(INIT_SIZE, sizeof(cell)); //calloc() makes a mem allocation w all 0's
+	head = (cell_list)malloc(sizeof(cell_list)); //calloc() makes a mem allocation w all 0's
 	
 	do
 	{
@@ -42,7 +42,7 @@ int main ()
 
 			//Collects data from text files
 	   		case 2:
-				collect_data(&cells);
+				collect_data(head);
 				break;
 	   
 	   		case 3:
@@ -62,7 +62,7 @@ int main ()
 				break;
 	   
 	   		case 5:
-				delete_net(&cells);
+				delete_net(head);
 				break;
 	   		case 6:
 			   	//To be implemented in later versions
@@ -91,13 +91,13 @@ int main ()
 			//Displays only the desired cells by the user
 	   		case 9:
 				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-				display_ind_cell(&cells);
+				display_ind_cell(head);
 				system("clear");
 			   	break;
 
 			//Displays all scanned data
 	   		case 10:
-			   	display_all(&cells);
+			   	display_all(head);
 				printf("\n\nPress any key to return to the main menu: ");
 					getchar(); //to grab enter
 				system("clear");
@@ -109,7 +109,11 @@ int main ()
 				break;
         }
 	} while(1); //while true
-
-	free(cells);
+	struct cell *ptr = head;
+	while(ptr != NULL){
+	ptr = head->next;	
+	free(head);
+	head = ptr;
+	}
    	return 0;
 }
