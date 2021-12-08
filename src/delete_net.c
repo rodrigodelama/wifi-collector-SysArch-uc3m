@@ -30,12 +30,12 @@ cell_list delete_net(cell_list head)
    { 
       i++;
       if(strcmp(net, (*ptr).next->ESSID) == 0)
-      { 
+      {
+         struct cell *tmpb = ptr->next->next;
          printf("Found ESSID %s at position %d\n\n", net, i);
-         free(ptr);
-
+         free(ptr->next);
+         ptr->next = tmpb;
          //the double for is used in case there are multiple hits for the desired ESSID to be deleted
-
          num_cell_ND--;
       }
       
@@ -69,4 +69,5 @@ cell_list delete_net(cell_list head)
    /*
    extra comfort code to be completed on next submission
    */
+   return head;
 }
