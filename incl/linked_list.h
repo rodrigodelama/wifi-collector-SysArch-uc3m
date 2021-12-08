@@ -4,6 +4,8 @@
 //Linked List
 //All credit to the respective owner - Boni Garcia (@bonigarcia on GitHub)
 
+#include "../incl/dependencies.h"
+
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
@@ -22,7 +24,8 @@ typedef struct Node {
 } Node;
 
 //Create new node (using data as input)
-Node* create_node(int data);
+Node *create_node(int cell_n, char MAC_Address[], char ESSID[], char mode[], int channel,
+                  char encryption[], char quality[], char frequency[], char signal_lvl[]);
 //Insert Node at the beginning
 void push(Node **head_ref, Node *new_node);
 //Insert Node at the end
@@ -38,6 +41,6 @@ Node* clone_list(Node *head);
 //Swap nodes
 void swap(Node *a, Node *b);
 //Delete node by value
-void delete_node(Node **head_ref, int key);
+void delete_node(Node **head_ref, int key, char ESSID[] /*ESSID is our key*/);
 
 #endif

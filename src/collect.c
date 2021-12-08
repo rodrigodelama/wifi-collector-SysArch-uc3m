@@ -88,7 +88,8 @@ void collect_data(cell_list head)
     	case 'y': //you dont need to repeat the sys exit or break
     	case 'Y':
             collect_data(head);
-
+        break;
+        
     	case 'n':
     	case 'N':
             system("clear");
