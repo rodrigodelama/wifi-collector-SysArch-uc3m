@@ -34,7 +34,7 @@ int ask_num(int min, int max, char message[])
     return option;
 }
 
-void cells_read(char filename[], cell **cells)
+void cells_read(char filename[], cell **head)
 {
 	FILE *of;
 
@@ -59,18 +59,13 @@ void cells_read(char filename[], cell **cells)
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
-	        if(position != 0 && position % INIT_SIZE == 0)
-            {
-                printf("\n(Allocated another 5 positions to the Dynamic Array)\n");
-                *cells = (cell*) realloc(*cells, (position + INIT_SIZE)*sizeof(cell)); //mem address, data to realloc
-            }
-            insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, cells);
+	        insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, head);
         }
         fclose(of);
     }
 }
 
-void collect_data(cell **cells)
+void collect_data(cell **head)
 {
     int selection = ask_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
@@ -84,7 +79,7 @@ void collect_data(cell **cells)
     strcat(filename, cell_n);
     strcat(filename, ".txt");
 
-    cells_read(filename, cells);
+    cells_read(filename, head);
 
     printf("\nDo you want to add another access point? [y/n]: ");
 				char result = getchar();
@@ -92,7 +87,7 @@ void collect_data(cell **cells)
     {
     	case 'y': //you dont need to repeat the sys exit or break
     	case 'Y':
-            collect_data(cells);
+            collect_data(head);
 
     	case 'n':
     	case 'N':

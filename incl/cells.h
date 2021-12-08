@@ -26,6 +26,13 @@ typedef struct cell_st
     char signal_lvl[LINE_SIZE];
 } cell;
 
+<<<<<<< Updated upstream
+=======
+    struct cell *next;
+};
+
+typedef struct cell *cell_list;
+>>>>>>> Stashed changes
 //560 bytes bc size of 7*LINE_SIZE + 8 bytes, 4 for each int
 
 //creating our dynamic array of structs
