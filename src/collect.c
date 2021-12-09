@@ -35,7 +35,7 @@ int ask_num(int min, int max, char message[])
     return option;
 }
 
-node cells_read(char filename[], node head)
+Node *cells_read(char filename[], Node *head)
 {
 	FILE *of;
 
@@ -60,7 +60,7 @@ node cells_read(char filename[], node head)
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
-	        head = insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, head);
+	        head = insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl);
         }
         fclose(of);
     }
@@ -68,7 +68,7 @@ node cells_read(char filename[], node head)
     return head;
 }
 
-node collect_data(node head)
+Node *collect_data(Node *head)
 {
     int selection = ask_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 

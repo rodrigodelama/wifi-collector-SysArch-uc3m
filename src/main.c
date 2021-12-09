@@ -22,7 +22,8 @@ int main()
    
 	//Initialize our Linked List
 	//head is the first node of our list
-	head = (node) malloc(sizeof(node)); //calloc() makes a mem allocation w all 0's
+	head = (Node*) malloc(sizeof(Node));
+	next = (Node*) malloc(sizeof(Node));
 	
 	do
 	{
@@ -41,7 +42,7 @@ int main()
 
 			//Collects data from text files
 	   		case 2:
-				head = collect_data(head);
+				head = (Node*) collect_data(&head);
 				break;
 	   
 	   		case 3:

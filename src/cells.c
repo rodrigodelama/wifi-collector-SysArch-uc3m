@@ -10,48 +10,43 @@
 #include "../incl/cells.h"
 #include "../incl/collect.h"
 #include "../incl/dependencies.h"
+#include "../incl/linked_list.h"
 //#include "../incl/main.h"
 
-node insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
+Node *insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
-                     char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE],
-                     node head)
+                     char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE])
 {
-    //this is for the next node after head
-    if(head != NULL)
-    {
-        struct cell *new_cell;
-        new_cell = (struct cell*)malloc(sizeof(struct cell*));
-        new_cell->next = head;
-        head = new_cell;
-    }
+    Node *node = (Node*) malloc(sizeof(Node));
+    node->cell_n = cell_n;
+    strcpy(node->MAC_Address, MAC_Address);
+    strcpy(node->ESSID, ESSID);
+    strcpy(node->mode, mode);
+    node->channel = channel;
+    strcpy(node->encryption, encryption);
+    strcpy(node->quality, quality);
+    strcpy(node->frequency, frequency);
+    strcpy(node->signal_lvl, signal_lvl);
+    node->next = NULL;
 
-    head->cell_n = cell_n;
-    strcpy(head->MAC_Address, MAC_Address);
-    strcpy(head->ESSID, ESSID);
-    strcpy(head->mode, mode);
-    head->channel = channel;
-    strcpy(head->encryption, encryption);
-    strcpy(head->quality, quality);
-    strcpy(head->frequency, frequency);
-    strcpy(head->signal_lvl, signal_lvl);
+    return node;
     
     //printf("\n  %d", position); //debugging
 
     printf("\nData read from info_cell_%d.txt (added to position %d of the list)", cell_n, num_cell_ND);
     printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
-            head->cell_n, head->MAC_Address,
-            head->ESSID, head->mode,
-            head->channel, head->encryption,
-            head->quality, head->frequency,
-            head->signal_lvl);
+            node->cell_n, node->MAC_Address,
+            node->ESSID, node->mode,
+            node->channel, node->encryption,
+            node->quality, node->frequency,
+            node->signal_lvl);
     num_cell_ND++;
     
-    return head;
+    return node;
 }
 
 //Display option meant to print data from the requested, or all cells onto the commandline
-void display_ind_cell(node head)
+void display_ind_cell(Node *head)
 {
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
     struct cell *ptr;
@@ -94,7 +89,7 @@ void display_ind_cell(node head)
 }   
 
 //Display option to print all data saved
-void display_all(node head)
+void display_all(Node *head)
 {    
     struct cell *ptr;
     for (ptr = head; ptr != NULL; ptr = ptr->next)
