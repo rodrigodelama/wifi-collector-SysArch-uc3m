@@ -26,7 +26,7 @@ cell_list insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LI
         head = new_cell;
     }
 
-    head->cell_n = cell_n;
+    (*head).cell_n = cell_n;
     strcpy(head->MAC_Address, MAC_Address);
     strcpy(head->ESSID, ESSID);
     strcpy(head->mode, mode);
@@ -55,7 +55,7 @@ void display_ind_cell(cell_list head)
 {
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
     struct cell *ptr;
-    for (ptr = head; ptr != NULL; ptr = ptr->next)
+    for (ptr = head; ptr != NULL; ptr = (*ptr).next)
     {    
         /*
         comfort code to be implemented later
