@@ -13,38 +13,9 @@
 
 Node *head = NULL;
 
-void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
-                     char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
-                     char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE])
-{
-
-    head->data.cell_n = cell_n;
-    strcpy(head->data.MAC_Address, MAC_Address);
-    strcpy(head->data.ESSID, ESSID);
-    strcpy(head->data.mode, mode);
-    head->data.channel = channel;
-    strcpy(head->data.encryption, encryption);
-    strcpy(head->data.quality, quality);
-    strcpy(head->data.frequency, frequency);
-    strcpy(head->data.signal_lvl, signal_lvl);
-    
-    //printf("\n  %d", position); //debugging
-
-    printf("\nData read from info_cell_%d.txt (added to position %d of the list)", cell_n, num_cell_ND);
-    printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
-            head->data.cell_n, head->data.MAC_Address,
-            head->data.ESSID, head->data.mode,
-            head->data.channel, head->data.encryption,
-            head->data.quality, head->data.frequency,
-            head->data.signal_lvl);
-    num_cell_ND++;
-    
-}
-
 //Display option meant to print data from the requested, or all cells onto the commandline
 void display_ind_cell()
 {
-    
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
     Node *ptr;
     for (ptr = head; ptr != NULL; ptr = (*ptr).next)

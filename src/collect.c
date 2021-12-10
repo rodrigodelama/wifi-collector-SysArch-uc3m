@@ -37,9 +37,9 @@ int ask_num(int min, int max, char message[])
 void cells_read(char filename[])
 {
     extern Node *head;
+    cell aux;
     
 	FILE *of;
-    cell aux;
 	of = fopen(filename,"r");
 
     if (of == NULL)
@@ -57,16 +57,20 @@ void cells_read(char filename[])
                 exit_cond = 0;
             }
 
-            printf("\nData read from info_cell_%d.txt (added to position %d of the list)", aux.cell_n, num_cell_ND);
-            printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
-                aux.cell_n, aux.MAC_Address,
-                aux.ESSID, aux.mode,
-                aux.channel, aux.encryption,
-                aux.quality, aux.frequency,
-                aux.signal_lvl);
+            //avoids double reading the last cell entry
+            if (exit_cond != 0)
+            {
+                printf("\nData read from info_cell_%d.txt (added to position %d of the list)", aux.cell_n, num_cell_ND);
+                printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
+                    aux.cell_n, aux.MAC_Address,
+                    aux.ESSID, aux.mode,
+                    aux.channel, aux.encryption,
+                    aux.quality, aux.frequency,
+                    aux.signal_lvl);
 
-            Node *new_node = create_node(aux);
-            append(&head, new_node);
+                Node *new_node = create_node(aux);
+                append(&head, new_node);
+            }
         } while (exit_cond == 1);
         
         fclose(of);
