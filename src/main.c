@@ -105,17 +105,8 @@ int main()
         }
 	} while(1); //while true
 
-/**
- * @brief 
-	struct cell *ptr = head;
-	while(ptr != NULL)
-	{
-		ptr = head->next;	
-		free(head);
-		head = ptr;
-	}
- * 
- */
-	
+	extern Node *head;
+	clear_list(&head);
+
    	return 0;
 }

@@ -1,0 +1,6 @@
+makefile
+
+//TODO: save .o files to temp obj folder, compile from that folder and then delete it
+//TODO: change output name to wifi-collector
+//TODO: delete_net.o:
+//TODO:	gcc -Wall -Wextra -Wpedantic -c -g src/delete_net.c

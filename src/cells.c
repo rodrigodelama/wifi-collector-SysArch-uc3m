@@ -21,10 +21,7 @@ void display_ind_cell()
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
     Node *ptr;
     for (ptr = head; ptr != NULL; ptr = (*ptr).next)
-    {    
-        /*
-        comfort code to be implemented later
-        */      
+    { 
         if (ptr->data.cell_n == num_cell_to_display)
         {
             printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
@@ -33,9 +30,7 @@ void display_ind_cell()
                 ptr->data.channel, ptr->data.encryption,
                 ptr->data.quality, ptr->data.frequency,
                 ptr->data.signal_lvl);
-        }
-        else
-        {
+        } else {
             printf("\nThis cell has not been recorded yet, please try another cell number");
             sleep(2);
             break;

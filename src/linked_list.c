@@ -44,9 +44,7 @@ void append(Node **head, Node *new_node)
 }
 
 /**
- * @brief 
- * 
- * @param head 
+ 
 //Print list content on the standard output
 void print_list(Node *head)
 {
@@ -65,8 +63,8 @@ void print_list(Node *head)
     }
     printf("\n");
 }
- */
 
+ */
 
 //Delete list (free memory)
 void clear_list(Node **head_ref) {
