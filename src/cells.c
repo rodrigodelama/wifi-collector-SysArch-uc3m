@@ -11,9 +11,11 @@
 #include "../incl/collect.h"
 #include "../incl/dependencies.h"
 
+//Initialize our Linked List
+//head is the first node of our list
 Node *head = NULL;
 
-//Display option meant to print data from the requested, or all cells onto the commandline
+//Prints data from the requested cell
 void display_ind_cell()
 {
     int num_cell_to_display = ask_num(1, 21, " "); //registration of the cell to display
@@ -22,14 +24,7 @@ void display_ind_cell()
     {    
         /*
         comfort code to be implemented later
-
-        if (cells[num_cell_to_display] == NULL)
-        {
-            printf("This cell has not been recorded yet, please try another cell number");
-            sleep(2);
-            break;
-        }
-        else */
+        */      
         if (ptr->data.cell_n == num_cell_to_display)
         {
             printf("\nCell %d: %s %s %s %d %s %s %s000 %s", 
@@ -38,7 +33,13 @@ void display_ind_cell()
                 ptr->data.channel, ptr->data.encryption,
                 ptr->data.quality, ptr->data.frequency,
                 ptr->data.signal_lvl);
-        }        
+        }
+        else
+        {
+            printf("\nThis cell has not been recorded yet, please try another cell number");
+            sleep(2);
+            break;
+        }
     }
 
     printf("\n\nDo you want to read another collection of cells? [y/n]: ");
@@ -56,7 +57,7 @@ void display_ind_cell()
     }
 }   
 
-//Display option to print all data saved
+//Prints all saved cells
 void display_all()
 {    
     Node *ptr;

@@ -19,10 +19,6 @@ int main()
 {
 	//Initially clean the console
 	system("clear");
-   
-	//Initialize our Linked List
-	//head is the first node of our list
-	
 	
 	do
 	{

@@ -36,6 +36,7 @@ int ask_num(int min, int max, char message[])
 
 void cells_read(char filename[])
 {
+    //import head from cells.c
     extern Node *head;
     cell aux;
     
@@ -51,11 +52,10 @@ void cells_read(char filename[])
         int exit_cond = 1;
         do
         {
+            //adds atributes to aux cell
             if (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                         &aux.cell_n, aux.MAC_Address, aux.ESSID, aux.mode, &aux.channel, aux.encryption, aux.quality, aux.frequency, aux.signal_lvl) == EOF)
-            {
-                exit_cond = 0;
-            }
+            { exit_cond = 0; }
 
             //avoids double reading the last cell entry
             if (exit_cond != 0)
