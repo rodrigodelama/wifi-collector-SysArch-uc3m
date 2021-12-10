@@ -13,7 +13,8 @@
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
 
-Node *deleted = NULL;
+//Node *deleted = NULL;
+//Node *prev = NULL;
 
 // Node definition in cells.h 
 
@@ -80,24 +81,35 @@ void delete_node(Node **head, char ESSID[])
 
     Node *tmp = *head, *prev;
     //ESSID
+    //deletes first element
     if (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 0)
     {
         *head = tmp->next;
-        pos_count++;
         free(tmp);
-        return;
-    }
-    while (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) != 0)
-    {
-        append(&deleted, tmp);
-        prev = tmp;
-        tmp = tmp->next;
-        
-        printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, pos_count);
-        //printf("\nClearing the screen in 3 seconds..."); //FIXME: does not print
+
+        printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, 0);
         sleep(3);
         system("clear");
+
+        return;
     }
+    //deletes any other element
+    while (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) != 0)
+    {
+        pos_count++;
+
+        prev = tmp;
+        //append(&deleted, tmp);
+        tmp = tmp->next;
+        
+        if (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 0)
+        {
+            printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, pos_count);
+            sleep(3);
+            system("clear");
+        }
+    }
+
     if (tmp == NULL)
     {
         printf("No such ESSID found\n\nDo you want to delete another ESSID? [y/n]: ");

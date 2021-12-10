@@ -12,7 +12,7 @@
 #include "../incl/collect.h"
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
-#include "../incl/delete_net.h"
+//#include "../incl/delete_net.h"
 #include "../incl/linked_list.h"
 
 int main()
@@ -106,9 +106,9 @@ int main()
 	} while(1); //while true
 
 	extern Node *head;
-	extern Node *deleted;
+	//extern Node *deleted;
 	clear_list(&head);
-	clear_list(&deleted);
+	//clear_list(&deleted);
 
    	return 0;
 }
