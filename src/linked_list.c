@@ -57,13 +57,10 @@ void clear_list(Node **head) {
     *head = NULL;
 }
 
-//Delete node by value
-
-//USE char ESSID[] as our key
-//*head_ref is the pointer to our head node
+//Delete node by ESSID[]
 //use strcmp() to compare char arrays here
-
-void delete_node(Node **head, char ESSID[] /*ESSID is our key*/)
+// 0 means match, != 0 means not same
+void delete_node(Node **head, char ESSID[])
 {
     int pos_count = 0;
 
@@ -71,6 +68,7 @@ void delete_node(Node **head, char ESSID[] /*ESSID is our key*/)
     //ESSID
     if (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 0)
     {
+        //FIXME: message is not displaying
         printf("Found ESSID %s at position %d\n\n", ESSID, pos_count);
         sleep(3);
         *head = tmp->next;
