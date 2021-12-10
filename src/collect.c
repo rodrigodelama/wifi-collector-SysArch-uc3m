@@ -34,20 +34,12 @@ int ask_num(int min, int max, char message[])
     return option;
 }
 
-cell_list cells_read(char filename[], cell_list head)
+void cells_read(char filename[])
 {
+    extern Node *head;
+    
 	FILE *of;
-
-	int cell_n;
-    char MAC_Address[LINE_SIZE];
-    char ESSID[LINE_SIZE];
-    char mode[LINE_SIZE];
-    int channel;
-    char encryption[LINE_SIZE];
-    char quality[LINE_SIZE];
-    char frequency[LINE_SIZE];
-    char signal_lvl[LINE_SIZE];
-
+    cell aux;
 	of = fopen(filename,"r");
 
     if (of == NULL)
@@ -56,18 +48,32 @@ cell_list cells_read(char filename[], cell_list head)
 	}
     else
     {
-        while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
-                      &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
+        int exit_cond = 1;
+        do
         {
-	        head = insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, head);
-        }
+            if (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
+                        &aux.cell_n, aux.MAC_Address, aux.ESSID, aux.mode, &aux.channel, aux.encryption, aux.quality, aux.frequency, aux.signal_lvl) == EOF)
+            {
+                exit_cond = 0;
+            }
+
+            printf("\nData read from info_cell_%d.txt (added to position %d of the list)", aux.cell_n, num_cell_ND);
+            printf("\nCell %d: %s %s %s %d %s %s %s000 %s\n", 
+                aux.cell_n, aux.MAC_Address,
+                aux.ESSID, aux.mode,
+                aux.channel, aux.encryption,
+                aux.quality, aux.frequency,
+                aux.signal_lvl);
+
+            Node *new_node = create_node(aux);
+            append(&head, new_node);
+        } while (exit_cond == 1);
+        
         fclose(of);
     }
-
-    return head;
 }
 
-cell_list collect_data(cell_list head)
+void collect_data()
 {
     int selection = ask_num(1, 21, "\nWhat cell do you want to collect? (1-21): ");
 
@@ -81,7 +87,7 @@ cell_list collect_data(cell_list head)
     strcat(filename, cell_n);
     strcat(filename, ".txt");
 
-    head = cells_read(filename, head);
+    cells_read(filename);
 
     printf("\nDo you want to add another access point? [y/n]: ");
 				char result = getchar();
@@ -89,7 +95,7 @@ cell_list collect_data(cell_list head)
     {
     	case 'y': //you dont need to repeat the sys exit or break
     	case 'Y':
-            collect_data(head);
+            collect_data();
         break;
         
     	case 'n':
@@ -103,5 +109,4 @@ cell_list collect_data(cell_list head)
     	break;
     }
 
-    return head;
 }   

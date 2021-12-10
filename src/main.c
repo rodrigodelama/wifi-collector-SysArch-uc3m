@@ -22,8 +22,7 @@ int main()
    
 	//Initialize our Linked List
 	//head is the first node of our list
-	head = (struct cell*) malloc(sizeof(struct cell*)); //calloc() makes a mem allocation w all 0's
-	head->next = NULL;
+	
 	
 	do
 	{
@@ -42,7 +41,7 @@ int main()
 
 			//Collects data from text files
 	   		case 2:
-				head = collect_data(head);
+				collect_data();
 				break;
 	   
 	   		case 3:
@@ -62,7 +61,7 @@ int main()
 				break;
 	   
 	   		case 5:
-				delete_net(head);
+				//delete_net(head);
 				break;
 	   		case 6:
 			   	//To be implemented in later versions
@@ -91,13 +90,13 @@ int main()
 			//Displays only the desired cells by the user
 	   		case 9:
 				printf("\nIndicate the number of the cell for which you want to know its information (1 - 21): ");
-				display_ind_cell(head);
+				display_ind_cell();
 				system("clear");
 			   	break;
 
 			//Displays all scanned data
 	   		case 10:
-			   	display_all(head);
+			   	display_all();
 				printf("\n\nPress any key to return to the main menu: ");
 					getchar(); //to grab enter
 				system("clear");
@@ -110,6 +109,8 @@ int main()
         }
 	} while(1); //while true
 
+/**
+ * @brief 
 	struct cell *ptr = head;
 	while(ptr != NULL)
 	{
@@ -117,6 +118,8 @@ int main()
 		free(head);
 		head = ptr;
 	}
+ * 
+ */
 	
    	return 0;
 }
