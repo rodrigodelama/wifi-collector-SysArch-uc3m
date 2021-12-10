@@ -6,20 +6,22 @@
 #include<string.h>
 #include <unistd.h>
 
-#include"../incl/cells.h"
+#include "../incl/cells.h"
 
-void delete_net(Node *head)
+void delete_net()
 {
+   extern Node *head;
+
    printf("\nIndicate the ESSID (use \"\"): ");
 		char net[MAX_STRING_SIZE];
 	   scanf("%s", net); //net is the name of the ESSID we want to find in the list
 
    int counter = num_cell_ND;
    
-   struct cell *ptr;
+   Node *ptr;
    if(head != NULL && strcmp(net, head->data.ESSID) == 0)
    {
-      struct cell *tmp = head->next;
+      Node *tmp = head->next;
       free(head);
       head = tmp;
    }
@@ -29,18 +31,15 @@ void delete_net(Node *head)
    for(ptr = head; ptr->next == NULL; ptr = ptr->next)
    { 
       i++;
-      if(strcmp(net, (*ptr).next->ESSID) == 0)
+      if(strcmp(net, ptr->next.ESSID) == 0)
       {
-         struct cell *tmpb = ptr->next->next;
+         Node *tmpb = ptr->next->next;
          printf("Found ESSID %s at position %d\n\n", net, i);
          free(ptr->next);
          ptr->next = tmpb;
-         //the double for is used in case there are multiple hits for the desired ESSID to be deleted
+
          num_cell_ND--;
       }
-      
-      //cells[position] = NULL;
-   
    }
 
    if(counter == num_cell_ND)

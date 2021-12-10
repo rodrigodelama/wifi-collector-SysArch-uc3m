@@ -57,7 +57,7 @@ int main()
 				break;
 	   
 	   		case 5:
-				//delete_net(head);
+				delete_net();
 				break;
 	   		case 6:
 			   	//To be implemented in later versions

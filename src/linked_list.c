@@ -12,7 +12,7 @@
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
 
-// Node definition in .h 
+// Node definition in cells.h 
 
 //Create new node
 Node *create_node(cell data)
@@ -42,29 +42,6 @@ void append(Node **head, Node *new_node)
     last->next = new_node;
     return;
 }
-
-/**
- 
-//Print list content on the standard output
-void print_list(Node *head)
-{
-    while (head != NULL)
-    {
-        printf(" %d", data.cell_n);
-        printf(" %s", data.MAC_Address);
-        printf(" %s", data.ESSID);
-        printf(" %s", data.mode);
-        printf(" %d", data.channel);
-        printf(" %s", data.encryption);
-        printf(" %s", data.quality);
-        printf(" %s", data.frequency);
-        printf(" %s", data.signal_lvl);
-        head = head->next;
-    }
-    printf("\n");
-}
-
- */
 
 //Delete list (free memory)
 void clear_list(Node **head_ref) {
