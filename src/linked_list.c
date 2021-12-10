@@ -89,10 +89,29 @@ void delete_node(Node **head, char ESSID[])
 
         printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, 0);
         sleep(3);
-        system("clear");
 
         return;
     }
+
+    for (tmp = *head; tmp->next != NULL; tmp = tmp->next)
+    {
+        while (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) != 0)
+        {
+            pos_count++;
+
+            prev = tmp;
+            //append(&deleted, tmp);
+            tmp = tmp->next;
+            
+            if (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 0)
+            {
+                printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, pos_count);
+                sleep(3);
+            }
+        }
+    }
+    
+    /**
     //deletes any other element
     while (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) != 0)
     {
@@ -100,7 +119,7 @@ void delete_node(Node **head, char ESSID[])
 
         prev = tmp;
         //append(&deleted, tmp);
-        tmp = tmp->next;
+        //tmp = tmp->next;
         
         if (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 0)
         {
@@ -109,6 +128,7 @@ void delete_node(Node **head, char ESSID[])
             system("clear");
         }
     }
+    */
 
     if (tmp == NULL)
     {

@@ -58,6 +58,7 @@ int main()
 	   
 	   		case 5:
 				delete_net();
+				system("clear");
 				break;
 	   		case 6:
 			   	//To be implemented in later versions
