@@ -26,7 +26,7 @@ cell_list delete_net(cell_list head)
 
    int i = 0;
 
-   for(ptr = head; ptr != NULL; ptr = ptr->next)
+   for(ptr = head; ptr->next == NULL; ptr = ptr->next)
    { 
       i++;
       if(strcmp(net, (*ptr).next->ESSID) == 0)

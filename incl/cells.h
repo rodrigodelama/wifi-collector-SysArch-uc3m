@@ -28,7 +28,7 @@ typedef struct cell
 
 } *cell_list;
 
-cell_list head;
+struct cell *head;
 
 int num_cell_ND;
 

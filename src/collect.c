@@ -59,11 +59,10 @@ cell_list cells_read(char filename[], cell_list head)
         while (fscanf(of, "Cell %d\nAddress: %s\nESSID:%[^\n]\nMode:%s\nChannel:%d\nEncryption key:%s\nQuality=%s\nFrequency:%s GHz\nSignal level=%s dBm\n",
                       &cell_n, MAC_Address, ESSID, mode, &channel, encryption, quality, frequency, signal_lvl) != EOF)
         {
-	        head = insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, head);
+	       head = insert_new_cell(cell_n, MAC_Address, ESSID, mode, channel, encryption, quality, frequency, signal_lvl, head);
         }
         fclose(of);
     }
-
     return head;
 }
 
@@ -102,6 +101,5 @@ cell_list collect_data(cell_list head)
             system("clear");
     	break;
     }
-
     return head;
 }   
