@@ -112,25 +112,6 @@ void delete_node(Node **head, char ESSID[])
             }
         }
     }
-    
-    /**
-    //deletes any other element
-    while (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) != 0)
-    {
-        pos_count++;
-
-        prev = tmp;
-        //append(&deleted, tmp);
-        //tmp = tmp->next;
-        
-        if (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 0)
-        {
-            printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, pos_count);
-            sleep(3);
-            system("clear");
-        }
-    }
-    */
 
     if (tmp == NULL)
     {
