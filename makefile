@@ -19,3 +19,6 @@ implement-wifi-collector: cp /.main wifi-collector \
 clean:
 	rm main \
 	*.o
+
+//TODO: save .o files to temp obj folder, compile from that folder and then delete it
+//TODO: change output name to wifi-collector
