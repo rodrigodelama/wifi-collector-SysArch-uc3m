@@ -44,8 +44,8 @@ void append(Node **head, Node *new_node)
 }
 
 //Delete list (free memory)
-void clear_list(Node **head_ref) {
-    Node *current = *head_ref;
+void clear_list(Node **head) {
+    Node *current = *head;
     Node *next;
 
     while (current != NULL) {
@@ -54,7 +54,7 @@ void clear_list(Node **head_ref) {
         current = next;
     }
 
-    *head_ref = NULL;
+    *head = NULL;
 }
 
 //Delete node by value
@@ -63,23 +63,49 @@ void clear_list(Node **head_ref) {
 //*head_ref is the pointer to our head node
 //use strcmp() to compare char arrays here
 
-void delete_node(Node **head_ref, char ESSID[] /*ESSID is our key*/)
+void delete_node(Node **head, char ESSID[] /*ESSID is our key*/)
 {
-    Node *tmp = *head_ref, *prev;
+    int pos_count = 0;
+
+    Node *tmp = *head, *prev;
     //ESSID
-    if (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 1)
+    if (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 0)
     {
-        *head_ref = tmp->next;
+        printf("Found ESSID %s at position %d\n\n", ESSID, pos_count);
+        sleep(3);
+        *head = tmp->next;
         free(tmp);
         return;
     }
-    while (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 0)
+    while (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) != 0)
     {
         prev = tmp;
         tmp = tmp->next;
+        pos_count++;
     }
     if (tmp == NULL)
     {
+        printf("No such ESSID found\n\nDo you want to delete another ESSID? [y/n]: ");
+        getchar(); //to grab the enter key
+        char choice = getchar();
+        switch (choice)
+        {
+            case 'Y':
+            case 'y':
+                delete_net();
+            break;
+
+            case 'N':
+            case 'n':
+                system("clear");
+            break;
+
+            default:
+                printf("\nError: input was not valid, try again\n");
+                sleep(4);
+                system("clear");
+            break;
+        }
         return;
     }
 

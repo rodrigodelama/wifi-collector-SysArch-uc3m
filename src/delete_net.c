@@ -16,8 +16,9 @@ void delete_net()
 		char net[MAX_STRING_SIZE];
 	   scanf("%s", net); //net is the name of the ESSID we want to find in the list
 
-   int counter = num_cell_ND;
+   //int counter = num_cell_ND;
    
+   /**
    Node *ptr;
    if(head != NULL && strcmp(net, head->data.ESSID) == 0)
    {
@@ -31,7 +32,7 @@ void delete_net()
    for(ptr = head; ptr->next == NULL; ptr = ptr->next)
    { 
       i++;
-      if(strcmp(net, ptr->next->data.ESSID) == 0)
+      if(strcmp(net, ptr->next.ESSID) == 0)
       {
          Node *tmpb = ptr->next->next;
          printf("Found ESSID %s at position %d\n\n", net, i);
@@ -50,7 +51,7 @@ void delete_net()
       {
          case 'Y':
          case 'y':
-            delete_net(head);
+            delete_net();
          break;
 
          case 'N':
@@ -65,4 +66,7 @@ void delete_net()
          break;
       }
    }
+    */
+
+   delete_node(&head, net);
 }
