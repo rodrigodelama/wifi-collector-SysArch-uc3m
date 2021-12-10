@@ -14,7 +14,7 @@
 //Initialize our Linked List
 //head is the first node of our list
 Node *head = NULL;
-Node *delete = NULL;
+
 
 //Prints data from the requested cell
 void display_ind_cell()

@@ -14,7 +14,7 @@
 #define CELLS_H
 
 #include "../incl/dependencies.h"
-#include "../incl/linked_list.h"
+//#include "../incl/linked_list.h"
 
 typedef struct cell_st
 {
@@ -45,6 +45,8 @@ typedef struct Node {
     cell data;
     struct Node *next;
 } Node;
+
+void delete_net();
 
 //Create new node (using data as input)
 Node *create_node(cell data);

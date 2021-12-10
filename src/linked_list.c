@@ -13,6 +13,8 @@
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
 
+Node *deleted = NULL;
+
 // Node definition in cells.h 
 
 //Create new node
@@ -58,13 +60,22 @@ void clear_list(Node **head) {
     *head = NULL;
 }
 
+void delete_net()
+{
+   extern Node *head;
+
+   printf("\nIndicate the ESSID (use \"\"): ");
+		char net[MAX_STRING_SIZE];
+	   scanf("%s", net); //net is the name of the ESSID we want to find in the list
+
+   delete_node(&head, net);
+}
+
 //Delete node by ESSID[]
 //use strcmp() to compare char arrays here
 // 0 means match, != 0 means not same
 void delete_node(Node **head, char ESSID[])
 {
-    extern Node *deleted;
-
     int pos_count = 0;
 
     Node *tmp = *head, *prev;
@@ -78,11 +89,12 @@ void delete_node(Node **head, char ESSID[])
     }
     while (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) != 0)
     {
-        printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, pos_count);
-        printf("\nClearing the screen in 3 seconds..."); //FIXME: does not print
         append(&deleted, tmp);
         prev = tmp;
         tmp = tmp->next;
+        
+        printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, pos_count);
+        //printf("\nClearing the screen in 3 seconds..."); //FIXME: does not print
         sleep(3);
         system("clear");
     }
