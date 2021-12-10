@@ -1,4 +1,4 @@
-main: cells.o collect.o linked_list.o main.o quit.o
+main: cells.o collect.o delete_net.o linked_list.o main.o quit.o
 
 cells.o:
 	gcc -Wall -Wextra -Wpedantic -c -g src/cells.c

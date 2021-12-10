@@ -31,7 +31,7 @@ void delete_net()
    for(ptr = head; ptr->next == NULL; ptr = ptr->next)
    { 
       i++;
-      if(strcmp(net, ptr->next.ESSID) == 0)
+      if(strcmp(net, ptr->next->data.ESSID) == 0)
       {
          Node *tmpb = ptr->next->next;
          printf("Found ESSID %s at position %d\n\n", net, i);
@@ -60,13 +60,9 @@ void delete_net()
 
          default:
             printf("\nError: input was not valid, try again\n");
+            sleep(4);
             system("clear");
          break;
       }
    }
-
-   /*
-   extra comfort code to be completed on next submission
-   */
-   return head;
 }
