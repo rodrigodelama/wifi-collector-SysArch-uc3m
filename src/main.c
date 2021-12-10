@@ -105,8 +105,9 @@ int main()
         }
 	} while(1); //while true
 
-	extern Node *head;
+	extern Node *head, *deleted;
 	clear_list(&head);
+	clear_list(&deleted);
 
    	return 0;
 }

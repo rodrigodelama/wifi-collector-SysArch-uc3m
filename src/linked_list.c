@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "../incl/cells.h"
 #include "../incl/dependencies.h"
@@ -62,24 +63,28 @@ void clear_list(Node **head) {
 // 0 means match, != 0 means not same
 void delete_node(Node **head, char ESSID[])
 {
+    extern Node *deleted;
+
     int pos_count = 0;
 
     Node *tmp = *head, *prev;
     //ESSID
     if (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) == 0)
     {
-        //FIXME: message is not displaying
-        printf("Found ESSID %s at position %d\n\n", ESSID, pos_count);
-        sleep(3);
         *head = tmp->next;
+        pos_count++;
         free(tmp);
         return;
     }
     while (tmp != NULL && strcmp(tmp->data.ESSID, ESSID) != 0)
     {
+        printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, pos_count);
+        printf("\nClearing the screen in 3 seconds..."); //FIXME: does not print
+        append(&deleted, tmp);
         prev = tmp;
         tmp = tmp->next;
-        pos_count++;
+        sleep(3);
+        system("clear");
     }
     if (tmp == NULL)
     {
