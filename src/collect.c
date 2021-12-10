@@ -108,5 +108,4 @@ void collect_data()
             system("clear");
     	break;
     }
-
 }   

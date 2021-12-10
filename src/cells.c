@@ -13,7 +13,7 @@
 
 Node *head = NULL;
 
-Node *insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
+void insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_SIZE], 
                      char mode[LINE_SIZE], int channel, char encryption[LINE_SIZE],
                      char quality[LINE_SIZE], char frequency[LINE_SIZE], char signal_lvl[LINE_SIZE])
 {
@@ -39,7 +39,6 @@ Node *insert_new_cell(int cell_n, char MAC_Address[LINE_SIZE], char ESSID[LINE_S
             head->data.signal_lvl);
     num_cell_ND++;
     
-    return head;
 }
 
 //Display option meant to print data from the requested, or all cells onto the commandline
