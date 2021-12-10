@@ -107,6 +107,8 @@ void delete_node(Node **head, char ESSID[])
             {
                 printf("\nFound ESSID %s at position %d, it's now deleted\n\n", ESSID, pos_count);
                 sleep(3);
+                prev->next = tmp->next;
+                free(tmp);
             }
         }
     }
@@ -156,7 +158,5 @@ void delete_node(Node **head, char ESSID[])
         return;
     }
 
-    prev->next = tmp->next;
 
-    free(tmp);
 }
